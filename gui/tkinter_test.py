@@ -1,6 +1,8 @@
 #!/usr/bin/python
 
 import Tkinter
-top = Tkinter.Tk()
+myGui = Tkinter.Tk()
 # Code to add widgets will go here...
-top.mainloop()
+myGui.geometry('450x450+400+455')
+myGui.title('My Tile')
+myGui.mainloop()
