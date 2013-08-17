@@ -1,0 +1,44 @@
+import sys
+from tkinter import *
+from tkinter import messagebox
+
+def mhello():
+	mtext = ment.get()
+	mlabel2 = Label(mGui,text=mtext).pack()
+	return
+def mNew():
+	mlabel3 = Label(mGui,text = "You Clicked New").pack()
+	return
+def mAbout():
+	messagebox.showinfo(title="About", message = "This is my About Box")
+	return
+
+mGui = Tk()
+ment = StringVar()
+
+mGui.geometry('450x450+500+300')
+mGui.title('My Youtube Tkinter')
+
+mlabel = Label(mGui, text = "My Label").pack()
+
+mbutton = Button(mGui, text = 'ok', command = mhello, fg='red', bg='blue').pack()
+
+mEntry = Entry(mGui, textvariable=ment).pack()
+
+# Menu Construction
+menubar = Menu(mGui)
+
+filemenu = Menu(menubar, tearoff = 0)
+filemenu.add_command(label="New", command = mNew)
+filemenu.add_command(label="Open")
+filemenu.add_command(label="Save As..")
+filemenu.add_command(label="Close")
+filemenu.add_command(label="File",menu = filemenu)
+
+# Help Menu
+helpmenu = Menu(menubar,tearfoo = 0)
+helpmenu.add_command(label="Help Docs")
+helpmenu.add_command(label="About", command = mAbout)
+menubar.add_cascade(label="Help", menu = helpmenu)
+
+mGui.config(menu=menubar)

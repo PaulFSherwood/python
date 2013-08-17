@@ -1,5 +1,6 @@
+import sys
 from tkinter import *
-from tkinter import ttk
+from tkinter import messagebox
 
 def mhello():
     mtext=ment.get()
@@ -8,7 +9,16 @@ def mhello():
 def mNew():
     mlabel3 = Label(mGui,text="You Clicked New").pack()
     return
-
+def mAbout():
+	# messagebox.showinfo(title="About", message = "This is my About Box")
+	# messagebox.showwarning(title="About", message = "This is my About Box")
+	messagebox.showerror(title="About", message = "This is my About Box")
+	return
+def mQuit():
+    mExit = messagebox.askyesno(title="Quit", message="Do you want to Quit")
+    if mExit > 0:
+        mGui.destroy()
+        return
 mGui = Tk()
 ment = StringVar()
 
@@ -31,14 +41,14 @@ filemenu = Menu(menubar, tearoff=0)
 filemenu.add_command(label="New",command=mNew)
 filemenu.add_command(label="Open")
 filemenu.add_command(label="Save As..")
-filemenu.add_command(label="Exit")
+filemenu.add_command(label="Exit",command=mQuit)
 # adding our list to the file button
 menubar.add_cascade(label="File", menu=filemenu)
 
 # Help Menu
 helpmenu = Menu(menubar, tearoff = 0)
 helpmenu.add_command(label="Help Docs")
-helpmenu.add_command(label="About")
+helpmenu.add_command(label="About",command=mAbout)
 # adding our list to the file button
 menubar.add_cascade(label="Help", menu=helpmenu)
 
