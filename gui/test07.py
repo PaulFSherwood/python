@@ -32,6 +32,7 @@ def mColor():
 
 def mOpen():
     myopen = filedialog.askopenfile()
+    mlabel4 = Label(mGui,text=myopen).pack()
     return
 
 mGui = Tk()
