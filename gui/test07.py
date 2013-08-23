@@ -83,6 +83,16 @@ Radio_4=Radiobutton(mGui, text= "Option 4", value = 4, variable = 'g_2').pack()
 Radio_5=Radiobutton(mGui, text= "Option 5", value = 5, variable = 'g_2').pack()
 Radio_6=Radiobutton(mGui, text= "Option 6", value = 6, variable = 'g_2').pack()
 
+# Spin box
+spinbox1 = Spinbox(mGui, from_ = 5, to = 10, state = NORMAL).pack()
+
+# List box
+List1 = Listbox(mGui)
+List1.insert(1,'Python')
+List1.insert(3,'PHP')
+List1.insert(2,'C++')
+List1.insert(4,'Perl')
+List1.pack()
 
 
 # add file menu to the screen
