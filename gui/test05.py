@@ -41,8 +41,8 @@ ttk.Button(mainframe, text="Calculate", command=calculate).grid(column=3, row=3,
 # text only section
 # __________________________________
 # |          |          |feet      |
-# |is eqiv to|          |          |
-# |          |          |meters    |
+# |is eqiv to|          |meters    |
+# |          |          |          |
 # ----------------------------------
 ttk.Label(mainframe, text="feet").grid(column=3, row=1, sticky=W)
 ttk.Label(mainframe, text="is equivalent to").grid(column=1, row=2, sticky=E)
