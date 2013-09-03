@@ -6,7 +6,7 @@ def findgra(*args):
     try:
 	    radius1 = float(radius.get())
 	    rpm1 = float(rpm.get())
-	    gravity.set((radius1*(math.pow(((3.14*rpm1)/30),2)))/9.81)
+	    gravity.set(round(((radius1*(math.pow(((3.14*rpm1)/30),2)))/9.81),4))
     except ValueError:
         pass
 
@@ -14,7 +14,7 @@ def findrad(*args):
     try:
 	    gravity1 = float(gravity.get())
 	    rpm1 = float(rpm.get())
-	    radius.set((9.81*gravity1)/   (math.pow(((3.14*rpm1)/30),2))  )
+	    radius.set(round((9.81*gravity1)/(math.pow(((3.14*rpm1)/30),2)),4))
     except ValueError:
         pass
 
@@ -22,7 +22,7 @@ def findrpm(*args):
     try:
 	    gravity1 = float(gravity.get())
 	    radius1 = float(radius.get())
-	    rpm.set((30*(math.sqrt(((9.81*gravity1)/radius1))))/3.14)
+	    rpm.set(round(((30*(math.sqrt(((9.81*gravity1)/radius1))))/3.14),4))
     except ValueError:
         pass
     
