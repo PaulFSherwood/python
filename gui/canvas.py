@@ -1,4 +1,5 @@
 from tkinter import *
+import time
 
 mGui = Tk()
 
@@ -15,5 +16,12 @@ canvas_1.create_oval(100,100,200,200)
 canvas_1.create_rectangle(25,24,50,50)
 
 canvas_1.pack()
-
+y = 1
+x = 1
 mGui.mainloop()
+while (x < 90):
+    canvas_1.create_line(x,y,200,200).pack()
+    time.sleep(1)
+    x+=1
+    y+=1
+
