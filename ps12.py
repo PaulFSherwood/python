@@ -8,6 +8,7 @@ import numpy
 import random
 import pylab
 
+# does stuff
 class NoChildException(Exception):
     """
     NoChildException is raised by the reproduce() method in the SimpleVirus
