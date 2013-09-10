@@ -2,14 +2,9 @@ from tkinter import *
 from tkinter import ttk
 import urllib.request
 
-urlUpper = 'http://127.0.0.1:5555/instrumentation/nd/range?value='
-urlLower = '&submit=update'
-
-
-def setND1(Number):
+def setND1():
    # access the flight gear webserver and send it the value we want.
-   full_url = urlUpper + Number + urlLower
-   urllib.request.urlopen(full_url).read()
+   urllib.request.urlopen("http://127.0.0.1:5555/instrumentation/nd/range?value=10&submit=update").read()
    pass
 
 def setND2():
@@ -28,8 +23,8 @@ mainframe.columnconfigure(0, weight=1)
 mainframe.rowconfigure(0, weight=1)
 
 # buttons
-ttk.Button(mainframe, text="ND 10", command=setND1(10)).grid(column=1, row=2, sticky=W)
-ttk.Button(mainframe, text="ND 100", command=setND1(100)).grid(column=1, row=1, sticky=W)
+ttk.Button(mainframe, text="ND 10", command=setND1).grid(column=1, row=2, sticky=W)
+ttk.Button(mainframe, text="ND 100", command=setND2).grid(column=1, row=1, sticky=W)
 
 
 # wrap everything in a padding
