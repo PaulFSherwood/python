@@ -97,7 +97,6 @@ List1.pack()
 # Slider or Scale
 Slider_1 = Scale(mGui, orient=HORIZONTAL, length=300, width=20, sliderlength=10, from_=50,to=0, tickinterval=5).pack()
 
-
 # add file menu to the screen
 mGui.config(menu=menubar)
 
