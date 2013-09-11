@@ -38,7 +38,7 @@ ttk.Button(mainframe, text="ND 100", command=setND2).grid(column=1, row=1, stick
 # slider
 adVal = StringVar()
 Slider_1 = Scale(root, variable = adVal, command=setND(adVal), orient=HORIZONTAL, length=300, width=20, sliderlength=10, from_=0,to=50, tickinterval=5).grid(column=1, row=2, sticky=W)
-self.slider.get()
+
 # Slider_1.on_changed(setND)
 
 # wrap everything in a padding
