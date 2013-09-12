@@ -3,22 +3,25 @@ from tkinter import ttk
 import sys
 import urllib.request
 
-def setND():
+def setND(val):
    # geting the variable
-   currentAddress = "http://127.0.0.1:5555/instrumentation/nd/range?value={0}&submit=update".format(str(adVal.get()))
+   currentAddress = "http://127.0.0.1:5555/instrumentation/nd/range?value={0}&submit=update".format(str(val))
    # currentAddress = "http://127.0.0.1:5555/instrumentation/nd/range?value=10&submit=update")
    # access the flight gear webserver and send it the value we want.
    urllib.request.urlopen(currentAddress).read()
+   # print(val)
    pass
 
 def setND1():
    # access the flight gear webserver and send it the value we want.
    urllib.request.urlopen("http://127.0.0.1:5555/instrumentation/nd/range?value=10&submit=update").read()
+   adVal = 10
    pass
 
 def setND2():
    # access the flight gear webserver and send it the value we want.
    urllib.request.urlopen("http://127.0.0.1:5555/instrumentation/nd/range?value=100&submit=update").read()
+   adVal = 100
    pass
 
 
@@ -33,14 +36,11 @@ mainframe.columnconfigure(0, weight=1)
 mainframe.rowconfigure(0, weight=1)
 
 # buttons
-ttk.Button(mainframe, text="ND 10", command=setND).grid(column=1, row=2, sticky=W)
+ttk.Button(mainframe, text="ND 10", command=setND1).grid(column=1, row=2, sticky=W)
 ttk.Button(mainframe, text="ND 100", command=setND2).grid(column=1, row=1, sticky=W)
 
 # slider
-adVal = StringVar()
-Slider_1 = Scale(root, variable=adVal, orient=HORIZONTAL, length=300, width=20, sliderlength=10, from_=0,to=50, tickinterval=5).grid(column=1, row=2, sticky=W)
-
-# Slider_1.on_changed()
+Slider_1 = Scale(root, command=setND, orient=HORIZONTAL, length=300, width=20, sliderlength=10, from_=0,to=50, tickinterval=5).grid(column=1, row=2, sticky=W)
 
 # wrap everything in a padding
 # so fields arent pressed against each other
