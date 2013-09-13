@@ -36,6 +36,16 @@ def setFMS1():
    adVal = 100
    pass
 
+def setAP1(counter):
+    if counter == 1:
+        urllib.request.urlopen("http://127.0.0.1:5555/autopilot/locks/AP-status?value=AP1&submit=update").read()
+        print("one")
+        print(counter)
+    elif counter == 2:
+        urllib.request.urlopen("http://127.0.0.1:5555/autopilot/locks/AP-status?value=&submit=update").read()
+        print("two")
+        print(counter)
+    pass
 
 root = Tk()
 root.title("Flight Gear IOS")
@@ -53,6 +63,11 @@ ttk.Button(mainframe, text="VOR1", command=setVOR1).grid(column=1, row=2, sticky
 ttk.Button(mainframe, text="ADF1", command=setADF1).grid(column=1, row=3, sticky=W)
 ttk.Button(mainframe, text="FMS1", command=setFMS1).grid(column=1, row=4, sticky=W)
 
+# autopilot
+ttk.Button(mainframe, text="AP1/ON", command=setAP1(1)).grid(column=2, row=1, sticky=W)
+
+ttk.Button(mainframe, text="AP1/OFF", command=setAP1(2)).grid(column=3, row=1, sticky=W)
+
 # slider
 Slider_1 = Scale(root, command=setND, orient=HORIZONTAL, length=200, width=20, sliderlength=10, from_=0,to=100)
 # this puts numbers on the bottom , tickinterval=5)
@@ -62,5 +77,8 @@ Slider_1.grid(column=1, row=5, sticky=W)
 # wrap everything in a padding
 # so fields arent pressed against each other
 for child in mainframe.winfo_children(): child.grid_configure(padx=5, pady=5)
+
+# keep on top
+root.wm_attributes("-topmost", 1)
 
 root.mainloop()
