@@ -36,16 +36,9 @@ def setFMS1():
    adVal = 100
    pass
 
-def setAP1(counter):
-    if counter == 1:
-        urllib.request.urlopen("http://127.0.0.1:5555/autopilot/locks/AP-status?value=AP1&submit=update").read()
-        print("one")
-        print(counter)
-    elif counter == 2:
-        urllib.request.urlopen("http://127.0.0.1:5555/autopilot/locks/AP-status?value=&submit=update").read()
-        print("two")
-        print(counter)
-    pass
+def setAP1():
+    urllib.request.urlopen("http://127.0.0.1:5555/autopilot/locks/AP-status?value=AP1&submit=update").read()
+    return
 
 root = Tk()
 root.title("Flight Gear IOS")
@@ -64,9 +57,7 @@ ttk.Button(mainframe, text="ADF1", command=setADF1).grid(column=1, row=3, sticky
 ttk.Button(mainframe, text="FMS1", command=setFMS1).grid(column=1, row=4, sticky=W)
 
 # autopilot
-ttk.Button(mainframe, text="AP1/ON", command=setAP1(1)).grid(column=2, row=1, sticky=W)
-
-ttk.Button(mainframe, text="AP1/OFF", command=setAP1(2)).grid(column=3, row=1, sticky=W)
+ttk.Button(mainframe, text="AP1/ON", command=setAP1).grid(column=2, row=1, sticky=W)
 
 # slider
 Slider_1 = Scale(root, command=setND, orient=HORIZONTAL, length=200, width=20, sliderlength=10, from_=0,to=100)
