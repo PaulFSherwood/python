@@ -64,7 +64,7 @@ ttk.Button(mainframe, text="FMS1", command=setFMS1).grid(column=1, row=4, sticky
 print("test")
 # autopilot
 # ttk.Button(mainframe, text="AP1/ON", command=setAP1).grid(column=2, row=1, sticky=W)
-t_btn = Button(text="True", command=toggle).pack()
+t_btn = Button(text="True", command=toggle).grid(column=2, row=1, sticky=W)
 print("test 2")
 
 # slider
