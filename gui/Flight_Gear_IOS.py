@@ -40,7 +40,8 @@ def setFMS1():
 def setAP1():
     urllib.request.urlopen("http://127.0.0.1:5555/autopilot/locks/AP-status?value=AP1&submit=update").read()
     return
-   
+  
+# can this be other than true/false
 def toggle(icycle=itertools.cycle([False, True])):
    state = next(icycle)
    t_btn['text'] = str(state)
