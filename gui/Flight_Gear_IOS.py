@@ -4,6 +4,7 @@ import urllib.request
 import itertools
 import sys
 
+
 def setND(val):
    # geting the variable
    currentAddress = "http://127.0.0.1:5555/instrumentation/nd/range?value={0}&submit=update".format(str(val))
@@ -44,9 +45,33 @@ def setAP1():
 def setAP2():
     urllib.request.urlopen("http://127.0.0.1:5555/autopilot/locks/AP-status?value=&submit=update").read()
     pass
-  
+def setCRS1():
+    crsVal = course.get()
+    one = StringVar()
+    one = "http://127.0.0.1:5555/instrumentation/nav/radials/selected-deg?value="
+    two = StringVar()
+    two = "&submit=update"
+    combined = StringVar()
+    combined = one + crsVal + two
+    urllib.request.urlopen( combined ).read()
+    print(combined)
+    pass
+def setHDG1():
+    hdgVal = heading.get()
+    one = StringVar()
+    one = "http://127.0.0.1:5555/autopilot/settings/heading-bug-deg?value="
+    two = StringVar()
+    two = "&submit=update"
+    combined = StringVar()
+    combined = one + hdgVal + two
+    urllib.request.urlopen( combined ).read()
+    pass
+
 root = Tk()
 root.title("Flight Gear IOS")
+
+course = StringVar()
+heading = StringVar()
 
 mainframe = ttk.Frame(root, padding="3 3 12 12")
 mainframe.grid(column=0, row=0)
@@ -79,6 +104,12 @@ Slider_1 = Scale(root, command=setND, orient=HORIZONTAL, length=200, width=20, s
 # this puts numbers on the bottom , tickinterval=5)
 # not sure why grid isnt working correctly 
 Slider_1.grid(column=1, row=5, sticky=W)
+
+# entry
+entry_1 = Entry(mainframe, width=10, textvariable=course).grid(column=2, row=3, sticky=W)
+ttk.Button(mainframe, text="CRS", command=setCRS1).grid(column=3, row=3, sticky=W)
+entry_2 = Entry(mainframe, width=10, textvariable=heading).grid(column=2, row=4, sticky=W)
+ttk.Button(mainframe, text="HDG", command=setHDG1).grid(column=3, row=4, sticky=W)
 
 # wrap everything in a padding
 # so fields arent pressed against each other
