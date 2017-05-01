@@ -28,14 +28,14 @@ def load_words():
     Depending on the size of the word list, this function may
     take a while to finish.
     """
-    print "Loading word list from file..."
+    print ('Loading word' + str(list) + 'from file...')
     # inFile: file
     inFile = open(WORDLIST_FILENAME, 'r', 0)
     # wordlist: list of strings
     wordlist = []
     for line in inFile:
         wordlist.append(line.strip().lower())
-    print "  ", len(wordlist), "words loaded."
+    print ('  ' + len(wordlist) + 'words loaded.')
     return wordlist
 
 def get_frequency_dict(sequence):
@@ -94,8 +94,8 @@ def display_hand(hand):
     """
     for letter in hand.keys():
         for j in range(hand[letter]):
-            print letter,              # print all on the same line
-    print                              # print an empty line
+            print (letter +'              ')# print all on the same line
+    print ('                              ')# print an empty line
 
 #
 # Make sure you understand how this function works and what it does!
@@ -193,7 +193,7 @@ def play_hand(hand, word_list):
       word_list: list of lowercase strings
     """
     # TO DO ...
-    print "play_hand not implemented." # replace this with your code...
+    print ('play_hand not implemented.') # replace this with your code...
 
 #
 # Problem #5: Playing a game
@@ -215,7 +215,7 @@ def play_game(word_list):
     * If the user inputs anything else, ask them again.
     """
     # TO DO ...
-    print "play_game not implemented."         # delete this once you've completed Problem #4
+    print ('play_game not implemented.')         # delete this once you've completed Problem #4
     play_hand(deal_hand(HAND_SIZE), word_list) # delete this once you've completed Problem #4
     
     ## uncomment the following block of code once you've completed Problem #4

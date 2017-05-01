@@ -7,62 +7,55 @@ import sys
 
 def setND(val):
    # geting the variable
-   currentAddress = "http://127.0.0.1:5555/instrumentation/nd/range?value={0}&submit=update".format(str(val))
-   # currentAddress = "http://127.0.0.1:5555/instrumentation/nd/range?value=10&submit=update")
+   currentAddress = "http://127.0.0.1:5500/props/instrumentation/nd?submit=set&range%5B0%5D=" + format(str(val))
    # access the flight gear webserver and send it the value we want.
-   urllib.request.urlopen(currentAddress).read()
-   # print(val)
+   urllib.request.urlopen(currentAddress)
    pass
 # SC840 Navigation Control Panel (is that right?)
 def setOFF1():
    # access the flight gear webserver and send it the value we want.
-   urllib.request.urlopen("http://127.0.0.1:5555/instrumentation/primus2000/sc840/nav1ptr?value=0&submit=update").read()
+   urllib.request.urlopen("http://127.0.0.1:5500/instrumentation/primus2000/sc840/nav1ptr?value=0&submit=update").read()
    adVal = 10
    pass
 
 def setVOR1():
    # access the flight gear webserver and send it the value we want.
-   urllib.request.urlopen("http://127.0.0.1:5555/instrumentation/primus2000/sc840/nav1ptr?value=1&submit=update").read()
+   urllib.request.urlopen("http://127.0.0.1:5500/props/instrumentation/primus2000/sc840/nav1ptr?value=1&submit=update").read()
    adVal = 100
    pass
 
 def setADF1():
    # access the flight gear webserver and send it the value we want.
-   urllib.request.urlopen("http://127.0.0.1:5555/instrumentation/primus2000/sc840/nav1ptr?value=2&submit=update").read()
+   urllib.request.urlopen("http://127.0.0.1:5500/props/instrumentation/primus2000/sc840/nav1ptr?value=2&submit=update").read()
    adVal = 100
    pass
 
 def setFMS1():
    # access the flight gear webserver and send it the value we want.
-   urllib.request.urlopen("http://127.0.0.1:5555/instrumentation/primus2000/sc840/nav1ptr?value=3&submit=update").read()
+   urllib.request.urlopen("http://127.0.0.1:5500/props/instrumentation/primus2000/sc840/nav1ptr?value=3&submit=update").read()
    adVal = 100
    pass
 
 def setAP1():
-    urllib.request.urlopen("http://127.0.0.1:5555/autopilot/locks/AP-status?value=AP1&submit=update").read()
+    urllib.request.urlopen("http://127.0.0.1:5500/props/autopilot/locks/AP-status?value=AP1&submit=update").read()
     pass
 
 def setAP2():
-    urllib.request.urlopen("http://127.0.0.1:5555/autopilot/locks/AP-status?value=&submit=update").read()
+    urllib.request.urlopen("http://127.0.0.1:5500/props/autopilot/locks/AP-status?value=&submit=update").read()
     pass
 def setCRS1():
     crsVal = course.get()
-    one = StringVar()
-    one = "http://127.0.0.1:5555/instrumentation/nav/radials/selected-deg?value="
-    two = StringVar()
+    one = "http://127.0.0.1:5500/props/instrumentation/nav/radials/selected-deg?value="
     two = "&submit=update"
-    combined = StringVar()
+    
     combined = one + crsVal + two
     urllib.request.urlopen( combined ).read()
-    print(combined)
     pass
 def setHDG1():
     hdgVal = heading.get()
-    one = StringVar()
-    one = "http://127.0.0.1:5555/autopilot/settings/heading-bug-deg?value="
-    two = StringVar()
+    one = "http://127.0.0.1:5500/props/autopilot/settings/heading-bug-deg?value="
     two = "&submit=update"
-    combined = StringVar()
+    
     combined = one + hdgVal + two
     urllib.request.urlopen( combined ).read()
     pass
