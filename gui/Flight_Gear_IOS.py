@@ -5,7 +5,7 @@ import itertools
 import sys
 
 
-def setND(val):
+def setND(val=None):
    # geting the variable
    currentAddress = "http://127.0.0.1:5500/props/instrumentation/nd?submit=set&range%5B0%5D=" + format(str(val))
    # access the flight gear webserver and send it the value we want.
@@ -59,12 +59,23 @@ def setHDG1():
     combined = one + hdgVal + two
     urllib.request.urlopen( combined ).read()
     pass
+def setROLL():
+    rolVal = roll.get()
+    one = "http://127.0.0.1:5500/props/autopilot/settings/target-roll-deg?value="
+    two = "&submit=update"
+
+    combined = one + rolVal + two
+    urllib.request.urlopen( combined ).read()
+
+    ### /autopilot/locks/heading = ROLL
+    ### /autopilot/settings/target-roll-deg = -blag  to 0 to +blarg
 
 root = Tk()
 root.title("Flight Gear IOS")
 
 course = StringVar()
 heading = StringVar()
+roll = StringVar()
 
 mainframe = ttk.Frame(root, padding="3 3 12 12")
 mainframe.grid(column=0, row=0)
@@ -78,6 +89,7 @@ ttk.Button(mainframe, text=" OFF", command=setOFF1).grid(column=1, row=1, sticky
 ttk.Button(mainframe, text="VOR1", command=setVOR1).grid(column=1, row=2, sticky=W)
 ttk.Button(mainframe, text="ADF1", command=setADF1).grid(column=1, row=3, sticky=W)
 ttk.Button(mainframe, text="FMS1", command=setFMS1).grid(column=1, row=4, sticky=W)
+ttk.Button(mainframe, text="ROLL", command=setROLL).grid(column=1, row=5, sticky=W)
 
 # autopilot
 ### testVar = 1
@@ -94,6 +106,7 @@ ttk.Button(mainframe, text="AP1/OFF", command=setAP2).grid(column=2, row=2, stic
 
 # slider
 Slider_1 = Scale(root, command=setND, orient=HORIZONTAL, length=200, width=20, sliderlength=10, from_=0,to=100)
+Slider_1.set(20)
 # this puts numbers on the bottom , tickinterval=5)
 # not sure why grid isnt working correctly 
 Slider_1.grid(column=1, row=5, sticky=W)
@@ -103,6 +116,8 @@ entry_1 = Entry(mainframe, width=10, textvariable=course).grid(column=2, row=3, 
 ttk.Button(mainframe, text="CRS", command=setCRS1).grid(column=3, row=3, sticky=W)
 entry_2 = Entry(mainframe, width=10, textvariable=heading).grid(column=2, row=4, sticky=W)
 ttk.Button(mainframe, text="HDG", command=setHDG1).grid(column=3, row=4, sticky=W)
+entry_3 = Entry(mainframe, width=10, textvariable=roll).grid(column=2, row=5, sticky=W)
+
 
 # wrap everything in a padding
 # so fields arent pressed against each other
