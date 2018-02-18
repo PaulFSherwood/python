@@ -1,13 +1,17 @@
+from bs4 import BeautifulSoup
 from tkinter import *
 from tkinter import ttk
 import urllib.request
 import itertools
+import math
 import sys
 
 
 def setND(val=None):
    # geting the variable
    currentAddress = "http://127.0.0.1:5500/props/instrumentation/nd?submit=set&range%5B0%5D=" + format(str(val))
+
+   ## http://127.0.0.1:5500/props/orientation
    # access the flight gear webserver and send it the value we want.
    urllib.request.urlopen(currentAddress)
    pass
@@ -67,8 +71,43 @@ def setROLL():
     combined = one + rolVal + two
     urllib.request.urlopen( combined ).read()
 
+    currentRoll = getRollDeg()
+    # print(getRollDeg())
+    l1.configure(text=currentRoll)
+
+
     ### /autopilot/locks/heading = ROLL
     ### /autopilot/settings/target-roll-deg = -blag  to 0 to +blarg
+
+def getRollDeg():
+    
+    url = "http://127.0.0.1:5500/props/orientation/roll-deg?value="
+    
+    usock = urllib.request.urlopen(url)  # open html
+    data = usock.read()                 # stuff html into variable
+    usock.close()                       # cleanup
+    soup = BeautifulSoup(data)          # make a BS object (i think/pretysure)
+    
+    value = 0
+    number = 0
+    # trying to hold onto the last number (should be the variable we need)
+    # would rather have it pull from the html using the tags, but can't find
+    # the right wording to use in BeautifulSoup4
+    for link in soup.find_all("input"):
+        value = link.get("value")
+        # print(value)
+    
+    # this thing realy doesn't want to be a float do some conversion
+    number = float(value)
+    isinstance(number, float)
+    # shorten to one decimal place
+    number = math.floor(number*10)/10
+    
+    #print(number)
+    return number
+
+
+
 
 root = Tk()
 root.title("Flight Gear IOS")
@@ -76,6 +115,7 @@ root.title("Flight Gear IOS")
 course = StringVar()
 heading = StringVar()
 roll = StringVar()
+currentRoll = getRollDeg()
 
 mainframe = ttk.Frame(root, padding="3 3 12 12")
 mainframe.grid(column=0, row=0)
@@ -109,7 +149,7 @@ Slider_1 = Scale(root, command=setND, orient=HORIZONTAL, length=200, width=20, s
 Slider_1.set(20)
 # this puts numbers on the bottom , tickinterval=5)
 # not sure why grid isnt working correctly 
-Slider_1.grid(column=1, row=5, sticky=W)
+Slider_1.grid(column=0, row=5, sticky=W)
 
 # entry
 entry_1 = Entry(mainframe, width=10, textvariable=course).grid(column=2, row=3, sticky=W)
@@ -118,6 +158,11 @@ entry_2 = Entry(mainframe, width=10, textvariable=heading).grid(column=2, row=4,
 ttk.Button(mainframe, text="HDG", command=setHDG1).grid(column=3, row=4, sticky=W)
 entry_3 = Entry(mainframe, width=10, textvariable=roll).grid(column=2, row=5, sticky=W)
 
+## ttk.Button(mainfram, textvariable=currentRoll, command=getRollDeg).grid(column=3, row=5, sticky=W)
+
+# adding text Field for current roll
+l1 = Label(root, text=currentRoll)
+l1.grid(row=5, column=3)
 
 # wrap everything in a padding
 # so fields arent pressed against each other
