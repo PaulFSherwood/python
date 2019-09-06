@@ -6,7 +6,9 @@ import fileinput
 import time
 import sys
 import re
-
+# example for command line
+# python script    test folder  sheet number(orignal)
+# python plotMe.py 3a1115VPP5HZ 11
 location = str(sys.argv[1]) + "/"
 number = str(sys.argv[2])
 word = "sheet" + number + ".csv"
@@ -23,6 +25,7 @@ for i in range(len(csvfile)):
     insertLine = csvfile[0]
     # save the test name
     #testName = csvfile[1][2:18]
+    #=========================================================================
     # capture specific set of lines
     if i % 992 == 0:
         # make a new file and populate it
@@ -33,17 +36,18 @@ for i in range(len(csvfile)):
         # push everything out to a numbered csv file
         open(location+str(filename) + '.csv', 'w+').writelines(newfile)
         #=========================================================================
-        #=========================================================================
+        # capture smaller file
         df = pd.read_csv(location+str(filename)+'.csv')
         if (filename == 1):
-            testName = "Test " + df.iloc[0][1]
-            currDate = df.iloc[0][9]
+            testName = "Test " + df.iloc[0][1]  # pull out test name
+            currDate = df.iloc[0][9]            # get the test date
             
         for i, row in enumerate(df["Time"]):
             p = re.compile("0.00")
             datetime = row
             df.iloc[i, 1] = datetime
 
+        # make a figure that has 7 graphs and a table
         fig = make_subplots(
             rows=8, cols=1,
             shared_xaxes=True,
@@ -55,9 +59,9 @@ for i in range(len(csvfile)):
                    [{"type": "scatter"}],
                    [{"type": "scatter"}],
                    [{"type": "scatter"}],
-                   [{"type": "table"}]]
+                   [{"type": "table"}]]  # this could be removed
         )
-
+        # setup Drive signal graph
         fig.add_trace(
             go.Scatter(
                 x=df["Time"],
@@ -67,7 +71,7 @@ for i in range(len(csvfile)):
             ),
             row=7, col=1
         )
-
+        # setup Leg 6 signal graph
         fig.add_trace(
             go.Scatter(
                 x=df["Time"],
@@ -77,7 +81,7 @@ for i in range(len(csvfile)):
             ),
             row=6, col=1
         )
-
+        # setup Leg 5 signal graph
         fig.add_trace(
             go.Scatter(
                 x=df["Time"],
@@ -87,7 +91,7 @@ for i in range(len(csvfile)):
             ),
             row=5, col=1
         )
-
+        # setup Leg 4 signal graph
         fig.add_trace(
             go.Scatter(
                 x=df["Time"],
@@ -97,7 +101,7 @@ for i in range(len(csvfile)):
             ),
             row=4, col=1
         )
-
+        # setup Leg 3 signal graph
         fig.add_trace(
             go.Scatter(
                 x=df["Time"],
@@ -107,7 +111,7 @@ for i in range(len(csvfile)):
             ),
             row=3, col=1
         )
-
+        # setup Leg 2 signal graph
         fig.add_trace(
             go.Scatter(
                 x=df["Time"],
@@ -117,7 +121,7 @@ for i in range(len(csvfile)):
             ),
             row=2, col=1
         )
-
+        # setup Leg 1 signal graph
         fig.add_trace(
             go.Scatter(
                 x=df["Time"],
@@ -127,27 +131,13 @@ for i in range(len(csvfile)):
             ),
             row=1, col=1
         )
-
-        #fig.add_trace(
-        #    go.Table(
-        #        header=dict(
-        #            values=["Time", "Leg 1", "Leg 2", "Leg 3", 
-        #                    "Leg 4", "Leg 5", "Leg 6",
-        #                    "Drive"],
-        #            font=dict(size=10),
-        #            align="left"
-        #        ),
-        #        cells=dict(
-        #            values=[df[k].tolist() for k in df.columns[1:]],
-        #            align = "left")
-        #    ),
-        #    row=1, col=1
-        #)
+        # Set up the graph size
         fig.update_layout(
             height=816,
             width=1056,
             showlegend=False,
             annotations=[
+                # Display the testname
                 go.layout.Annotation(
                     x=.22,
                     y=.15,
@@ -159,6 +149,7 @@ for i in range(len(csvfile)):
                     ax=0,
                     ay=-40
                 ),
+                # Display the Leg 6 name
                 go.layout.Annotation(
                     x=.30,
                     y=.28,
@@ -170,6 +161,7 @@ for i in range(len(csvfile)):
                     ax=0,
                     ay=-40
                 ),
+                # Display the Leg 5 name
                 go.layout.Annotation(
                     x=.30,
                     y=.42,
@@ -181,6 +173,7 @@ for i in range(len(csvfile)):
                     ax=0,
                     ay=-40
                 ),
+                # Display the Leg 4 name
                 go.layout.Annotation(
                     x=.30,
                     y=.55,
@@ -192,6 +185,7 @@ for i in range(len(csvfile)):
                     ax=0,
                     ay=-40
                 ),
+                # Display the Leg 3 name
                 go.layout.Annotation(
                     x=.30,
                     y=.69,
@@ -203,6 +197,7 @@ for i in range(len(csvfile)):
                     ax=0,
                     ay=-40
                 ),
+                # Display the Leg 2 name
                 go.layout.Annotation(
                     x=.30,
                     y=.82,
@@ -214,6 +209,7 @@ for i in range(len(csvfile)):
                     ax=0,
                     ay=-40
                 ),
+                # Display the Leg 1 name
                 go.layout.Annotation(
                     x=.30,
                     y=.95,
@@ -225,6 +221,7 @@ for i in range(len(csvfile)):
                     ax=0,
                     ay=-40
                 ),
+                # Display the current date
                 go.layout.Annotation(
                     x=0,
                     y=1.05,
@@ -236,17 +233,18 @@ for i in range(len(csvfile)):
                     ax=0,
                     ay=-40
                 )
-            ]
-            #title_text="I typed this",
+            ]#,
+            #title_text="I typed this"
         )
-
+        # unwanted background grid
         #fig.update_xaxes(dtick=.5, showgrid=True, gridwidth=1, gridcolor='LightPink')
         #fig.update_yaxes(dtick=.20, showgrid=True, gridwidth=1, gridcolor='LightPink')
 
-        #fig.write_image(location+out)
-
+        # output a pdf file
+        fig.write_image(location+out)
+        # output a webpage file
         fig.show()
-        
+        # wait for output to catchup
         time.sleep(5)
         print(str(filename) + " is done.")
         #=========================================================================
