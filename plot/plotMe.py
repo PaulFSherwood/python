@@ -6,6 +6,8 @@ import fileinput
 import time
 import sys
 import re
+import os
+
 # example for command line
 # python script    test folder  sheet number(orignal)
 # python plotMe.py 3a1115VPP5HZ 11
@@ -16,7 +18,7 @@ word = "sheet" + number + ".csv"
 csvfile = open(location+word, 'r').readlines()
 filename = 1
 
-out  = "fig" + number + ".pdf"
+#out  = "fig" + number + ".pdf"
 #print(location + "||" + number)
 
 # loop through the file
@@ -38,10 +40,15 @@ for i in range(len(csvfile)):
         #=========================================================================
         # capture smaller file
         df = pd.read_csv(location+str(filename)+'.csv')
+        #print(df)
         if (filename == 1):
             testName = "Test " + df.iloc[0][1]  # pull out test name
             currDate = df.iloc[0][9]            # get the test date
-            
+		##
+        print(testName)
+		
+        print(currDate)
+
         for i, row in enumerate(df["Time"]):
             p = re.compile("0.00")
             datetime = row
@@ -234,19 +241,21 @@ for i in range(len(csvfile)):
                     ay=-40
                 )
             ]#,
-            #title_text="I typed this"
+            #title_text="I typed this"  
         )
         # unwanted background grid
         #fig.update_xaxes(dtick=.5, showgrid=True, gridwidth=1, gridcolor='LightPink')
         #fig.update_yaxes(dtick=.20, showgrid=True, gridwidth=1, gridcolor='LightPink')
 
         # output a pdf file
-        fig.write_image(location+out)
+        fig.write_image(location+str(filename)+".pdf") # changing to number
+        print(location+str(filename)+".pdf")
         # output a webpage file
-        fig.show()
+        #fig.show()
         # wait for output to catchup
         time.sleep(5)
         print(str(filename) + " is done.")
+        os.remove(location+str(filename)+".csv")
         #=========================================================================
         #=========================================================================
         filename += 1
