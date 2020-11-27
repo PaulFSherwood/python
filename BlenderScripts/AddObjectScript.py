@@ -21,10 +21,10 @@ class TestPanel(bpy.types.Panel):
     bl_region_type = 'UI'
     # Tab name or reference to other tab it will be at on the n-panel
     bl_category = 'NewTab'
-    
+
     def draw(self, context):
         layout = self.layout
-        
+
         row = layout.row()  # like a new line character
         # give the row a lable and icon
         row.label(text="Add an Object", icon='OBJECT_ORIGIN')
@@ -52,16 +52,29 @@ class PanelA(bpy.types.Panel):
     bl_parent_id = 'PT_TestPanel'
     # close all the menus on startup
     bl_options = {'DEFAULT_CLOSED'}
-    
+
     def draw(self, context):
         layout = self.layout
-        
-        row = layout.row()
-        row.label(text="this is panel a", icon='FONT_DATA')
+        obj = context.object  # using obj over typing out context.object
+
+        row = layout.row()  # like a new line character
+        # a um ... label with an icon
+        row.label(text="Select an option to scale your object", icon='FONT_DATA')
+        row = layout.row()  # like a new line character
+        # do this option
+        row.operator("transform.resize")
+        row = layout.row()  # like a new line character
+        layout.scale_y = 1.4 # scale the layout
+        # change the layout row/column
+        col = layout.column()
+        # do this option
+        row.prop(obj, "scale")
+
+
 # NAME OF THE PANEL YOU ARE GOING TO ADD PanelA, PanelB, TestPanel
 class PanelB(bpy.types.Panel):
     # The label that will show up in the N-Panel
-    bl_label = "PanelB"
+    bl_label = "Specials"
     # ID that other panels can reference
     bl_idname = "PT_TestPanelB"
     # The port that the n-panel will show up on
@@ -72,24 +85,30 @@ class PanelB(bpy.types.Panel):
     # This is now a sub panel of "bl_parent_id"
     bl_parent_id = "PT_TestPanel"
     # close all the menus on startup
-    bl_options = {''}
+    bl_options = {'DEFAULT_CLOSED'}
 
     def draw(self, context):
         layout = self.layout
 
         row = layout.row()
-        row.label(text="this is Panel B", icon='COLOR_BLUE')
- 
+        row.label(text="Select a Special Option", icon='COLOR_BLUE')
+        
+        row.operator("object.shade_smooth", icon='MOD_SMOOTH', text="Set Smooth Shading")
+        row.operator("object.subdivision_set")
+        row = layout.row()  # like a new line character
+        row.operator("object.modifier_add")
+        
+
 # register the classes so they will show up
 def register():
     bpy.utils.register_class(TestPanel)
     bpy.utils.register_class(PanelA) 
     bpy.utils.register_class(PanelB)
-    
+
 def unregister():
     bpy.utils.register_class(TestPanel)
     bpy.utils.register_class(PanelA) 
     bpy.utils.register_class(PanelB)
-    
+
 if __name__ == "__main__":
     register()
