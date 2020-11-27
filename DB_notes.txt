@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 Insert into Employees (EmployeeID, FirstName, LastName, salary, DateOfBirth)
 values (1, 'Paul', 'Sherwood', 24, 1978-9-10);
 Insert into Employees
@@ -53,3 +54,60 @@ LOG ON
 );
 ################################################################
 ################################################################
+=======
+Insert into Employees (EmployeeID, FirstName, LastName, salary, DateOfBirth)
+values (1, 'Paul', 'Sherwood', 24, 1978-9-10);
+Insert into Employees
+values (2, 'JoAnn', 'Hall', 36, 2000-9-10);
+Insert into Employees
+values (3, 'Amy', 'Frier', 36, 1992-6-1);
+Insert into Employees
+values (4, 'JoAnn', 'Hall', 36, 2000-9-10);
+Insert into Employees
+values (5, 'John', 'Hall', 40, 1992-12-15);
+Insert into Employees
+values (6, 'Fred', 'Smit', 16, 1990-6-1);
+################################################################
+Insert into EmployeeAddress (AddressID, StreetAddress, City, State, ZipCode, EmployeeID)
+values (1, '1 No Name Ave', 'Des Moines', 'IA', 50317, 1);
+Insert into EmployeeAddress
+values (2, '12 No Name Ave', 'Des Moines', 'IA', 50317, 2);
+Insert into EmployeeAddress
+values (3, '2 No Name Ave', 'Des Moines', 'IA', 50317, 3);
+Insert into EmployeeAddress
+values (4, '1 No Name Ave', 'Des Moines', 'IA', 50317, 4);
+Insert into EmployeeAddress
+values (5, '5 No Name Ave', 'Des Moines', 'IA', 50317, 5);
+Insert into EmployeeAddress
+values (6, '6 No Name Ave', 'Des Moines', 'IA', 50317, 6);
+################################################################
+################################################################
+update Employees
+set FirstName = 'Missy'
+where EmployeeID = 4
+################################################################
+################################################################
+select * from Employees
+select * from EmployeeAddress
+################################################################
+################################################################
+CREATE DATABASE AddressBook
+ON PRIMARY
+(
+	NAME = 'AddressBook',
+	FILENAME = 'C:\temp\sqlbasics\AddressBook.mdf',
+	SIZE = 10MB,
+	MAXSIZE = UNLIMITED,
+	FILEGROWTH = 50%
+)
+LOG ON
+(
+	NAME = 'AddressBook_Log',
+	FILENAME = 'C:\temp\sqlbasics\AddressBook_Log.ldf',
+	SIZE = 2MB,
+	MAXSIZE = 100MB,
+	FILEGROWTH = 2MB
+);
+################################################################
+################################################################
+>>>>>>> 4027792e4be0e265f1df303ed53a289df179b20c
