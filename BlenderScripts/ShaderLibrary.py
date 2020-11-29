@@ -33,24 +33,41 @@ def hex_to_rgb(value):
     fin.append(1.0)
     return tuple(fin)
 
-
+# Main Panel
 class ShaderMainPanel(bpy.types.Panel):
-    bl_label = "Shader Library"
-    bl_idname = "SHADER_PT_MAINPANEL"
-    bl_space_type = 'VIEW_3D'
-    bl_region_type = 'UI'
-    bl_category = 'Shader Libary'
+    bl_label = "Shader Library"                 # The label that will show up in the N-Panel
+    bl_idname = "SHADER_PT_MAINPANEL"           # ID that other panels can reference
+    bl_space_type = 'VIEW_3D'                   # The port that the n-panel will show up on
+    bl_region_type = 'UI'                       #
+    bl_category = 'Shader Libary'               # Tab name or reference to other tab it will be at on the n-panel
     
     def draw(self, context):
         layout = self.layout
         
-        row = layout.row()
+        row = layout.row()                      # like a new line character
         row.label(text= "Select a Basic Metallic Shader.")
         row = layout.row()
         row.operator('shader.diamond_operator', icon= 'HANDLETYPE_ALIGNED_VEC')
+        
+        
+# Sub panel for Metalics
+class ShaderMetalicsPanel(bpy.types.Panel):
+    bl_label = "Metallics"
+    bl_idname = "SHADER_PT_METALS"
+    bl_space_type = 'VIEW_3D'
+    bl_region_type = 'UI'
+    bl_category = 'Shader Libary'
+    
+    #bl_parent_id = 'SHADER_PT_MAINPANEL'
+    bl_options = {'DEFAULT_CLOSED'}
+    
+    def draw(self, context):
+        layout = self.layout
+        row = layout.row()
         row.operator('shader.gold_operator', icon= 'KEYTYPE_MOVING_HOLD_VEC')
         row.operator('shader.silver_operator', icon= 'HANDLETYPE_FREE_VEC')
         row.operator('shader.copper_operator', icon= 'KEYTYPE_EXTREME_VEC')
+        row = layout.row()
 
 
 #################################################################################################
@@ -360,6 +377,7 @@ class SHADER_OT_COPPER(bpy.types.Operator):
         
 def register():
     bpy.utils.register_class(ShaderMainPanel)
+    bpy.utils.register_class(ShaderMetalicsPanel)
     bpy.utils.register_class(SHADER_OT_DIAMOND)
     bpy.utils.register_class(SHADER_OT_GOLD)
     bpy.utils.register_class(SHADER_OT_SILVER)
@@ -367,6 +385,7 @@ def register():
     
 def unregiester():
     bpy.utils.unregister_class(ShaderMainPanel)
+    bpy.utils.unregister_class(ShaderMetalicsPanel)
     bpy.utils.unregister_class(SHADER_OT_DIAMOND)
     bpy.utils.unregister_class(SHADER_OT_GOLD)
     bpy.utils.unregister_class(SHADER_OT_SILVER)
