@@ -1,3 +1,10 @@
+###################################################################################################
+##### REFERENCES                                                                              #####
+# https://docs.blender.org/api/current/bpy.types.html                                             #
+# https://www.youtube.com/watch?v=8mSSCQ7LGVo&list=PLFtLHTf5bnym_wk4DcYIMq1DkjqB7kDb-&index=4     #
+#                                                                                                 #
+###################################################################################################
+
 bl_info = {
     "name": "Shader Library",
     "author": "Your Name Here",
@@ -421,14 +428,14 @@ class SHADER_OT_HOLOGRAM(bpy.types.Operator):
         # adding layerWeight1 node                                                                 #
         layerWeight1_node = material_hologram.node_tree.nodes.new('ShaderNodeLayerWeight')         #
         # set location of node                                                                     #
-        layerWeight1_node.location = (-400, 0)                                                     #
+        layerWeight1_node.location = (-300, 0)                                                     #
         # set the default color                                                                    #
         layerWeight1_node.inputs[0].default_value = 0.080                                          #
                                                                                                    #
         # Cretate the Glass Node and Reference it as 'Transparent'                                 #
         transparent1_node = material_hologram.node_tree.nodes.new('ShaderNodeBsdfTransparent')     #
         # set location of node                                                                     #
-        transparent1_node.location = (-400, -150)                                                  #
+        transparent1_node.location = (-300, -120)                                                  #
         # set the default color                                                                    #
         transparent1_node.inputs[0].default_value = (1, 1, 1, 1)                                   #
         # Deselect the Node                                                                        #
@@ -437,7 +444,7 @@ class SHADER_OT_HOLOGRAM(bpy.types.Operator):
         # adding emission node                                                                     #
         emission1_node = material_hologram.node_tree.nodes.new('ShaderNodeEmission')               #
         # set location of node                                                                     #
-        emission1_node.location = (-400, -300)                                                     #
+        emission1_node.location = (-300, -200)                                                     #
         # set the default color                                                                    #
         emission1_node.inputs[0].default_value = (0, 0, 1, 1)                                      #
         # Setting the default Strength value                                                       #
@@ -446,7 +453,7 @@ class SHADER_OT_HOLOGRAM(bpy.types.Operator):
         # adding wire1 node                                                                        #
         wire1_node = material_hologram.node_tree.nodes.new('ShaderNodeWireframe')                  #
         # set location of node                                                                     #
-        wire1_node.location = (-400, -450)                                                         #
+        wire1_node.location = (-300, -300)                                                         #
         # set the default color                                                                    #
         wire1_node.use_pixel_size = True                                                           #
         # Setting the default IOR value                                                            #
@@ -458,14 +465,14 @@ class SHADER_OT_HOLOGRAM(bpy.types.Operator):
         # Create the Add Shader Node and REference it as 'Add1'                                    #
         mix1_node = material_hologram.node_tree.nodes.new('ShaderNodeMixShader')                   #
         # set location of node                                                                     #
-        mix1_node.location = (0, 0)                                                                #
+        mix1_node.location = (-60, 0)                                                              #
         #deslect the Node                                                                          #
         mix1_node.select = False                                                                   #
                                                                                                    #
         # Create the Add Shader Node and REference it as 'Add1'                                    #
         mix2_node = material_hologram.node_tree.nodes.new('ShaderNodeMixShader')                   #
         # set location of node                                                                     #
-        mix2_node.location = (0, -120)                                                             #
+        mix2_node.location = (-60, -120)                                                           l#
         #deslect the Node                                                                          #
         mix2_node.select = False                                                                   #
                                                                                                    #
