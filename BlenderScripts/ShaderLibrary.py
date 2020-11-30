@@ -378,8 +378,8 @@ class SHADER_OT_COPPER(bpy.types.Operator):
         
         
         
-# Sub panel for Metalics
-class ShaderMetalicsPanel(bpy.types.Panel):
+# Sub panel for Stylized
+class ShaderStylizedPanel(bpy.types.Panel):
     bl_label = "Stylized"
     bl_idname = "SHADER_PT_STYLIZED"
     bl_space_type = 'VIEW_3D'
@@ -407,118 +407,104 @@ class SHADER_OT_HOLOGRAM(bpy.types.Operator):
     
     def execute(self, context):
         # create a new shader and calling it hologram
-        hologram_operator = bpy.data.materials.new(name = "Hologram")
-        hologram_operator.use_nodes = True
+        material_hologram = bpy.data.materials.new(name = "Hologram")
+        material_hologram.use_nodes = True
         
-        hologram_operator.node_tree.nodes.remove(material_diamond.node_tree.nodes.get('Principled BSDF'))
+        material_hologram.node_tree.nodes.remove(material_hologram.node_tree.nodes.get('Principled BSDF'))
 
         # Create a refernce  to the Material Output
-        hologram_operator = material_diamond.node_tree.nodes.get('Material Output')
+        material_output = material_hologram.node_tree.nodes.get('Material Output')
         # set location of node
-        hologram_operator.location = (400, 0)
+        material_output.location = (400, 0)
         
-        ############################################################################ GLASS ######
-        # adding glass1 node                                                                    #
-        glass1_node = material_diamond.node_tree.nodes.new('ShaderNodeLayerWeight')               #
-        # set location of node                                                                  #
-        glass1_node.location = (-600, 0)                                                        #
-        # set the default color                                                                 #
-        glass1_node.inputs[0].default_value = (1, 1, 1, 1)                                      #
-        # Setting the default IOR value                                                         #
-        glass1_node.inputs[2].default_value = 1.446                                             #
-                                                                                                #
-        # Cretate the Glass Node and Reference it as 'Transparent'                              #
-        transparent_node = material_diamond.node_tree.nodes.new('ShaderNodeBsdfTransparent')    #
-        # set location of node                                                                  #
-        transparent_node.location = (-150, -150)                                                     #
-        # set the default color                                                                 #
-        transparent_node.inputs[0].default_value = (1, 1, 1, 1)                                      #
-        # Setting the default IOR value                                                         #
-        transparent_node.inputs[2].default_value = 1.450                                             #
-        # Deselect the Node                                                                     #
-        transparent_node.select = False                                                              #
-                                                                                                #
-        # adding glass3 node                                                                    #
-        glass3_node = material_diamond.node_tree.nodes.new('ShaderNodeEmission')                #
-        # set location of node                                                                  #
-        glass3_node.location = (-600, -300)                                                     #
-        # set the default color                                                                 #
-        glass3_node.inputs[0].default_value = (0, 0, 1, 1)                                      #
-        # Setting the default IOR value                                                         #
-        glass3_node.inputs[2].default_value = 1.450                                             #
-                                                                                                #
-        # adding glass2 node                                                                    #
-        glass2_node = material_diamond.node_tree.nodes.new('ShaderNodeWireframe')               #
-        # set location of node                                                                  #
-        glass2_node.location = (-600, -150)                                                     #
-        # set the default color                                                                 #
-        glass2_node.inputs[0].default_value = (0, 1, 0, 1)                                      #
-        # Setting the default IOR value                                                         #
-        glass2_node.inputs[2].default_value = 1.450                                             #
-                                                                                                #
-        # Cretate the Glass Node and Reference it as 'glass4'                                   #
-        glass4_node = material_diamond.node_tree.nodes.new('ShaderNodeBsdfTransparent')         #
-        # set location of node                                                                  #
-        glass4_node.location = (-150, -150)                                                     #
-        # set the default color                                                                 #
-        glass4_node.inputs[0].default_value = (1, 1, 1, 1)                                      #
-        # Setting the default IOR value                                                         #
-        glass4_node.inputs[2].default_value = 1.450                                             #
-        # Deselect the Node                                                                     #
-        glass4_node.select = False                                                              #
-        ############################################################################ GLASS ######
+        ############################################################################ COLUMN 1 ######
+        # adding layerWeight1 node                                                                 #
+        layerWeight1_node = material_hologram.node_tree.nodes.new('ShaderNodeLayerWeight')         #
+        # set location of node                                                                     #
+        layerWeight1_node.location = (-400, 0)                                                     #
+        # set the default color                                                                    #
+        layerWeight1_node.inputs[0].default_value = 0.080                                          #
+                                                                                                   #
+        # Cretate the Glass Node and Reference it as 'Transparent'                                 #
+        transparent1_node = material_hologram.node_tree.nodes.new('ShaderNodeBsdfTransparent')     #
+        # set location of node                                                                     #
+        transparent1_node.location = (-400, -150)                                                  #
+        # set the default color                                                                    #
+        transparent1_node.inputs[0].default_value = (1, 1, 1, 1)                                   #
+        # Deselect the Node                                                                        #
+        transparent1_node.select = False                                                           #
+                                                                                                   #
+        # adding emission node                                                                     #
+        emission1_node = material_hologram.node_tree.nodes.new('ShaderNodeEmission')               #
+        # set location of node                                                                     #
+        emission1_node.location = (-400, -300)                                                     #
+        # set the default color                                                                    #
+        emission1_node.inputs[0].default_value = (0, 0, 1, 1)                                      #
+        # Setting the default Strength value                                                       #
+        emission1_node.inputs[1].default_value = 1.450                                             #
+                                                                                                   #
+        # adding wire1 node                                                                        #
+        wire1_node = material_hologram.node_tree.nodes.new('ShaderNodeWireframe')                  #
+        # set location of node                                                                     #
+        wire1_node.location = (-400, -450)                                                         #
+        # set the default color                                                                    #
+        wire1_node.use_pixel_size = True                                                           #
+        # Setting the default IOR value                                                            #
+        wire1_node.inputs[0].default_value = 0.201                                                 #
+                                                                                                   #                                                                                                  #
+        ############################################################################ COLUMN 1 ######
         
-        ####################################################################### ADD SHADER ######
-        # Create the Add Shader Node and REference it as 'Add1'                                 #
-        add1_node = material_diamond.node_tree.nodes.new('ShaderNodeMixsShader')                 #
-        # set location of node                                                                  #
-        add1_node.location = (-400, -50)                                                        #
-        # set the Label                                                                         #
-        add1_node.label = "Add 1"                                                               #
-        # minimizes the Node                                                                    #
-        add1_node.hide = True                                                                   #
-        #deslect the Node                                                                       #
-        add1_node.select = False                                                                #
-                                                                                                #
-        # Create the Add Shader Node and REference it as 'Add2'                                 #
-        add2_node = material_diamond.node_tree.nodes.new('ShaderNodeAddShader')                 #
-        # set location of node                                                                  #
-        add2_node.location = (-100, 0)                                                          #
-        # set the Label                                                                         #
-        add2_node.label = "Add 2"                                                               #
-        # minimizes the Node                                                                    #
-        add2_node.hide = True                                                                   #
-        #deslect the Node                                                                       #
-        add2_node.select = False                                                                #
-        ####################################################################### ADD SHADER ######
+        ############################################################################ COLUMN 2 ######
+        # Create the Add Shader Node and REference it as 'Add1'                                    #
+        mix1_node = material_hologram.node_tree.nodes.new('ShaderNodeMixShader')                   #
+        # set location of node                                                                     #
+        mix1_node.location = (0, 0)                                                                #
+        #deslect the Node                                                                          #
+        mix1_node.select = False                                                                   #
+                                                                                                   #
+        # Create the Add Shader Node and REference it as 'Add1'                                    #
+        mix2_node = material_hologram.node_tree.nodes.new('ShaderNodeMixShader')                   #
+        # set location of node                                                                     #
+        mix2_node.location = (0, -120)                                                             #
+        #deslect the Node                                                                          #
+        mix2_node.select = False                                                                   #
+                                                                                                   #
+        ############################################################################ COLUMN 2 ######
         
-        ####################################################################### MIX SHADER ######
-        # Create the mix shader node and referen it as 'Mix1'                                   #
-        mix1_node = material_diamond.node_tree.nodes.new('ShaderNodeMixShader')                 #
-        # Setting the Location                                                                  #
-        mix1_node.location = (200, 0)                                                           #
-        #deslect the Node                                                                       #
-        mix1_node.select = False                                                                #
-        ####################################################################### MIX SHADER ######
+        #################################################################### FINAL MIX SHADER ######
+        # Create the mix shader node and referen it as 'Mix1'                                      #
+        mix3_node = material_hologram.node_tree.nodes.new('ShaderNodeMixShader')                   #
+        # Setting the Location                                                                     #
+        mix3_node.location = (200, 0)                                                              #
+        # set the default factor to .5                                                             #
+        mix3_node.inputs[0].default_value = 0.50                                                   #
+        #deslect the Node                                                                          #
+        mix3_node.select = False                                                                   #
+                                                                                                   #
+        ################################################################### FINAL  MIX SHADER ######
         
-        ####################################################################### LINK NODES ######
-        # create the link glass1 to add1                                                        #
-        material_diamond.node_tree.links.new(glass1_node.outputs[0], add1_node.inputs[0])       #
-        # create the link glass2 to add1                                                        #
-        material_diamond.node_tree.links.new(glass2_node.outputs[0], add1_node.inputs[1])       #
-        # create the link add1 to add2                                                          #
-        material_diamond.node_tree.links.new(add1_node.outputs[0], add2_node.inputs[0])         #
-        # create the link glass3 to add2                                                        #
-        material_diamond.node_tree.links.new(glass3_node.outputs[0], add2_node.inputs[1])       #
-        # create the link add2 to mix1                                                          #
-        material_diamond.node_tree.links.new(add2_node.outputs[0], mix1_node.inputs[1])         #
-        # create the link glass4 to mix1                                                        #
-        material_diamond.node_tree.links.new(glass4_node.outputs[0], mix1_node.inputs[2])       #
-        # create the link mix1 to outputs                                                       #
-        material_diamond.node_tree.links.new(mix1_node.outputs[0], material_output.inputs[0])   #
-        ################################################################### LINK NODES ##########
+        ########################################################################## LINK NODES ######
+        # create the link layer weight to mix1                                                     #
+        material_hologram.node_tree.links.new(layerWeight1_node.outputs[1], mix1_node.inputs[0])   #
+        # create the link transparent1 to mix1                                                     #
+        material_hologram.node_tree.links.new(transparent1_node.outputs[0], mix1_node.inputs[1])   #
+        # create the link transparent1 to mix2                                                     #
+        material_hologram.node_tree.links.new(transparent1_node.outputs[0], mix2_node.inputs[1])   #
+        # create the link emmision1 to mix1                                                        #
+        material_hologram.node_tree.links.new(emission1_node.outputs[0], mix1_node.inputs[2])      #
+        # create the link emmision1 to mix2                                                        #
+        material_hologram.node_tree.links.new(emission1_node.outputs[0], mix2_node.inputs[2])      #
+        # create the link wire1 to mix2                                                            #
+        material_hologram.node_tree.links.new(wire1_node.outputs[0], mix2_node.inputs[0])          #
+        # create the link MIX1 to MIX3                                                             #
+        material_hologram.node_tree.links.new(mix1_node.outputs[0], mix3_node.inputs[1])           #
+        # create the link MIX2 to MIX3                                                             #
+        material_hologram.node_tree.links.new(mix2_node.outputs[0], mix3_node.inputs[2])           #
+        # create the link MIX3 to outputs                                                          #
+        material_hologram.node_tree.links.new(mix3_node.outputs[0], material_output.inputs[0])     #
+        ###################################################################### LINK NODES ##########
         
-        bpy.context.object.active_material = material_diamond
+        bpy.context.object.active_material = material_hologram
         
         return{'FINISHED'}
 
@@ -534,6 +520,7 @@ def register():
     bpy.utils.register_class(SHADER_OT_GOLD)
     bpy.utils.register_class(SHADER_OT_SILVER)
     bpy.utils.register_class(SHADER_OT_COPPER)
+    bpy.utils.register_class(SHADER_OT_HOLOGRAM)
     
 def unregiester():
     bpy.utils.unregister_class(ShaderMainPanel)
@@ -542,6 +529,7 @@ def unregiester():
     bpy.utils.unregister_class(SHADER_OT_GOLD)
     bpy.utils.unregister_class(SHADER_OT_SILVER)
     bpy.utils.unregister_class(SHADER_OT_COPPER)
+    bpy.utils.unregister_class(SHADER_OT_HOLOGRAM)
     
 if __name__ == "__main__":
     register()
