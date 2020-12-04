@@ -640,10 +640,12 @@ class SHADER_OT_GHOST(bpy.types.Operator):
         
         
 def register():
+    # This section is to add the completed panels
     bpy.utils.register_class(ShaderMainPanel)
     bpy.utils.register_class(ShaderMetalicsPanel)
     bpy.utils.register_class(ShaderStylizedPanel)
     
+    # This section is to add completed materials to the panels
     bpy.utils.register_class(SHADER_OT_DIAMOND)
     bpy.utils.register_class(SHADER_OT_GOLD)
     bpy.utils.register_class(SHADER_OT_SILVER)
