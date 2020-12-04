@@ -91,8 +91,9 @@ class ShaderStylizedPanel(bpy.types.Panel):
     def draw(self, context):
         layout = self.layout
         row = layout.row()
+        #row.label(text="For Stylized Materials.")
         row.operator('shader.hologram_operator', icon= 'KEYTYPE_MOVING_HOLD_VEC')
-        row.operator('shader.ghost_operator', icon= 'KEYTYPE_MOVING_HOLD_VEC')
+        row.operator('shader.ghost_operator', icon= 'GHOST_ENABLED')
         row = layout.row()
         
         
@@ -118,6 +119,7 @@ class SHADER_OT_DIAMOND(bpy.types.Operator):
         material_output.location = (400, 0)
         
         ############################################################################ GLASS ######
+                                                                                                #
         # adding glass1 node                                                                    #
         glass1_node = material_diamond.node_tree.nodes.new('ShaderNodeBsdfGlass')               #
         # set location of node                                                                  #
@@ -155,9 +157,11 @@ class SHADER_OT_DIAMOND(bpy.types.Operator):
         glass4_node.inputs[2].default_value = 1.450                                             #
         # Deselect the Node                                                                     #
         glass4_node.select = False                                                              #
+                                                                                                #
         ############################################################################ GLASS ######
         
         ####################################################################### ADD SHADER ######
+                                                                                                #
         # Create the Add Shader Node and REference it as 'Add1'                                 #
         add1_node = material_diamond.node_tree.nodes.new('ShaderNodeAddShader')                 #
         # set location of node                                                                  #
@@ -179,18 +183,22 @@ class SHADER_OT_DIAMOND(bpy.types.Operator):
         add2_node.hide = True                                                                   #
         #deslect the Node                                                                       #
         add2_node.select = False                                                                #
+                                                                                                #
         ####################################################################### ADD SHADER ######
         
         ####################################################################### MIX SHADER ######
+                                                                                                #
         # Create the mix shader node and referen it as 'Mix1'                                   #
         mix1_node = material_diamond.node_tree.nodes.new('ShaderNodeMixShader')                 #
         # Setting the Location                                                                  #
         mix1_node.location = (200, 0)                                                           #
         #deslect the Node                                                                       #
         mix1_node.select = False                                                                #
+                                                                                                #
         ####################################################################### MIX SHADER ######
         
         ####################################################################### LINK NODES ######
+                                                                                                #
         # create the link glass1 to add1                                                        #
         material_diamond.node_tree.links.new(glass1_node.outputs[0], add1_node.inputs[0])       #
         # create the link glass2 to add1                                                        #
@@ -205,6 +213,7 @@ class SHADER_OT_DIAMOND(bpy.types.Operator):
         material_diamond.node_tree.links.new(glass4_node.outputs[0], mix1_node.inputs[2])       #
         # create the link mix1 to outputs                                                       #
         material_diamond.node_tree.links.new(mix1_node.outputs[0], material_output.inputs[0])   #
+                                                                                                #
         ################################################################### LINK NODES ##########
         
         bpy.context.object.active_material = material_diamond
@@ -233,6 +242,7 @@ class SHADER_OT_GOLD(bpy.types.Operator):
         material_output.location = (300, 0)
         
         ################################################################ NOISE TEXTURE ######
+                                                                                            #
         # Adding Noise Texture node                                                         #
         noise1_node = material_gold.node_tree.nodes.new('ShaderNodeTexNoise')               #
         # set location of node                                                              #
@@ -249,6 +259,7 @@ class SHADER_OT_GOLD(bpy.types.Operator):
         ################################################################ NOISE TEXTURE ######
         
         ############################################################## PRINCIPLED BSDF ######
+                                                                                            #
         # adding Principled BSDF node                                                       #
         Pbsdf_node = material_gold.node_tree.nodes.new('ShaderNodeBsdfPrincipled')          #
         # set location of node                                                              #
@@ -264,10 +275,12 @@ class SHADER_OT_GOLD(bpy.types.Operator):
         ############################################################## PRINCIPLED BSDF ######
         
         ########################################################## LINK NODES TOGETHER ######
+                                                                                            #
         # create the link Noise1 to Pbsdf                                                   #
         material_gold.node_tree.links.new(noise1_node.outputs[1], Pbsdf_node.inputs[7])     #
         # create the link Pbsdf to outputs                                                  #
         material_gold.node_tree.links.new(Pbsdf_node.outputs[0], material_output.inputs[0]) #
+                                                                                            #
         ################################################################### LINK NODES ######
         
         bpy.context.object.active_material = material_gold
@@ -296,6 +309,7 @@ class SHADER_OT_SILVER(bpy.types.Operator):
         material_output.location = (300, 0)
         
         ################################################################ NOISE TEXTURE ######
+                                                                                            #
         # Adding Noise Texture node                                                         #
         noise1_node = material_silver.node_tree.nodes.new('ShaderNodeTexNoise')             #
         # set location of node                                                              #
@@ -312,6 +326,7 @@ class SHADER_OT_SILVER(bpy.types.Operator):
         ################################################################ NOISE TEXTURE ######
         
         ############################################################## PRINCIPLED BSDF ######
+                                                                                            #
         # adding Principled BSDF node                                                       #
         Pbsdf_node = material_silver.node_tree.nodes.new('ShaderNodeBsdfPrincipled')        #
         # set location of node                                                              #
@@ -327,10 +342,12 @@ class SHADER_OT_SILVER(bpy.types.Operator):
         ############################################################## PRINCIPLED BSDF ######
         
         ########################################################## LINK NODES TOGETHER ######
+                                                                                            #
         # create the link Noise1 to Pbsdf                                                   #
         material_silver.node_tree.links.new(noise1_node.outputs[1], Pbsdf_node.inputs[7])   #
         # create the link Pbsdf to outputs                                                  #
         material_silver.node_tree.links.new(Pbsdf_node.outputs[0], material_output.inputs[0]) #
+                                                                                            #
         ################################################################### LINK NODES ######
         
         bpy.context.object.active_material = material_silver
@@ -359,6 +376,7 @@ class SHADER_OT_COPPER(bpy.types.Operator):
         material_output.location = (300, 0)
         
         ################################################################ NOISE TEXTURE ######
+                                                                                            #
         # Adding Noise Texture node                                                         #
         noise1_node = material_copper.node_tree.nodes.new('ShaderNodeTexNoise')             #
         # set location of node                                                              #
@@ -375,6 +393,7 @@ class SHADER_OT_COPPER(bpy.types.Operator):
         ################################################################ NOISE TEXTURE ######
         
         ############################################################## PRINCIPLED BSDF ######
+                                                                                            #
         # adding Principled BSDF node                                                       #
         Pbsdf_node = material_copper.node_tree.nodes.new('ShaderNodeBsdfPrincipled')        #
         # set location of node                                                              #
@@ -390,10 +409,12 @@ class SHADER_OT_COPPER(bpy.types.Operator):
         ############################################################## PRINCIPLED BSDF ######
         
         ########################################################## LINK NODES TOGETHER ######
+                                                                                            #
         # create the link Noise1 to Pbsdf                                                   #
         material_copper.node_tree.links.new(noise1_node.outputs[1], Pbsdf_node.inputs[7])   #
         # create the link Pbsdf to outputs                                                  #
         material_copper.node_tree.links.new(Pbsdf_node.outputs[0], material_output.inputs[0]) #
+                                                                                            #
         ################################################################### LINK NODES ######
         
         bpy.context.object.active_material = material_copper
@@ -514,9 +535,6 @@ class SHADER_OT_HOLOGRAM(bpy.types.Operator):
         return{'FINISHED'}
 
 
-
-
-
 #################################################################################################
 #################################################################################################
 ######## GHOST          ######################################################################### 
@@ -537,27 +555,28 @@ class SHADER_OT_GHOST(bpy.types.Operator):
         material_output = material_ghost.node_tree.nodes.get('Material Output')
         # set location of node
         material_output.location = (400, 0)
+                
         
         ############################################################################ COLUMN 1 ######
                                                                                                    #
         # Cretate the Glass Node and Reference it as 'Transparent'                                 #
         fresnel1_node = material_ghost.node_tree.nodes.new('ShaderNodeFresnel')                    #
         # set location of node                                                                     #
-        fresnel1_node.location = (-300, -120)                                                      #
+        fresnel1_node.location = (-300, 100)                                                       #
         # set the default color                                                                    #
         fresnel1_node.inputs[0].default_value = 1.200                                              #
                                                                                                    #
         # adding emission node                                                                     #
         diffuse1_node = material_ghost.node_tree.nodes.new('ShaderNodeBsdfDiffuse')                #
         # set location of node                                                                     #
-        diffuse1_node.location = (-300, -200)                                                      #
+        diffuse1_node.location = (-300, 0)                                                         #
         # set the default color                                                                    #
         diffuse1_node.inputs[0].default_value = (0.8, 0.8, 0.8, 1)                                 #
                                                                                                    #
         # adding wire1 node                                                                        #
         diffuse2_node = material_ghost.node_tree.nodes.new('ShaderNodeBsdfDiffuse')                #
         # set location of node                                                                     #
-        diffuse2_node.location = (-300, -200)                                                      #
+        diffuse2_node.location = (-300, -120)                                                      #
         # set the default color                                                                    #
         diffuse2_node.inputs[0].default_value = (0.8, 0.0, 0.0, 1)                                 #
                                                                                                    #
@@ -575,7 +594,7 @@ class SHADER_OT_GHOST(bpy.types.Operator):
         # Cretate the Glass Node and Reference it as 'Transparent'                                 #
         transparent1_node = material_ghost.node_tree.nodes.new('ShaderNodeBsdfTransparent')        #
         # set location of node                                                                     #
-        transparent1_node.location = (-300, -120)                                                  #
+        transparent1_node.location = (-60, -120)                                                   #
         # set the default color                                                                    #
         transparent1_node.inputs[0].default_value = (1, 1, 1, 1)                                   #
         # Deselect the Node                                                                        #
@@ -620,12 +639,11 @@ class SHADER_OT_GHOST(bpy.types.Operator):
         return{'FINISHED'}
         
         
-        
-        
-        
 def register():
     bpy.utils.register_class(ShaderMainPanel)
     bpy.utils.register_class(ShaderMetalicsPanel)
+    bpy.utils.register_class(ShaderStylizedPanel)
+    
     bpy.utils.register_class(SHADER_OT_DIAMOND)
     bpy.utils.register_class(SHADER_OT_GOLD)
     bpy.utils.register_class(SHADER_OT_SILVER)
@@ -636,6 +654,8 @@ def register():
 def unregiester():
     bpy.utils.unregister_class(ShaderMainPanel)
     bpy.utils.unregister_class(ShaderMetalicsPanel)
+    bpy.utils.unregister_class(ShaderStylizedPanel)
+    
     bpy.utils.unregister_class(SHADER_OT_DIAMOND)
     bpy.utils.unregister_class(SHADER_OT_GOLD)
     bpy.utils.unregister_class(SHADER_OT_SILVER)
@@ -645,3 +665,4 @@ def unregiester():
     
 if __name__ == "__main__":
     register()
+    
