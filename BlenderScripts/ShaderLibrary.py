@@ -76,7 +76,26 @@ class ShaderMetalicsPanel(bpy.types.Panel):
         row.operator('shader.copper_operator', icon= 'KEYTYPE_EXTREME_VEC')
         row = layout.row()
 
-
+        
+# Sub panel for Stylized
+class ShaderStylizedPanel(bpy.types.Panel):
+    bl_label = "Stylized"
+    bl_idname = "SHADER_PT_STYLIZED"
+    bl_space_type = 'VIEW_3D'
+    bl_region_type = 'UI'
+    bl_category = 'Shader Libary'
+    
+    #bl_parent_id = 'SHADER_PT_MAINPANEL'
+    bl_options = {'DEFAULT_CLOSED'}
+    
+    def draw(self, context):
+        layout = self.layout
+        row = layout.row()
+        row.operator('shader.hologram_operator', icon= 'KEYTYPE_MOVING_HOLD_VEC')
+        row.operator('shader.ghost_operator', icon= 'KEYTYPE_MOVING_HOLD_VEC')
+        row = layout.row()
+        
+        
 #################################################################################################
 #################################################################################################
 ######## DIAMOND          ####################################################################### 
@@ -380,27 +399,6 @@ class SHADER_OT_COPPER(bpy.types.Operator):
         bpy.context.object.active_material = material_copper
         
         return{'FINISHED'}
-        
-        
-        
-        
-        
-# Sub panel for Stylized
-class ShaderStylizedPanel(bpy.types.Panel):
-    bl_label = "Stylized"
-    bl_idname = "SHADER_PT_STYLIZED"
-    bl_space_type = 'VIEW_3D'
-    bl_region_type = 'UI'
-    bl_category = 'Shader Libary'
-    
-    #bl_parent_id = 'SHADER_PT_MAINPANEL'
-    bl_options = {'DEFAULT_CLOSED'}
-    
-    def draw(self, context):
-        layout = self.layout
-        row = layout.row()
-        row.operator('shader.hologram_operator', icon= 'KEYTYPE_MOVING_HOLD_VEC')
-        row = layout.row()
 
 
 #################################################################################################
@@ -458,7 +456,7 @@ class SHADER_OT_HOLOGRAM(bpy.types.Operator):
         wire1_node.use_pixel_size = True                                                           #
         # Setting the default IOR value                                                            #
         wire1_node.inputs[0].default_value = 0.201                                                 #
-                                                                                                   #                                                                                                  #
+                                                                                                   #
         ############################################################################ COLUMN 1 ######
         
         ############################################################################ COLUMN 2 ######
@@ -521,7 +519,7 @@ class SHADER_OT_HOLOGRAM(bpy.types.Operator):
 
 #################################################################################################
 #################################################################################################
-######## GHOST          ###################################################################### 
+######## GHOST          ######################################################################### 
      
 # Create a custerom operator for the hologram shader    
 class SHADER_OT_GHOST(bpy.types.Operator):
@@ -530,7 +528,7 @@ class SHADER_OT_GHOST(bpy.types.Operator):
     
     def execute(self, context):
         # create a new shader and calling it hologram
-        material_ghost = bpy.data.materials.new(name = "Hologram")
+        material_ghost = bpy.data.materials.new(name = "Ghost")
         material_ghost.use_nodes = True
         
         material_ghost.node_tree.nodes.remove(material_ghost.node_tree.nodes.get('Principled BSDF'))
@@ -541,15 +539,41 @@ class SHADER_OT_GHOST(bpy.types.Operator):
         material_output.location = (400, 0)
         
         ############################################################################ COLUMN 1 ######
-        # adding layerWeight1 node                                                                 #
-        layerWeight1_node = material_ghost.node_tree.nodes.new('ShaderNodeLayerWeight')         #
-        # set location of node                                                                     #
-        layerWeight1_node.location = (-300, 0)                                                     #
-        # set the default color                                                                    #
-        layerWeight1_node.inputs[0].default_value = 0.080                                          #
                                                                                                    #
         # Cretate the Glass Node and Reference it as 'Transparent'                                 #
-        transparent1_node = material_ghost.node_tree.nodes.new('ShaderNodeBsdfTransparent')     #
+        fresnel1_node = material_ghost.node_tree.nodes.new('ShaderNodeFresnel')                    #
+        # set location of node                                                                     #
+        fresnel1_node.location = (-300, -120)                                                      #
+        # set the default color                                                                    #
+        fresnel1_node.inputs[0].default_value = 1.200                                              #
+                                                                                                   #
+        # adding emission node                                                                     #
+        diffuse1_node = material_ghost.node_tree.nodes.new('ShaderNodeBsdfDiffuse')                #
+        # set location of node                                                                     #
+        diffuse1_node.location = (-300, -200)                                                      #
+        # set the default color                                                                    #
+        diffuse1_node.inputs[0].default_value = (0.8, 0.8, 0.8, 1)                                 #
+                                                                                                   #
+        # adding wire1 node                                                                        #
+        diffuse2_node = material_ghost.node_tree.nodes.new('ShaderNodeBsdfDiffuse')                #
+        # set location of node                                                                     #
+        diffuse2_node.location = (-300, -200)                                                      #
+        # set the default color                                                                    #
+        diffuse2_node.inputs[0].default_value = (0.8, 0.0, 0.0, 1)                                 #
+                                                                                                   #
+        ############################################################################ COLUMN 1 ######
+        
+        ############################################################################ COLUMN 2 ######
+                                                                                                   #
+        # Create the Add Shader Node and REference it as 'Mix1'                                    #
+        mix1_node = material_ghost.node_tree.nodes.new('ShaderNodeMixShader')                      #
+        # set location of node                                                                     #
+        mix1_node.location = (-60, 0)                                                              #
+        #deslect the Node                                                                          #
+        mix1_node.select = False                                                                   #
+                                                                                                   #
+        # Cretate the Glass Node and Reference it as 'Transparent'                                 #
+        transparent1_node = material_ghost.node_tree.nodes.new('ShaderNodeBsdfTransparent')        #
         # set location of node                                                                     #
         transparent1_node.location = (-300, -120)                                                  #
         # set the default color                                                                    #
@@ -557,74 +581,38 @@ class SHADER_OT_GHOST(bpy.types.Operator):
         # Deselect the Node                                                                        #
         transparent1_node.select = False                                                           #
                                                                                                    #
-        # adding emission node                                                                     #
-        emission1_node = material_ghost.node_tree.nodes.new('ShaderNodeEmission')               #
-        # set location of node                                                                     #
-        emission1_node.location = (-300, -200)                                                     #
-        # set the default color                                                                    #
-        emission1_node.inputs[0].default_value = (0, 0, 1, 1)                                      #
-        # Setting the default Strength value                                                       #
-        emission1_node.inputs[1].default_value = 1000                                              #
-                                                                                                   #
-        # adding wire1 node                                                                        #
-        wire1_node = material_ghost.node_tree.nodes.new('ShaderNodeWireframe')                  #
-        # set location of node                                                                     #
-        wire1_node.location = (-300, -300)                                                         #
-        # set the default color                                                                    #
-        wire1_node.use_pixel_size = True                                                           #
-        # Setting the default IOR value                                                            #
-        wire1_node.inputs[0].default_value = 0.201                                                 #
-                                                                                                   #                                                                                                  #
-        ############################################################################ COLUMN 1 ######
-        
-        ############################################################################ COLUMN 2 ######
-        # Create the Add Shader Node and REference it as 'Add1'                                    #
-        mix1_node = material_ghost.node_tree.nodes.new('ShaderNodeMixShader')                   #
-        # set location of node                                                                     #
-        mix1_node.location = (-60, 0)                                                              #
-        #deslect the Node                                                                          #
-        mix1_node.select = False                                                                   #
-                                                                                                   #
-        # Create the Add Shader Node and REference it as 'Add1'                                    #
-        mix2_node = material_ghost.node_tree.nodes.new('ShaderNodeMixShader')                   #
-        # set location of node                                                                     #
-        mix2_node.location = (-60, -120)                                                           #
-        #deslect the Node                                                                          #
-        mix2_node.select = False                                                                   #
-                                                                                                   #
         ############################################################################ COLUMN 2 ######
         
         #################################################################### FINAL MIX SHADER ######
-        # Create the mix shader node and referen it as 'Mix1'                                      #
-        mix3_node = material_ghost.node_tree.nodes.new('ShaderNodeMixShader')                   #
+                                                                                                   #
+        # Create the mix shader node and referen it as 'Mix2'                                      #
+        mix2_node = material_ghost.node_tree.nodes.new('ShaderNodeMixShader')                      #
         # Setting the Location                                                                     #
-        mix3_node.location = (200, 0)                                                              #
+        mix2_node.location = (200, 0)                                                              #
         # set the default factor to .5                                                             #
-        mix3_node.inputs[0].default_value = 0.50                                                   #
+        mix2_node.inputs[0].default_value = 0.50                                                   #
         #deslect the Node                                                                          #
-        mix3_node.select = False                                                                   #
+        mix2_node.select = False                                                                   #
                                                                                                    #
         ################################################################### FINAL  MIX SHADER ######
         
         ########################################################################## LINK NODES ######
-        # create the link layer weight to mix1                                                     #
-        material_ghost.node_tree.links.new(layerWeight1_node.outputs[1], mix1_node.inputs[0])   #
-        # create the link transparent1 to mix1                                                     #
-        material_ghost.node_tree.links.new(transparent1_node.outputs[0], mix1_node.inputs[1])   #
+                                                                                                   #
+        # create the link fresnel1 to mix1                                                         #
+        material_ghost.node_tree.links.new(fresnel1_node.outputs[0], mix1_node.inputs[0])          #
+        # create the link diffuse1 to mix1                                                         #
+        material_ghost.node_tree.links.new(diffuse1_node.outputs[0], mix1_node.inputs[1])          #
+        # create the link diffuse2 to mix1                                                         #
+        material_ghost.node_tree.links.new(diffuse2_node.outputs[0], mix1_node.inputs[2])          #
+                                                                                                   #
+        # create the link MIX1 to MIX1                                                             #
+        material_ghost.node_tree.links.new(mix1_node.outputs[0], mix2_node.inputs[1])              #
         # create the link transparent1 to mix2                                                     #
-        material_ghost.node_tree.links.new(transparent1_node.outputs[0], mix2_node.inputs[1])   #
-        # create the link emmision1 to mix1                                                        #
-        material_ghost.node_tree.links.new(emission1_node.outputs[0], mix1_node.inputs[2])      #
-        # create the link emmision1 to mix2                                                        #
-        material_ghost.node_tree.links.new(emission1_node.outputs[0], mix2_node.inputs[2])      #
-        # create the link wire1 to mix2                                                            #
-        material_ghost.node_tree.links.new(wire1_node.outputs[0], mix2_node.inputs[0])          #
-        # create the link MIX1 to MIX3                                                             #
-        material_ghost.node_tree.links.new(mix1_node.outputs[0], mix3_node.inputs[1])           #
-        # create the link MIX2 to MIX3                                                             #
-        material_ghost.node_tree.links.new(mix2_node.outputs[0], mix3_node.inputs[2])           #
-        # create the link MIX3 to outputs                                                          #
-        material_ghost.node_tree.links.new(mix3_node.outputs[0], material_output.inputs[0])     #
+        material_ghost.node_tree.links.new(transparent1_node.outputs[0], mix2_node.inputs[2])      #
+                                                                                                   #
+        # create the link MIX2 to OUT                                                              #
+        material_ghost.node_tree.links.new(mix2_node.outputs[0], material_output.inputs[0])        #
+                                                                                                   #
         ###################################################################### LINK NODES ##########
         
         bpy.context.object.active_material = material_ghost
@@ -643,6 +631,7 @@ def register():
     bpy.utils.register_class(SHADER_OT_SILVER)
     bpy.utils.register_class(SHADER_OT_COPPER)
     bpy.utils.register_class(SHADER_OT_HOLOGRAM)
+    bpy.utils.register_class(SHADER_OT_GHOST)
     
 def unregiester():
     bpy.utils.unregister_class(ShaderMainPanel)
@@ -652,6 +641,7 @@ def unregiester():
     bpy.utils.unregister_class(SHADER_OT_SILVER)
     bpy.utils.unregister_class(SHADER_OT_COPPER)
     bpy.utils.unregister_class(SHADER_OT_HOLOGRAM)
+    bpy.utils.unregister_class(SHADER_OT_GHOST)
     
 if __name__ == "__main__":
     register()
