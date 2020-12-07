@@ -555,7 +555,7 @@ class SHADER_OT_GHOST(bpy.types.Operator):
         # Create a refernce  to the Material Output
         material_output = material_ghost.node_tree.nodes.get('Material Output')
         # set location of node
-        material_output.location = (400, 0)
+        material_output.location = (520, 90)
                 
         
         ############################################################################ COLUMN 1 ######
@@ -563,7 +563,7 @@ class SHADER_OT_GHOST(bpy.types.Operator):
         # adding layerWeight1 node                                                                 #
         layerWeight1_node = material_ghost.node_tree.nodes.new('ShaderNodeLayerWeight')            #
         # set location of node                                                                     #
-        layerWeight1_node.location = (-760, 80)                                                    #
+        layerWeight1_node.location = (-600, 179)                                                    #
         # set the default color                                                                    #
         layerWeight1_node.inputs[0].default_value = 0.050                                          #
                                                                                                    #
@@ -574,7 +574,7 @@ class SHADER_OT_GHOST(bpy.types.Operator):
         # adding emission node                                                                     #
         math1_node = material_ghost.node_tree.nodes.new('ShaderNodeMath')                          #
         # set location of node                                                                     #
-        math1_node.location = (-560, 80)                                                           #
+        math1_node.location = (-420, 213)                                                          #
                                                                                                    #
         ############################################################################ COLUMN 2 ######
         
@@ -583,7 +583,7 @@ class SHADER_OT_GHOST(bpy.types.Operator):
         # adding RGB Curve node                                                                    #
         RGBC2_node = material_ghost.node_tree.nodes.new('ShaderNodeRGBCurve')                      #
         # set location of node                                                                     #
-        RGBC2_node.location = (-380, 240)                                                          #
+        RGBC2_node.location = (-240, 400)                                                          #
                                                                                                    #
         setCurve = RGBC2_node.mapping.curves[3]                                                    #
         # set first curve                                                                          #
@@ -594,7 +594,7 @@ class SHADER_OT_GHOST(bpy.types.Operator):
         # Cretate the Glass Node and Reference it as 'Transparent'                                 #
         transparent1_node = material_ghost.node_tree.nodes.new('ShaderNodeBsdfTransparent')        #
         # set location of node                                                                     #
-        transparent1_node.location = (-280, -90)                                                   #
+        transparent1_node.location = (-140, 30)                                                    #
         # set the default color                                                                    #
         transparent1_node.inputs[0].default_value = (1, 1, 1, 1)                                   #
         # Deselect the Node                                                                        #
@@ -603,7 +603,7 @@ class SHADER_OT_GHOST(bpy.types.Operator):
         # adding emission node                                                                     #
         emission1_node = material_ghost.node_tree.nodes.new('ShaderNodeEmission')                  #
         # set location of node                                                                     #
-        emission1_node.location = (-280, -180)                                                     #
+        emission1_node.location = (-140, -60)                                                      #
         # set the default color                                                                    #
         emission1_node.inputs[0].default_value = (0.293, 0.520, 1, 1)                              #
         # Setting the default Strength value                                                       #
@@ -617,19 +617,19 @@ class SHADER_OT_GHOST(bpy.types.Operator):
         # adding wire1 node                                                                        #
         lightPath_node = material_ghost.node_tree.nodes.new('ShaderNodeLightPath')                 #
         # set location of node                                                                     #
-        lightPath_node.location = (-60, 280)                                                       #
+        lightPath_node.location = (70, 380)                                                        #
                                                                                                    #
         # Create the Add Shader Node and REference it as 'Mix1'                                    #
         mix1_node = material_ghost.node_tree.nodes.new('ShaderNodeMixShader')                      #
         # set location of node                                                                     #
-        mix1_node.location = (-60, -45)                                                            #
+        mix1_node.location = (70, 40)                                                              #
         #deslect the Node                                                                          #
         mix1_node.select = False                                                                   #
                                                                                                    #
         # Cretate the Glass Node and Reference it as 'Transparent'                                 #
         transparent2_node = material_ghost.node_tree.nodes.new('ShaderNodeBsdfTransparent')        #
         # set location of node                                                                     #
-        transparent2_node.location = (-60, -180)                                                   #
+        transparent2_node.location = (70, -100)                                                    #
         # set the default color                                                                    #
         transparent2_node.inputs[0].default_value = (1, 1, 1, 1)                                   #
         # Deselect the Node                                                                        #
@@ -643,7 +643,7 @@ class SHADER_OT_GHOST(bpy.types.Operator):
         # Create the mix shader node and referen it as 'Mix2'                                      #
         mix2_node = material_ghost.node_tree.nodes.new('ShaderNodeMixShader')                      #
         # Setting the Location                                                                     #
-        mix2_node.location = (200, 0)                                                              #
+        mix2_node.location = (320, 90)                                                             #
         # set the default factor to .5                                                             #
         mix2_node.inputs[0].default_value = 0.50                                                   #
         #deslect the Node                                                                          #
