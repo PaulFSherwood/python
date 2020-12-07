@@ -584,12 +584,12 @@ class SHADER_OT_GHOST(bpy.types.Operator):
         RGBC2_node = material_ghost.node_tree.nodes.new('ShaderNodeRGBCurve')                      #
         # set location of node                                                                     #
         RGBC2_node.location = (-380, 240)                                                          #
+                                                                                                   #
+        setCurve = RGBC2_node.mapping.curves[3]                                                    #
         # set first curve                                                                          #
-        RGBC2_node.mapping.curves[3].points[0].location.x = 0.24545                                #
-        RGBC2_node.mapping.curves[3].points[0].location.y = 0.10000                                #
+        setCurve.points.new(0.24545,0.10000)                                                       #
         # set Second curve                                                                         #
-        RGBC2_node.mapping.curves[3].points[1].location.x = 0.484849                               #
-        RGBC2_node.mapping.curves[3].points[1].location.y = 0.841667                               #
+        setCurve.points.new(0.484849,0.841667)                                                     #
                                                                                                    #
         # Cretate the Glass Node and Reference it as 'Transparent'                                 #
         transparent1_node = material_ghost.node_tree.nodes.new('ShaderNodeBsdfTransparent')        #
