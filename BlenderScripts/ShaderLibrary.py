@@ -101,7 +101,7 @@ class ShaderStylizedPanel(bpy.types.Panel):
 #################################################################################################
 ######## DIAMOND          ####################################################################### 
      
-# Create a custerom operator for the diamon shader    
+# Create a custerom operator for the diamon shader    l
 class SHADER_OT_DIAMOND(bpy.types.Operator):
     bl_label = "Diamond"
     bl_idname = 'shader.diamond_operator'
@@ -444,6 +444,7 @@ class SHADER_OT_HOLOGRAM(bpy.types.Operator):
         material_output.location = (400, 0)
         
         ############################################################################ COLUMN 1 ######
+                                                                                                   #
         # adding layerWeight1 node                                                                 #
         layerWeight1_node = material_hologram.node_tree.nodes.new('ShaderNodeLayerWeight')         #
         # set location of node                                                                     #
@@ -559,37 +560,36 @@ class SHADER_OT_GHOST(bpy.types.Operator):
         
         ############################################################################ COLUMN 1 ######
                                                                                                    #
-        # Cretate the Glass Node and Reference it as 'Transparent'                                 #
-        fresnel1_node = material_ghost.node_tree.nodes.new('ShaderNodeFresnel')                    #
+        # adding layerWeight1 node                                                                 #
+        layerWeight1_node = material_ghost.node_tree.nodes.new('ShaderNodeLayerWeight')            #
         # set location of node                                                                     #
-        fresnel1_node.location = (-300, 100)                                                       #
+        layerWeight1_node.location = (-400, 100)                                                   #
         # set the default color                                                                    #
-        fresnel1_node.inputs[0].default_value = 1.200                                              #
-                                                                                                   #
-        # adding emission node                                                                     #
-        diffuse1_node = material_ghost.node_tree.nodes.new('ShaderNodeBsdfDiffuse')                #
-        # set location of node                                                                     #
-        diffuse1_node.location = (-300, 0)                                                         #
-        # set the default color                                                                    #
-        diffuse1_node.inputs[0].default_value = (0.8, 0.8, 0.8, 1)                                 #
-                                                                                                   #
-        # adding wire1 node                                                                        #
-        diffuse2_node = material_ghost.node_tree.nodes.new('ShaderNodeBsdfDiffuse')                #
-        # set location of node                                                                     #
-        diffuse2_node.location = (-300, -120)                                                      #
-        # set the default color                                                                    #
-        diffuse2_node.inputs[0].default_value = (0.8, 0.0, 0.0, 1)                                 #
+        layerWeight1_node.inputs[0].default_value = 0.050                                          #
                                                                                                    #
         ############################################################################ COLUMN 1 ######
         
         ############################################################################ COLUMN 2 ######
                                                                                                    #
-        # Create the Add Shader Node and REference it as 'Mix1'                                    #
-        mix1_node = material_ghost.node_tree.nodes.new('ShaderNodeMixShader')                      #
+        # adding emission node                                                                     #
+        math1_node = material_ghost.node_tree.nodes.new('ShaderNodeMath')                          #
         # set location of node                                                                     #
-        mix1_node.location = (-60, 0)                                                              #
-        #deslect the Node                                                                          #
-        mix1_node.select = False                                                                   #
+        math1_node.location = (-300, 0)                                                            #
+                                                                                                   #
+        ############################################################################ COLUMN 2 ######
+        
+        ############################################################################ COLUMN 3 ######
+                                                                                                   #
+        # adding RGB Curve node                                                                    #
+        RGBC2_node = material_ghost.node_tree.nodes.new('ShaderNodeRGBCurve')                      #
+        # set location of node                                                                     #
+        RGBC2_node.location = (-60, -120)                                                          #
+        # set first curve                                                                          #
+        RGBC2_node.mapping.curves[3].points[0].location.x = 0.24545                                #
+        RGBC2_node.mapping.curves[3].points[0].location.y = 0.10000                                #
+        # set Second curve                                                                         #
+        RGBC2_node.mapping.curves[3].points[1].location.x = 0.484849                               #
+        RGBC2_node.mapping.curves[3].points[1].location.y = 0.841667                               #
                                                                                                    #
         # Cretate the Glass Node and Reference it as 'Transparent'                                 #
         transparent1_node = material_ghost.node_tree.nodes.new('ShaderNodeBsdfTransparent')        #
@@ -600,7 +600,43 @@ class SHADER_OT_GHOST(bpy.types.Operator):
         # Deselect the Node                                                                        #
         transparent1_node.select = False                                                           #
                                                                                                    #
-        ############################################################################ COLUMN 2 ######
+        # adding emission node                                                                     #
+        emission1_node = material_ghost.node_tree.nodes.new('ShaderNodeEmission')                  #
+        # set location of node                                                                     #
+        emission1_node.location = (-60, -200)                                                      #
+        # set the default color                                                                    #
+        emission1_node.inputs[0].default_value = (0.293, 0.520, 1, 1)                              #
+        # Setting the default Strength value                                                       #
+        emission1_node.inputs[1].default_value = 11.3                                              #
+                                                                                                   #
+                                                                                                   #
+        ############################################################################ COLUMN 3 ######
+
+        ############################################################################ COLUMN 4 ######
+                                                                                                   #
+        # adding wire1 node                                                                        #
+        lightPath_node = material_ghost.node_tree.nodes.new('ShaderNodeLightPath')                 #
+        # set location of node                                                                     #
+        lightPath_node.location = (-120, 350)                                                     #
+                                                                                                   #
+        # Create the Add Shader Node and REference it as 'Mix1'                                    #
+        mix1_node = material_ghost.node_tree.nodes.new('ShaderNodeMixShader')                      #
+        # set location of node                                                                     #
+        mix1_node.location = (-60, 0)                                                              #
+        #deslect the Node                                                                          #
+        mix1_node.select = False                                                                   #
+                                                                                                   #
+        # Cretate the Glass Node and Reference it as 'Transparent'                                 #
+        transparent2_node = material_ghost.node_tree.nodes.new('ShaderNodeBsdfTransparent')        #
+        # set location of node                                                                     #
+        transparent2_node.location = (-60, -120)                                                   #
+        # set the default color                                                                    #
+        transparent2_node.inputs[0].default_value = (1, 1, 1, 1)                                   #
+        # Deselect the Node                                                                        #
+        transparent2_node.select = False                                                           #
+                                                                                                   #
+        ############################################################################ COLUMN 4 ######
+                                                                                                   
         
         #################################################################### FINAL MIX SHADER ######
                                                                                                    #
@@ -617,17 +653,27 @@ class SHADER_OT_GHOST(bpy.types.Operator):
         
         ########################################################################## LINK NODES ######
                                                                                                    #
-        # create the link fresnel1 to mix1                                                         #
-        material_ghost.node_tree.links.new(fresnel1_node.outputs[0], mix1_node.inputs[0])          #
-        # create the link diffuse1 to mix1                                                         #
-        material_ghost.node_tree.links.new(diffuse1_node.outputs[0], mix1_node.inputs[1])          #
-        # create the link diffuse2 to mix1                                                         #
-        material_ghost.node_tree.links.new(diffuse2_node.outputs[0], mix1_node.inputs[2])          #
+        # create the link Layer Weight to Add                                                      #
+        material_ghost.node_tree.links.new(layerWeight1_node.outputs[0], math1_node.inputs[0])     #
+        # create the link Layer Weight to Add                                                      #
+        material_ghost.node_tree.links.new(layerWeight1_node.outputs[1], math1_node.inputs[1])     #
                                                                                                    #
+        # create the link add to RGB Curve                                                         #
+        material_ghost.node_tree.links.new(math1_node.outputs[0], RGBC2_node.inputs[1])            #
+                                                                                                   #
+        # create the link RGB Curve to mix1                                                        #
+        material_ghost.node_tree.links.new(RGBC2_node.outputs[0], mix1_node.inputs[0])             #
+        # create the link transparent1 to mix1                                                     #
+        material_ghost.node_tree.links.new(transparent1_node.outputs[0], mix1_node.inputs[1])      #
+        # create the link emission1 to mix1                                                        #
+        material_ghost.node_tree.links.new(emission1_node.outputs[0], mix1_node.inputs[2])         #
+                                                                                                   #
+        # create the link lightpath to mix1                                                        #
+        material_ghost.node_tree.links.new(lightPath_node.outputs[11], mix1_node.inputs[0])        #
         # create the link MIX1 to MIX1                                                             #
         material_ghost.node_tree.links.new(mix1_node.outputs[0], mix2_node.inputs[1])              #
-        # create the link transparent1 to mix2                                                     #
-        material_ghost.node_tree.links.new(transparent1_node.outputs[0], mix2_node.inputs[2])      #
+        # create the link transparent2 to mix2                                                     #
+        material_ghost.node_tree.links.new(transparent2_node.outputs[0], mix2_node.inputs[2])      #
                                                                                                    #
         # create the link MIX2 to OUT                                                              #
         material_ghost.node_tree.links.new(mix2_node.outputs[0], material_output.inputs[0])        #
