@@ -16,8 +16,8 @@ translation
 
 translation['translations'][0]['translation']
 
-ttsapikey = '3WuVp1YBwb069ZBD8nfyCjxpMR6bwsu7Sfmhx2lXsEVU'
-ttsurl = 'https://api.us-south.text-to-speech.watson.cloud.ibm.com/instances/4a4be4a1-81c5-4092-8755-a262566aca48'
+ttsapikey = '333'
+ttsurl = '222'
 
 from ibm_watson import TextToSpeechV1
 
