@@ -64,6 +64,7 @@ if 'hello' in recog1.recognize_google(audio):
             text_to_translate = translator.translate(get_sentence, src=from_lang, dest=to_lang)
             print("past text_to_translate")
             text = text_to_translate.text
+            print('Output: ' + text)
             speak = gTTS(text=text, lang=to_lang, slow=False)
             speak.save("captured_voice.mp3")
             os.system("start captured_voice.mp3")
