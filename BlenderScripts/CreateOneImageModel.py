@@ -26,6 +26,9 @@ class ExplodedBake(bpy.types.Panel):
 class buttonExplode(bpy.types.Operator):
     bl_idname = "button.explode" # translates to C-name BUTTON_OT_explode
     bl_label = "Create Texture"
+    
+    obj = bpy.context.object.name
+            
 
     def execute(self, context):
         #self.report({'INFO'}, "Hello world!")
@@ -55,7 +58,7 @@ class buttonExplode(bpy.types.Operator):
         bpy.ops.object.select_all(action='TOGGLE') # DESELECT SELECT EVERYTHING
         #### FIRST OBJECT #### START ###
         # Reselect the first object
-        bpy.data.objects[object1].select_set(True)
+        bpy.data.objects[object1].select_set(True) # SELECT THE ORIGINAL FOR UNWRAPPING
         bpy.context.view_layer.objects.active = bpy.context.window.scene.objects[object1] 
 
         # Change to edit mode
@@ -67,11 +70,11 @@ class buttonExplode(bpy.types.Operator):
         print("##########################")
         print("UV UNWRAP START")
         #bpy.data.window_managers["WinMan"].(null) = 0.15
-        bpy.ops.uv.smart_project(island_margin=0.15)
+        bpy.ops.uv.smart_project(island_margin=0.05)
         print("UV UNWRAP COMPLETED")
         print("##########################")
         # Get back into Object mode
-        #bpy.ops.object.editmode_toggle()
+        bpy.ops.object.editmode_toggle()
         #### FIRST OBJECT #### END ###
 
         #### UV baking START ####
@@ -104,10 +107,10 @@ class buttonExplode(bpy.types.Operator):
         print("##########################")
 
         # # remove the high res
-        # print("##########################")
-        # bpy.data.objects.remove(bpy.data.objects[object2], do_unlink=True)
-        # print("High RES Object removed")
-        # print("##########################")
+        print("##########################")
+        bpy.data.objects.remove(bpy.data.objects[object2], do_unlink=True)
+        print("High RES Object removed")
+        print("##########################")
         # #### UV baking END ####
 
         ### TEXTURE NEEDS TO BE SAVED FIRST
