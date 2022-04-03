@@ -20,6 +20,12 @@ layout = [
                                                         initial_value=0, key='Children')],
     [sg.Submit(), sg.Exit()]
 ]
+form_layout = [
+    [sg.Text("Enter Name:"), sg.Input(key='-NAME-', do_not_clear=True, size=(20,1))],
+    [sg.Text("Enter Address:"), sg.Input(key='-ADDRESS-', do_not_clear=True, size=(20,1))],
+    [sg.Text("Enter Phone Number:"), sg.Input(key='-PHONE_NUMBER-', do_not_clear=True, size=(20,1))],
+    [sg.Button('Submit Contact Info')]    
+]
 
 window = sg.Window('Simple data entry form', layout)
 
