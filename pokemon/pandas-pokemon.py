@@ -5,12 +5,19 @@ import pandas as pd
 ##########################
 ### Potential problems ###
 ### does the file exist
+### do you have permission to access the folder and file r/w?
+### pathing (books says windows can fix the slashes)
 ### is the data valid
+### corrupting a file / overwriting a file
 ### Large data set
 ### is the formating correct
+### CSV files (can use pandas, and not worry too much)
 ### are you importing it correctly
+### regular expressions (so powerful)
 ### missing columns
 ### Need to add columns
+### working with dataclasses (don't understand, need research)
+
 
 
 df = pd.read_csv('pokemon_data.csv')
@@ -154,9 +161,9 @@ print(df.groupby(['Type 1']).mean().sort_values('Defense', ascending=False).head
 #         print(df)
 
 ## pack to dataframes together
-new_df = pd.DataFrame(columns=df.columns)
+# new_df = pd.DataFrame(columns=df.columns)
 
-for df in pd.read_csv('modified.csv', chunksize=5):
-        results = df.groupby(['Type 1']).count()
+# for df in pd.read_csv('modified.csv', chunksize=5):
+#         results = df.groupby(['Type 1']).count()
 
-        new_df = pd.concat([new_df, results])
+#         new_df = pd.concat([new_df, results])
