@@ -1,0 +1,195 @@
+<html>
+    <head>
+        <script>
+            window.onload = function() {
+                // Configuration variables
+                var updateInterval = 15000; // in ms
+                var numberElements = 200;
+                // Globals
+                var updateCount = 0;
+                // Chart Objects
+                var humidityChart = $("#humidityChart");
+                var temperatureChart = $("#temperatureChart");
+
+                var commonOptions = {
+                    scales: {
+                        xAxes: [{
+                            type: 'time',
+                            time: {
+                                displayFormats: {
+                                    milliseconds: 'mm:ss:SSS'
+                                }
+                            }
+                        }],
+                        yAxes: [{
+                            ticks:  {
+                                begineAtZero: true
+                            }
+                        }]
+                    },
+                    legend: {display: false},
+                    tooltips: {
+                        enabled: false
+                    }
+                };
+                // New instance of our chart (place to hodl data)
+                var Chart767BayInstance = new Chart(humidityChart, {
+                    type: 'line',
+                    data: {
+                        datasets: [{
+                            label: "humidity",
+                            data: 0,
+                            fill: false,
+                            borderColor: '#077DE8', // #AAAE9A
+                            borderWidth: 2,
+                        }, {
+                            label: "temperature",
+                            data: 0,
+                            fill: false,
+                            borderColor: '#E108FF', // #DAF7A6
+                            borderWidth: 5
+                        }]
+                    },
+                    options: Object.assign({}, commonOptions, {
+                        title: {
+                            display: true,
+                            text: "767 Sim Bay Temperature & Humidity",
+                            fontSize: 24
+                        }
+                    })
+                });
+                // New instance of our chart (place to hold data)
+                var Chart767PcInstance = new Chart(temperatureChart, {
+                    type: 'line',
+                    data: {
+                        datasets: [{
+                            label: "humidity",
+                            data: 0,
+                            fill: false,
+                            borderColor: '#077DE8',
+                            borderWidth: 2,
+                        }, {
+                            label: "temperature",
+                            data: 0,
+                            fill: false,
+                            borderColor: '#E108FF'
+                            borderWidth: 5
+                        }, ]
+                    },
+                    options: Object.assign({}, commonOptions, {
+                        title: {
+                            display: true,
+                            text: "767 PC Room Temperature & Humidity",
+                            fontSize: 24
+                        }
+                    })
+                });
+                function addData(data) {
+                    if (data) {
+                        // add information pulled from the JSON file for the 767 Sim Bay
+                        // and push it into the data stack "Chart767BayInstance"
+                        Chart767BayInstance.data.labels.push(new Data());
+                        Chart767BayInstance.data.datasets[0].data.push(data['humidity']);
+                        Chart767BayInstance.data.datasets[1].data.push(data['temperature']);
+                        
+                        // Check the temperature and change based on readings
+                        if (Chart767BayInstance.data.datasets[1].data[1] > 78) {
+                            document.getElementById("SimBay767").className = "redChart";
+                        } else if (Chart767BayInstance.data.datasets[1].data[1] < 65) {
+                            document.getElementById("SimBay767").className = "blueChart";
+                        } else {
+                            document.getElementById("SimBay767").className = "greenChart";
+                        }
+                        // Clean up data / shift in the new data
+                        if (updateCount > numberElements) {
+                            Chart767BayInstance.data.labels.shift();
+                            Chart767BayInstance.data.datasets[0].data.shift();
+                        }
+                        // update the chart will all the new information
+                        else updateCount++;
+                        Chart767BayInstance.update();
+                    }
+                };
+                function addData2(data) {
+                    if (data) {
+                        // add information pulled from the JSON file for the 767 Sim Bay
+                        // and push it into the data stack "Chart767BayInstance"
+                        Chart767PcInstance.data.labels.push(new Data());
+                        Chart767PcInstance.data.datasets[0].data.push(data['humidity']);
+                        Chart767PcInstance.data.datasets[1].data.push(data['temperature']);
+                        
+                        // Check the temperature and change based on readings
+                        if (Chart767PcInstance.data.datasets[1].data[1] > 78) {
+                            document.getElementById("SimBay767").className = "redChart";
+                        } else if (Chart767PcInstance.data.datasets[1].data[1] < 65) {
+                            document.getElementById("SimBay767").className = "blueChart";
+                        } else {
+                            document.getElementById("SimBay767").className = "greenChart";
+                        }
+                        // Clean up data / shift in the new data
+                        if (updateCount > numberElements) {
+                            Chart767PcInstance.data.labels.shift();
+                            Chart767PcInstance.data.datasets[0].data.shift();
+                        }
+                        // update the chart will all the new information
+                        else updateCount++;
+                        Chart767PcInstance.update();
+                    }
+                };
+                function updateData() {
+                    // Console.log("Update Data");
+                    $.getJSON("SimBay767", addData);
+                    $.getJSON("PcRoom767", addData2);
+                    setTimeout(updateData, updateInterval);
+                }
+                updateData();
+            }
+        </script>
+        <style>
+            .container {
+                display: flex;
+            }
+            .label {
+                flex: 1;
+                vertical-align: middle;
+                text-align: center;
+            }
+            .greenChart {
+                flex: 3;
+                text-align: center;
+                background-color: rgba(20, 200, 20, 0.73);
+                margin: 10px;
+            }
+            .redChart {
+                flex: 3;
+                text-align: center;
+                background-color: rgba(200, 10, 10, 0.64);
+                margin: 10px;
+            }
+            .blueChart {
+                flex: 3;
+                text-align: center;
+                background-color: rgba(20, 20, 200, 0.74);
+                margin: 10px;
+            }
+            h1 {
+                text-align: center;
+            }
+        </style>
+        <!-- libraries to build the chart -->
+        <script type="text/javascript" src="jquery/1.4.1/jquery.js"></script>
+        <script type="text/javascript" src="Charts.js/2.7.2/Chart.bundle.js"></script>
+    </head>
+    <body>
+        <div id="orientationContainer" class="container">
+            <div id="SimBay767" class="greenChart">
+                <canvas id="humidityChart"></canvas>
+            </div>
+        </div>
+        <div id="orientationContainer" class="container">
+            <div id="PcBay767" class="greenChart">
+                <canvas id="humidityChart"></canvas>
+            </div>
+        </div>
+    </body>
+</html>
