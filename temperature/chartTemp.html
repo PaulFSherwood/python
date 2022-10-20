@@ -1,5 +1,8 @@
 <html>
     <head>
+	        <!-- libraries to build the chart -->
+		<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.bundle.js"></script>
         <script>
             window.onload = function() {
                 // Configuration variables
@@ -72,8 +75,8 @@
                             label: "temperature",
                             data: 0,
                             fill: false,
-                            borderColor: '#E108FF'
-                            borderWidth: 5
+                            borderColor: '#E108FF',
+                            borderWidth: 5,
                         }, ]
                     },
                     options: Object.assign({}, commonOptions, {
@@ -176,9 +179,7 @@
                 text-align: center;
             }
         </style>
-        <!-- libraries to build the chart -->
-        <script type="text/javascript" src="jquery/1.4.1/jquery.js"></script>
-        <script type="text/javascript" src="Charts.js/2.7.2/Chart.bundle.js"></script>
+
     </head>
     <body>
         <div id="orientationContainer" class="container">
