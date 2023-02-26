@@ -6,10 +6,10 @@ from bs4 import BeautifulSoup
 # Genesis chapter:verse counts
 genesis_verse_counts = {
     1: 31,
-    2: 25,
-    3: 24,
-    4: 26
 }
+#     2: 25
+#     3: 24,
+#     4: 26,
 #     5: 32,
 #     6: 22,
 #     7: 24,
@@ -58,10 +58,9 @@ genesis_verse_counts = {
 #     50: 26
 # }
 
-# Create an empty dictionary to store the words
-word_dict = {}
 
-def get_words(url):
+def get_words(soup):
+    word_dict = {}
     # Extract the Hebrew and English words
     hebrew_words = []
     english_words = []
@@ -76,13 +75,27 @@ def get_words(url):
             # Add the words to the dictionary
             word_dict[english_word] = hebrew_word
 
+
     # Print the Hebrew and English words
-    eng = "English"
-    heb = "Hebrew"
-    print(f"{eng[:20]:<20} | {heb[:20]:<20}")
-    print("------------------------------------")
-    for english, hebrew in zip(english_words, hebrew_words):
-        print(f"{english[:20]:<20} | {hebrew[:20]:<20}")
+    # eng = "English"
+    # heb = "Hebrew"
+    # print(f"{eng[:20]:<20} | {heb[:20]:<20}")
+    # print("------------------------------------")
+    # for english, hebrew in zip(english_words, hebrew_words):
+    #     print(f"{english[:20]:<20} | {hebrew[:20]:<20}")
+
+    return word_dict
+
+def print_list(word_list):
+    # Print the first 10 words in the list
+    for i, (english_word, hebrew_word) in enumerate(word_list):
+        print(f"{english_word}: {hebrew_word}")
+        if i == 9:
+            break
+
+def save_list_to_file(word_list, file_path):
+    with open(file_path, 'w') as file:
+        json.dump(word_list, file, indent=4)
 
 def print_dictionary(word_dict):
     # Print the first 10 words in the dictionary
@@ -92,9 +105,9 @@ def print_dictionary(word_dict):
         #     break
 
 # Save a dictionary to a file
-def save_dictionary_to_file(word_dict, file_path):
+def save_dictionary_to_file(full_word_dict, file_path):
     with open(file_path, 'w') as file:
-        json.dump(word_dict, file, indent=4)
+        json.dump(full_word_dict, file, indent=4)
 
 # Load a dictionary from a file
 def load_dictionary_from_file(file_path):
@@ -103,10 +116,16 @@ def load_dictionary_from_file(file_path):
     return word_dict
 
 
+# Create an empty list to hold the data for the entire book of Genesis
+book_data = []
 
-for chapter_num, num_verses in genesis_verse_counts.items(): #i in range(1, 31):
+for chapter_num, num_verses in genesis_verse_counts.items():
+    # Create an empty list to hold the data for the chapter
+    chapter_data = []
+
     for verse_num in range(1, num_verses + 1):
-        url = f'https://biblehub.com/text/genesis/{chapter_num}-{num_verses}.htm'
+        url = f'https://biblehub.com/text/genesis/{chapter_num}-{verse_num}.htm'
+        print(f"{chapter_num}:{verse_num}")
 
         # Send a GET request to the URL
         response = requests.get(url)
@@ -114,17 +133,29 @@ for chapter_num, num_verses in genesis_verse_counts.items(): #i in range(1, 31):
         # Create a BeautifulSoup object to parse the HTML content
         soup = BeautifulSoup(response.content, 'html.parser')
 
-        # Extract the text from the verse
-        # verse_text = soup.select_one('.text > span').text.strip()
+        # Extract the words and store them in a list
+        verse_data = get_words(soup)
 
-        # Extract the words and store them in the dictionary
-        get_words(soup)
+        # Add the verse data to the chapter data list
+        chapter_data.append(verse_data)
+
+        # Save the words for the verse to a JSON file
+        # file_path = f'verse_{chapter_num}_{verse_num}.json'
+        # save_list_to_file(verse_data, file_path)
+
+    # Add the chapter data list to the book data list
+    book_data.append(chapter_data)
 
 
-save_dictionary_to_file(word_dict, 'word_dict.json')
-word_dict2 = load_dictionary_from_file('word_dict.json')
 
-print_dictionary(word_dict2)
+
+
+# print_dictionary(book_data)
+# save_dictionary_to_file(book_data, 'full_word_dict.json')
+save_list_to_file(book_data, 'book_data.json')
+# word_dict2 = load_dictionary_from_file('word_dict.json')
+
+# print_dictionary(word_dict2)
 
 
 
