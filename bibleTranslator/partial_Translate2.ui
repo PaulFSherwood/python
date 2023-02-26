@@ -1,0 +1,255 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>EditRegistry</class>
+ <widget class="QWidget" name="EditRegistry">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>469</width>
+    <height>529</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Partial Translate</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">QWidget {
+    background-color: #404258;
+    color: #fff;
+ }
+QLabel {
+    border: 1px solid;
+    border-color: #50577A;
+    background-color: #6B728E;
+}
+QTextEdit {
+    border: 1px solid;
+    border-color: #50577A;
+    background-color: #6B728E;
+}
+QTextEdit:focus {
+    background: #7B8FA1;
+    border: 2px solid;
+    border-color: #50577A;
+}
+QLineEdit {
+    border: 1px solid;
+    border-color: #50577A;
+    background-color: #6B728E;
+}
+QLineEdit:focus {
+    background: #7B8FA1;
+    border: 2px solid;
+    border-color: #50577A;
+}</string>
+  </property>
+  <widget class="QLabel" name="RegKeyName_Label">
+   <property name="geometry">
+    <rect>
+     <x>21</x>
+     <y>53</y>
+     <width>91</width>
+     <height>18</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true"/>
+   </property>
+   <property name="text">
+    <string>English Values</string>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="English_LineEdit">
+   <property name="geometry">
+    <rect>
+     <x>127</x>
+     <y>53</y>
+     <width>151</width>
+     <height>20</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QLabel" name="RegistryEdit_Title_Label">
+   <property name="geometry">
+    <rect>
+     <x>110</x>
+     <y>10</y>
+     <width>251</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QLabel {
+	text-align: center;
+	border-radius: 10px;
+	background-color: #50577A;
+	padding: 1px;
+}</string>
+   </property>
+   <property name="text">
+    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;Translate comma seperate values&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="TranslateWords_pushButton">
+   <property name="geometry">
+    <rect>
+     <x>170</x>
+     <y>490</y>
+     <width>121</width>
+     <height>26</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true"> QPushButton {
+    background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 #404258, stop: 1 #6B728E);
+    border-radius: 6px;
+    padding: 5px;
+    color: white;
+    font-weight: bold;
+}
+QPushButton:hover {;
+    border: 1px solid;
+    border-color: #fff;
+}
+QPushButton:pressed {
+    background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 #6B728E, stop: 1 #404258);
+}</string>
+   </property>
+   <property name="text">
+    <string>Translate</string>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="Translate_LineEdit">
+   <property name="geometry">
+    <rect>
+     <x>127</x>
+     <y>81</y>
+     <width>151</width>
+     <height>20</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QLabel" name="ValueName_Label">
+   <property name="geometry">
+    <rect>
+     <x>21</x>
+     <y>81</y>
+     <width>91</width>
+     <height>18</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true"/>
+   </property>
+   <property name="text">
+    <string>Alt Values</string>
+   </property>
+  </widget>
+  <widget class="QTextEdit" name="textEdit">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>110</y>
+     <width>431</width>
+     <height>371</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QComboBox" name="bookDropdown">
+   <property name="geometry">
+    <rect>
+     <x>290</x>
+     <y>50</y>
+     <width>161</width>
+     <height>22</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QComboBox" name="chapterDropdown">
+   <property name="geometry">
+    <rect>
+     <x>290</x>
+     <y>80</y>
+     <width>71</width>
+     <height>22</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QComboBox" name="verseDropdown">
+   <property name="geometry">
+    <rect>
+     <x>380</x>
+     <y>80</y>
+     <width>71</width>
+     <height>22</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="previous_pushButton">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>490</y>
+     <width>91</width>
+     <height>26</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true"> QPushButton {
+    background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 #404258, stop: 1 #6B728E);
+    border-radius: 6px;
+    padding: 5px;
+    color: white;
+    font-weight: bold;
+}
+QPushButton:hover {;
+    border: 1px solid;
+    border-color: #fff;
+}
+QPushButton:pressed {
+    background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 #6B728E, stop: 1 #404258);
+}</string>
+   </property>
+   <property name="text">
+    <string>Previous</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="next_pushButton">
+   <property name="geometry">
+    <rect>
+     <x>360</x>
+     <y>490</y>
+     <width>91</width>
+     <height>26</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true"> QPushButton {
+    background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 #404258, stop: 1 #6B728E);
+    border-radius: 6px;
+    padding: 5px;
+    color: white;
+    font-weight: bold;
+}
+QPushButton:hover {;
+    border: 1px solid;
+    border-color: #fff;
+}
+QPushButton:pressed {
+    background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 #6B728E, stop: 1 #404258);
+}</string>
+   </property>
+   <property name="text">
+    <string>Next</string>
+   </property>
+  </widget>
+ </widget>
+ <tabstops>
+  <tabstop>English_LineEdit</tabstop>
+  <tabstop>Translate_LineEdit</tabstop>
+  <tabstop>TranslateWords_pushButton</tabstop>
+ </tabstops>
+ <resources/>
+ <connections/>
+</ui>

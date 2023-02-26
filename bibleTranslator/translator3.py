@@ -4,18 +4,18 @@ from bs4 import BeautifulSoup
 
 # genesis/{chapter_number}-{verse_number}.htm
 # Genesis chapter:verse counts
-genesis_verse_counts = {
-    1: 31,
+exodus_verse_counts = {
+    1: 22,
+    2: 25,
+    3: 22,
+    4: 31,
+    5: 23,
+    6: 30,
+    7: 25,
+    8: 32,
+    9: 35,
+    10: 29
 }
-#     2: 25
-#     3: 24,
-#     4: 26,
-#     5: 32,
-#     6: 22,
-#     7: 24,
-#     8: 22,
-#     9: 29,
-#     10: 32,
 #     11: 32,
 #     12: 20,
 #     13: 18,
@@ -118,13 +118,14 @@ def load_dictionary_from_file(file_path):
 
 # Create an empty list to hold the data for the entire book of Genesis
 book_data = []
+verse_list = []
 
-for chapter_num, num_verses in genesis_verse_counts.items():
+for chapter_num, num_verses in exodus_verse_counts.items():
     # Create an empty list to hold the data for the chapter
     chapter_data = []
 
     for verse_num in range(1, num_verses + 1):
-        url = f'https://biblehub.com/text/genesis/{chapter_num}-{verse_num}.htm'
+        url = f'https://biblehub.com/text/exodus/{chapter_num}-{verse_num}.htm'
         print(f"{chapter_num}:{verse_num}")
 
         # Send a GET request to the URL
@@ -133,18 +134,19 @@ for chapter_num, num_verses in genesis_verse_counts.items():
         # Create a BeautifulSoup object to parse the HTML content
         soup = BeautifulSoup(response.content, 'html.parser')
 
-        # Extract the words and store them in a list
-        verse_data = get_words(soup)
+        # Extract the words and store them in a dictionary
+        word_dict = get_words(soup)
 
-        # Add the verse data to the chapter data list
-        chapter_data.append(verse_data)
+        # Create a dictionary that includes the book, chapter, and verse information
+        verse_dict = {
+            'book': 'Exodus',
+            'chapter': chapter_num,
+            'verse': verse_num,
+            'words': word_dict
+        }
 
-        # Save the words for the verse to a JSON file
-        # file_path = f'verse_{chapter_num}_{verse_num}.json'
-        # save_list_to_file(verse_data, file_path)
-
-    # Add the chapter data list to the book data list
-    book_data.append(chapter_data)
+        # Add the verse data to the verse_list
+        verse_list.append(verse_dict)
 
 
 
@@ -152,7 +154,7 @@ for chapter_num, num_verses in genesis_verse_counts.items():
 
 # print_dictionary(book_data)
 # save_dictionary_to_file(book_data, 'full_word_dict.json')
-save_list_to_file(book_data, 'book_data.json')
+save_list_to_file(verse_list, 'book_data2.json')
 # word_dict2 = load_dictionary_from_file('word_dict.json')
 
 # print_dictionary(word_dict2)
