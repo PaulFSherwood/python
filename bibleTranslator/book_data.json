@@ -36207,5 +36207,22 @@
             "your face": "\u05e4\u05b8\u05bc\u05e0\u05b6\u05bd\u05d9\u05da\u05b8\u05c3",
             "-": "\u05e4"
         }
+    },
+    {
+        "book": "leviticus",
+        "chapter": 1,
+        "verse": 1,
+        "words": {
+            "and said": "\u05d5\u05b7\u05d9\u05b9\u05bc\u05a5\u05d0\u05de\u05b6\u05e8",
+            "Moses": "\u05de\u05b9\u05e9\u05b6\u05c1\u0596\u05d4",
+            "well": "\u05db\u05b5\u05bc\u05a3\u05df",
+            "You have spoken": "\u05d3\u05b4\u05bc\u05d1\u05b7\u05bc\u0591\u05e8\u05b0\u05ea\u05b8\u05bc",
+            "never": "\u05dc\u05b9\u05d0\u05be",
+            "again": "\u05d0\u05b9\u05e1\u05b4\u05a5\u05e3",
+            "more": "\u05e2\u0596\u05d5\u05b9\u05d3",
+            "I will see": "\u05e8\u05b0\u05d0\u05a5\u05d5\u05b9\u05ea",
+            "your face": "\u05e4\u05b8\u05bc\u05e0\u05b6\u05bd\u05d9\u05da\u05b8\u05c3",
+            "-": "\u05e4"
+        }
     }
 ]

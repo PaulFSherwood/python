@@ -16,12 +16,16 @@ class Translator(QtWidgets.QMainWindow):
             self.book_data = json.load(f)
 
         # Extract the distinct book names, chapters, and verses from the book data
-        self.books = sorted(set([book['book'] for book in self.book_data]))
+        # self.books = sorted(set([book['book'] for book in self.book_data]))
+        # self.books = [book['book'] for book in self.book_data]
+        self.books = [book_data['book'] for book_data in self.book_data if book_data['chapter'] == 1 and book_data['verse'] == 1]
+
         self.chapters = sorted(set([book['chapter'] for book in self.book_data]))
         self.verses = sorted(set([book['verse'] for book in self.book_data]))
 
         # Populate the book dropdown menu with the distinct book names
         self.bookDropdown.addItems(self.books)
+        # self.bookDropdown.setCurrentText('Genesis')
 
         # Connect the button to a function
         self.TranslateWords_pushButton.clicked.connect(self.translate_text)
@@ -32,21 +36,60 @@ class Translator(QtWidgets.QMainWindow):
         self.chapterDropdown.addItems([str(c) for c in range(1, 51)])
         self.verseDropdown.addItems([str(v) for v in range(1, 51)])
 
+        # show the current verse
+        self.show_verse()
+
+    # show the current verse
+    def show_verse(self):
+        # Get the current book, chapter, and verse
+        book = self.bookDropdown.currentText()
+        chapter = int(self.chapterDropdown.currentText())
+        verse = int(self.verseDropdown.currentText())
+
+        # Get the text for the current verse
+        verse_text = self.get_verse_text(book, chapter, verse)
+
+        # Display the text in the textEdit field
+        self.textEdit.setText(verse_text)
+
+    # Get the text for the current verse
+    def get_verse_text(self, book, chapter, verse):
+        for book_data in self.book_data:
+            if book_data['book'] == book and book_data['chapter'] == chapter and book_data['verse'] == verse:
+                english_words = list(book_data['words'].keys())
+                return ' '.join(english_words)
+        return '' # return empty string if no matching verse is found
+    
     def translate_text(self):
         # Get the text from the textEdit field
         text = self.textEdit.toPlainText()
-        # Get the words to be translated and their translation
-        EnglishWords = self.English_LineEdit.text()
-        TranslateWords = self.Translate_LineEdit.text()
-        # Split the words into a list
-        EnglishWords = EnglishWords.split(", ")
-        TranslateWords = TranslateWords.split(", ")
-        # Replace the words in the text
-        for i in range(len(EnglishWords)):
-            # Ingore case when replacing words
-            text = re.sub(r"\b" + EnglishWords[i] + r"\b", TranslateWords[i], text, flags=re.IGNORECASE)
+
+        # Get the words to be translated and their translations from the JSON
+        book = self.bookDropdown.currentText()
+        chapter = int(self.chapterDropdown.currentText())
+        verse = int(self.verseDropdown.currentText())
+        verse_data = [book_data['words'] for book_data in self.book_data if book_data['book'] == book and book_data['chapter'] == chapter and book_data['verse'] == verse][0]
+
+        # Get the words to be translated from the English_LineEdit field
+        english_words = self.English_LineEdit.text()
+        english_words_list = [word.strip() for word in english_words.split(",")]
+
+        # If the English_LineEdit field is empty, change every word back to english (key)
+        if english_words == '':
+            self.show_verse()
+        else:
+            # Replace only the words listed in English_LineEdit
+            for english in english_words_list:
+                if english in verse_data:
+                    hebrew = verse_data[english]
+                    # Ignore case when replacing words
+                    text = re.sub(r"\b" + english + r"\b", hebrew, text, flags=re.IGNORECASE)
+
         # Display the translated text
         self.textEdit.setText(text)
+
+
+
 
     def previous_verse(self):
         # Get the current book, chapter, and verse
@@ -54,38 +97,26 @@ class Translator(QtWidgets.QMainWindow):
         chapter = int(self.chapterDropdown.currentText())
         verse = int(self.verseDropdown.currentText())
 
-        # Decrement the verse number
-        verse -= 1
+        # check the chapter if it is 1 and verse is 1 then return
+        if chapter == 1 and verse == 1:
+            return
+        else:
+            # Decrement the verse number
+            verse -= 1
 
-        # If the verse is less than 1, decrement the chapter and set the verse to the last verse in the chapter
-        if verse < 1:
-            chapter -= 1
-            if chapter < 1:
-                # If the chapter is less than 1, go to the last chapter in the previous book
-                book_index = self.books.index(book)
-                if book_index > 0:
-                    book = self.books[book_index - 1]
-                    chapter = self.chapters[-1]
-                    verse = self.verses[-1]
-                else:
-                    # If the current book is Genesis, the previous button does nothing
-                    return
-            else:
-                # Set the verse to the last verse in the previous chapter
-                verse = max([book['verse'] for book in self.book_data if book['book'] == book and book['chapter'] == chapter])
+        # Get the text for the current verse
+        verse_text = self.get_verse_text(book, chapter, verse)
+
+        # Display the text in the textEdit field
+        self.textEdit.setText(verse_text)
+
+        # re-translate the text
+        self.translate_text()
 
         # Set the dropdowns to the new book, chapter, and verse
         self.bookDropdown.setCurrentText(book)
         self.chapterDropdown.setCurrentText(str(chapter))
         self.verseDropdown.setCurrentText(str(verse))
-
-        # Get the text for the new verse from the book data
-        for book_data in self.book_data:
-            if book_data['book'] == book and book_data['chapter'] == chapter and book_data['verse'] == verse:
-                verse_text = book_data['words']
-                break
-        else:
-            verse_text = ''
 
         # Set the text in the textEdit field
         self.textEdit.setText(verse_text)
@@ -100,23 +131,14 @@ class Translator(QtWidgets.QMainWindow):
         # Increment the verse number
         verse += 1
 
-        # If the verse is greater than the last verse in the chapter, increment the chapter and set the verse to 1
-        max_verse = max([book['verse'] for book in self.book_data if book['book'] == book and book['chapter'] == chapter])
-        if verse > max_verse:
-            chapter += 1
-            if chapter > self.chapters[-1]:
-                # If the chapter is greater than the last chapter in the current book, go to the first chapter in the next book
-                book_index = self.books.index(book)
-                if book_index < len(self.books) - 1:
-                    book = self.books[book_index + 1]
-                    chapter = 1
-                    verse = 1
-                else:
-                    # If the current book is Malachi, the next button does nothing
-                    return
-            else:
-                # Set the verse to 1 in the next chapter
-                verse = 1
+        # Get the text for the current verse
+        verse_text = self.get_verse_text(book, chapter, verse)
+
+        # Display the text in the textEdit field
+        self.textEdit.setText(verse_text)
+    
+        # re-translate the text
+        self.translate_text()
 
         # Set the dropdowns to the new book, chapter, and verse
         self.bookDropdown.setCurrentText(book)
