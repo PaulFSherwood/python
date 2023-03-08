@@ -1,10 +1,13 @@
 import sys
+from typing import List
 from PyQt5.QtWidgets import QApplication, QWidget, QLabel, QPushButton, QVBoxLayout, QHBoxLayout, QStackedLayout
 from random import shuffle
 
+
 class Flashcard(QWidget):
-    def __init__(self, question, answer_options, correct_answer, parent=None):
+    def __init__(self, question: str, answer_options: List[str], correct_answer: str, parent=None):
         super().__init__(parent)
+        # self.parent = parent
 
         self.question = question
         self.answer_options = answer_options
@@ -73,7 +76,13 @@ class Flashcard(QWidget):
 
     def next_card(self):
         # Show the next flashcard when the next button is pressed
-        self.parent().next_flashcard()
+        # parent_widget = self.parent()
+        
+        # if hasattr(parent_widget, "next_flashcard") and callable(parent_widget.next_flashcard):
+        #     parent_widget.next_flashcard()
+        # else:
+        #     print("Error: parent object does not have next_flashcard method.")
+        FlashcardWindow.next_flashcard()
 
     def reset_card(self):
         # Reset the flashcard to the initial state
@@ -86,25 +95,32 @@ class Flashcard(QWidget):
         self.flip_button.show()
         self.next_button.hide()
 
+
+
+
+
+
+
+
 class FlashcardWindow(QWidget):
-    def __init__(self, flashcards):
+    def __init__(self, flashcards: List[Flashcard]):
         super().__init__()
 
         self.flashcards = flashcards
         self.current_card_index = 0
 
-        # Create the flashcard widgets
-        self.flashcard_widgets = []
+        # Create the flashcard widgets and their containers
+        self.flashcard_containers = []
         for flashcard in self.flashcards:
-            widget = QWidget()
-            layout = QVBoxLayout(widget)
+            container = QWidget()
+            layout = QVBoxLayout(container)
             layout.addWidget(flashcard)
-            self.flashcard_widgets.append(widget)
+            self.flashcard_containers.append(container)
 
         # Set up the layout
         self.stack_layout = QStackedLayout()
-        for widget in self.flashcard_widgets:
-            self.stack_layout.addWidget(widget)
+        for container in self.flashcard_containers:
+            self.stack_layout.addWidget(container)
         self.setLayout(self.stack_layout)
 
     def reset_card(self):
@@ -120,7 +136,12 @@ class FlashcardWindow(QWidget):
         else:
             self.close()
 
-def create_flashcards():
+
+
+
+
+
+def create_flashcards() -> List[Flashcard]:
     # Define the list of questions and answers
     question_options = [
         ("What is the capital of France?", ["Paris", "London", "Berlin"], "Paris"),
@@ -142,6 +163,7 @@ def create_flashcards():
         flashcards.append(Flashcard(question, options, answer))
 
     return flashcards
+
 
 if __name__ == "__main__":
     # Create the application
