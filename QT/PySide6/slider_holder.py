@@ -1,10 +1,10 @@
-from PySide6.QtWidgets import QApplication, QSlider
+from PySide6.QtWidgets import QSlider
 
-class SliderHolder(QSlider):
+class SliderHolder:
     def __init__(self, parent=None):
         # super().__init__(parent)
-        slider = QSlider()
+        self.slider = QSlider()
 
     # the slot : responds when something happens
-    def respond_to_slider(data):
+    def slider_moved(self, data):
         print("Slider moved to : ", data)

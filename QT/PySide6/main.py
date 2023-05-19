@@ -9,6 +9,7 @@ app = QApplication(sys.argv)
 # Create a window
 window = WindowSetup()
 # Display the window
+window.setup()
 window.show()
 
 # Start the event loop
