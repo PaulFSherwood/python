@@ -20,15 +20,18 @@ class UserInterface(QtCore.QObject):
         self.style_file.close()
         # apply the stylesheet
         self.ui.setStyleSheet(self.style_sheet)
-        # load and fix Icons
+        # Add application Icon
         self.ui.setWindowIcon(qta.icon("fa5s.praying-hands" , color='red'))  # add an window icon
-        set_taskbar_icon() # fix the icon issue
+        # fix the icon issue
+        set_taskbar_icon()
 
         # connect signals
         self.ui.submit_button.clicked.connect(self.do_something)
 
+    # show the UI
     def show(self):
         self.ui.show()
 
+    # test function that pulls date from the UI lineEdit fields
     def do_something(self):
         print(self.ui.full_name_line_edit.text(), "is a", self.ui.occupation_line_edit.text())
