@@ -26,49 +26,7 @@
    <string>Form</string>
   </property>
   <property name="styleSheet">
-   <string notr="true">QWidget {
-    background-color: #404258;
-    color: #fff;
- }
-QLabel {
-    border: 1px solid;
-    border-color: #50577A;
-    background-color: #6B728E;
-}
-QTextEdit {
-    border: 1px solid;
-    border-color: #50577A;
-    background-color: #6B728E;
-}
-QTextEdit:focus {
-    background: #7B8FA1;
-    border: 2px solid;
-    border-color: #50577A;
-}
-QLineEdit {
-    border: 1px solid;
-    border-color: #50577A;
-    background-color: #6B728E;
-}
-QLineEdit:focus {
-    background: #7B8FA1;
-    border: 2px solid;
-    border-color: #50577A;
-}
- QPushButton {
-    background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 #404258, stop: 1 #6B728E);
-    border-radius: 6px;
-    padding: 5px;
-    color: white;
-    font-weight: bold;
-}
-QPushButton:hover {;
-    border: 1px solid;
-    border-color: #fff;
-}
-QPushButton:pressed {
-    background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 #6B728E, stop: 1 #404258);
-}</string>
+   <string notr="true"/>
   </property>
   <widget class="QWidget" name="">
    <property name="geometry">
