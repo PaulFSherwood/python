@@ -1,0 +1,29 @@
+OSI Layer 7: Application,Web Browser
+OSI Layer 6: Presentation,Data Encryption Software
+OSI Layer 5: Session,VPN (Virtual Private Network)
+OSI Layer 4: Transport,TCP/UDP Protocols
+OSI Layer 3: Network,Router
+OSI Layer 2: Data Link,Network Switch
+OSI Layer 1: Physical,Ethernet Cables
+TCP/IP Layer 4: Application,Web Browser
+TCP/IP Layer 3: Transport,TCP/UDP Protocols
+TCP/IP Layer 2: Internet,Router
+TCP/IP Layer 1: Network Access,Network Interface Card (NIC)
+Port 20/21,FTP (File Transfer Protocol) - TCP
+Port 22,SSH (Secure Shell) - TCP
+Port 23,Telnet - TCP
+Port 25,SMTP (Simple Mail Transfer Protocol) - TCP
+Port 53,DNS (Domain Name System) - Both
+Port 67/68,DHCP (Dynamic Host Configuration Protocol) - UDP
+Port 69,TFTP (Trivial File Transfer Protocol) - UDP
+Port 80,HTTP (Hypertext Transfer Protocol) - TCP
+Port 110,POP3 (Post Office Protocol version 3) - TCP
+Port 123,NTP (Network Time Protocol) - UDP
+Port 137/138/139,NetBIOS - Both
+Port 143,IMAP (Internet Message Access Protocol) - TCP
+Port 161/162,SNMP (Simple Network Management Protocol) - UDP
+Port 179,BGP (Border Gateway Protocol) - TCP
+Port 389,LDAP (Lightweight Directory Access Protocol) - Both
+Port 443,HTTPS (HTTP Secure) - TCP
+Port 636,LDAPS (LDAP over SSL) - TCP
+Port 989/990,FTPS (FTP Secure) - TCP
