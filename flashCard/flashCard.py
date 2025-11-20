@@ -115,7 +115,7 @@ class FlashCardApp(QWidget):
         self.answer_buttons = []
         btn_row = QHBoxLayout()
         for i in range(4):
-            btn = QPushButton(f"Answer {i+1}")
+            btn = QPushButton(f"Answer {i}")
             btn.clicked.connect(lambda _, idx=i: self.check_answer(idx))
             self.answer_buttons.append(btn)
             btn_row.addWidget(btn)

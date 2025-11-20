@@ -1,0 +1,101 @@
+[
+    {
+        "question": "RAII and Exception Safety\nYou have this function:\n```cpp\nvoid loadConfig() {\n     std::ifstream file{\"config.json\"};\n     if (!file.is_open()) {\n         throw std::runtime_error(\"Missing config\");\n     }\n     \n     std::string buffer;\n     file >> buffer;\n     // more parsing ...\n}\n```\nWhy is function exception-safe without needing a try/catch?",
+        "answers": [
+            "Because ifstream automatically closes the file in its destructior (RAII)",
+            "Because ifstream cannot throw exeptions.",
+            "Because local variables are only destroyed if no exceptions occur.",
+            "Because all STL classes swallow exceptions internally."
+        ],
+        "correct_index": 0,
+        "reason": "A. Because ifstream automatically closes the file in its destructor (RAII).\nThe file never remains open after the function ends."
+    },
+    {
+        "question": "Smart Pointers and Ownership\nConsider this code:\n```cpp\n     struct Engine {\n         void start();\n     };\n     \n     struct Car {\n         std::shared_ptr<Engine> engine;\n     };\n     \n     int main() {\n         auto engine = std::make_shared<Engine>();\n         Car a{engine};\n         Car b{engine};\n     \n         // ...\n     }\n```\nWhat is the main drawback of using std::shared_ptr here?",
+        "answers": [
+            "You must manually delete the Engine when done.",
+            "shared_ptr make copies of the Engine object.",
+            "shared_ptr introduces reference-count overhead and unclear ownership.",
+            "The Engine will be destroyed too early."
+        ],
+        "correct_index": 2,
+        "reason": "shared_ptr introduces reference-count overhead and unclear ownership.\n\nWhy?\n    Even copy of a shared_ptr increments/decrements an atomic reference count.\n    Atomics are slow and create thread contention.\n    More importantly:\n        If multiple objects \"own\" the same Engine, who really owns it?\n        Who is responsible for lifetime decisions?\n    In real C++ engineering, uncontrolled use of shared_ptr is one of the biggest design smells."
+    },
+    {
+        "question": "What is an atomic operation?\nIn C++, what does it mean when an operation is atomic?",
+        "answers": [
+            "It executes so fast that it cannot be noticed.",
+            "It is guaranteed to happen in a single, indivisible step with no data races.",
+            "It uses special CPU instructions that prevent exceptions.",
+            "It locks a global mutiex for safety."
+        ],
+        "correct_index": 1,
+        "reason": "It is guaranteed to happen in a single, indivisible step with no data races.\nWhy?\nAn atomic operation is:\n    indivisible\n    thread-safe at the hardware level\n    cannot be interrupted mid-update by another thread.\nFor example:\n```cpp\n    std::atomic<int> x = 0;\n    x++;    // atomic increment\n```\nThe CPU guarantees that x++ is performed as a single operation-no thread can observe a \"halfway updated\" value.\n\nWhy does this matter for shared_ptr?\nBecause the reference count inside shared_ptr is a std::atomic<long>.\nEvery time you copy a shared_ptr:\n```cpp\n    auto b = a;  // increments ref count atomically\n```\nit must perform an atomic increment -> expensive, especially across threads."
+    },
+    {
+        "question": "Atomic Reference Counting in shared_ptr\nInside std::shared_ptr, the reference counter uses an atomic integer.\nWhy doe this make shared_ptr slower than unique_ptr?",
+        "answers": [
+            "Atomic increments require a CPU-level memory barrier and may stall other cores.",
+            "Atomics allocate memory dynamically each time.",
+            "Atomic disable compiler optimizations for the whole function.",
+            "Atomics copy the underlying object mutiple times."
+        ],
+        "correct_index": 0,
+        "reason": "Atomic increments require a CPU-level memory barrier and may stall other cores.\nWhy?\nWhen you copy a shared_ptr:\n```cpp\n    auto b = a;    // refcount++\n```\nThe refcount increment uses something like:\n```cpp\n    std::atomic<size_t> use_count;\n    use_count.fetch_add(1, std::memory_order_acq_rel);\n```\nThis does:\n    A cache line lock\n    A memory fence / barrier\n    Forces the CPU to flush the write to other cores\n    May stall other threads tying to access the same cache line\nThis is far slower than the zero-overhead nature of unique_ptr.\n\nSummary:\n    unique_ptr = no atomics -> faster\n    shared_ptr = atomic ref counting -> multi-core synchronization -> slower."
+    },
+    {
+        "question": "What is a cache line lock?\nModern CPUs use cache lines (typically 64 bytes) to move data between cores.\nIf two threads on diferent cores write to the same cache line, performance drops.\n\nWhich statement best describes a cache line lock?",
+        "answers": [
+            "A lock that the C++ runtime creates when a mutex is used.",
+            "A hardware mechanism where a core temporarily blocks access to a cache line while modifying it.",
+            "A compiler optimization that aligns data on 64-byte boundaries",
+            "A virtual memory feature that prevents page faults during atomic operations."
+        ],
+        "correct_index": 1,
+        "reason": "A hardware mechanism where a core temporarily blocks access to a cache line while modifying it.\nExplanation (simple + real-world):\n    CPUs operate using small blocks of memory called cache lines (usually 64 bytes).\n    When you do an atomic operation (atomic<int> x; x++;), your core must prevent other cores from modifying the same cache line at the same time.\n    So the CPU temporarily locks the cache line (via MESI protocol).\n    Other cores tyring to use that cache line get stalled until it's unlocked.\nThis is why shared_ptr is slower:\nIncrementing the reference count -> atomic -> CPU locks cache line -> other threads stall.\n\nYou never see this directly in code, but you feel it in performance."
+    },
+    {
+        "question": "What is a memory fence / barrier?\nMemory fences control instruction ordering between threads.\n\nWhich statement best describes a memory fence?",
+        "answers": [
+            "It prevents threads from reading or writing memory until the OS scheduler releases them.",
+            "It forces the compiler to generate debug symbols for memory-access instructions.",
+            "It forces all earlier memory operations to complete before later ones, preventing reordering.",
+            "It prevents a thread from accessing memory outside its allocated stack frame."
+        ],
+        "correct_index": 2,
+        "reason": "It forces all earlier memory operations to complete before later ones, preventing reordering.\n\nWhy?\nCompilers and CPUs aggressively reorder instructions for speed.\n\nExample:\n```cpp\nx = 1;\ny = 2;\n```\n\nThe CPU might execute them in the order write y, write x.\n\nThat's normally fine - unless multiple threads are involved.\n\nA memory fence ( or memory barrer):\n    Prevents reordering across the barrier\n    Forces the CPU and compiler to complete earlier writes before continuing\n    Guarantees visibility across threads.\n\nIn C++ atomics, you see this as:\n```cpp\n    std::memory_order_release\n    std::memory_order_acquire\n    std::memory_order_acq_rel\n    std::memory_order_seq_cst    // strictest\n```\nshared_ptr uses these internally, which is part of the overhead."
+    },
+    {
+        "question": "False Sharing (Cache Line Contention)\nFalse sharing is a real performance killer in multi-threaded C++.\nIt happens even when two threads are modifying different variables.\nConsider\n```cpp\n    struct Data{\n        int a;\n        int b;\n    };\n    Data d;\n    void thread1() { for (;;) d.a++; }\n    void thread2() { for (;;) d.b++; }\n```\nWhat performance problem can occur here?",
+        "answers": [
+            "The threads will deadlock trying to udpate d.",
+            "The compiler will optimize the increments away incorrectly.",
+            "Both variables share the same cache line, causing cache invalidation on every write.",
+            "This causes undefined behavior because two threads write to the same struct."
+        ],
+        "correct_index": 2,
+        "reason": "The real issue is something you wouldn't see directly in code.\n\nBoth variables share the same cache line, causing cache invalidation on every write.\n\nWhy?\nOn modern CPUs:\n    Data is stored in cache lines (64 bytes).\n    In this struct, a and b are next to each other.\n    Both land in the same cache line\n\nWhen thread1 writes to d.a, its core modifies the cache line -> other cores must invalidate their copy of that line.\nWhen thread2 writes to d.b, the opposite happens.\n\n\nSo the \"fight\" over the same cache line - even though they're using different variables.\n\nThis is called false sharing because it looks like the threads are shaing data, but they aren't - its just unluckly layout.\n\nReal consequences:\n    Extream performance slowdown\n    CPU cache thrashing\nHigh memory bus traffic\nTons of stalls due to MESI protocol invalidations."
+    },
+    {
+        "question": "Cache Line Basics\nMost modern CPUs use fixed-size cache lines (typically 64 bytes).\nWhy does the cache line size matter when designing data structures in C++?",
+        "answers": [
+            "The compiler refuses to generate code for objects larger than one cache line.",
+            "Objects smaller than a cache line cannot be loaded into the cache.",
+            "Accessing memory in the same cache line is much faster, and poor layout can cause severe performance loss.",
+            "C++ requires all object to be aligned to exaclty one cache line?"
+        ],
+        "correct_index": 2,
+        "reason": "Here's the real reason cache lines matter.\n\nAccessing memor in the same cache line is much faster, and poor layout can cause severe performance loss.\n\nWhy?\n    Memory moves between RAM <-> cache in 64-byte chuncks (the cache line).\n    If several related variables are in the same line, you get:\n        free prefetch\n        fast access\n        very few cache misses\n    If related data is far apart, you get more cache misses\n\nThis is why struct layout, array-of-structs vs struct-of-arrays, padding, and alignment matter in real-world C++ performance."
+    },
+    {
+        "question": "Aligning Data to 64-Byte Cache Lines\n\nYou have a hot-path multithreaded data structure that contains per-thread counters:\n```cpp\n    struct Counters {\n        std::uint64_t requests;\n        std::uint64_t errors;\n    };\nCounters counters[32];  // on per thread\n```\nPerformance profiling shows severe stalls due to cache invalidation (false sharing).\nYou want each thread's counter to live on its own cache line.\n\nWhat is the correct modern C++ way to ensure each element begines on a separate 64-byte cache line?",
+        "answers": [
+            "Use #pragma pack(push, 64) to force each struct to be 64 bytes.",
+            "Add dummy padding to Counters until its size is 64 bytes.",
+            "Use alignas(64) on the struct so each instance is aligned to a 64-byte boudary.",
+            "Declare the array as static so the compiler places each element separately in memory."
+        ],
+        "correct_index": 2,
+        "reason": "The right solution is the one used by high-performance C++, game engine, and HPC systems:\nC. Use alignas(64) on the struct so each instance is aligned to a 64-byte boudary.\n```cpp\n    struct alignas(64) Counters {\n        std::uint64_t requests;\n        std::uint64_t errors;\n    };\nThis guarantees:\n    each Counters begins on a 64-byte boundary\n    no two intance share the same cache line\n    thread1 updating request won't invalidate thread2's cache\nThis fixes the false sharing problem cleaninly"
+    }
+]
