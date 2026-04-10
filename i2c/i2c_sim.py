@@ -174,4 +174,7 @@ class MainApp:
 root = tk.Tk()
 MainApp(root)
 root.mainloop()
+<<<<<<< HEAD
 
+=======
+>>>>>>> 1d94fdeaf791bd51968df4c23566d0472f8b1ac7
