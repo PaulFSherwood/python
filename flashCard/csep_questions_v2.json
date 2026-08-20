@@ -1,0 +1,1846 @@
+{
+    "metadata": {
+        "title": "CSEP / INCOSE SEH 5th Edition Practice Bank",
+        "version": "2.0",
+        "generated_on": "2026-08-19",
+        "question_count": 140,
+        "exam_basis": "INCOSE Systems Engineering Handbook, Fifth Edition",
+        "note": "Unofficial practice questions. These are original study items, not recalled or official INCOSE exam questions.",
+        "quality_controls": [
+            "Every question has four unique answers.",
+            "No answer set is reused.",
+            "Correct-answer positions are shuffled in the data.",
+            "Questions include foundational, applied, work-product, and scenario styles.",
+            "GUI shuffles answer order again during study."
+        ],
+        "correct_index_distribution": {
+            "0": 35,
+            "1": 40,
+            "2": 28,
+            "3": 37
+        }
+    },
+    "questions": [
+        {
+            "topic": "Configuration Management",
+            "difficulty": "Foundational",
+            "question": "Which work product is most directly associated with Configuration Management?",
+            "answers": [
+                "implemented system elements and implementation records",
+                "configuration baselines, change records, status accounting, and audit results",
+                "interface requirements, interface control information, ownership, change records, and verification evidence",
+                "acquisition strategy, request information, supplier selection evidence, agreements, and acceptance information"
+            ],
+            "correct_index": 1,
+            "reason": "The most direct work product is configuration baselines, change records, status accounting, and audit results. The alternatives are legitimate systems engineering work products, but they are primarily associated with other activities."
+        },
+        {
+            "topic": "Architecture Definition",
+            "difficulty": "Foundational",
+            "question": "Which work product is most directly associated with Architecture Definition?",
+            "answers": [
+                "decision records containing alternatives, criteria, analysis, selection, and rationale",
+                "documented tailoring decisions, rationale, approvals, and project-specific process definitions",
+                "integrated assemblies, interface results, discrepancy records, and integration evidence",
+                "an architecture description with elements, interfaces, relationships, views, and rationale"
+            ],
+            "correct_index": 3,
+            "reason": "The most direct work product is an architecture description with elements, interfaces, relationships, views, and rationale. The alternatives are legitimate systems engineering work products, but they are primarily associated with other activities."
+        },
+        {
+            "topic": "Transition",
+            "difficulty": "Foundational",
+            "question": "Which work product is most directly associated with Transition?",
+            "answers": [
+                "project and systems engineering plans, schedules, work packages, resources, and technical strategies",
+                "bidirectional trace relationships and coverage or impact reports",
+                "supplier plans, delivered product or service, compliance evidence, and agreement closure information",
+                "installed and commissioned system, trained users, operational data, and transition records"
+            ],
+            "correct_index": 3,
+            "reason": "The most direct work product is installed and commissioned system, trained users, operational data, and transition records. The alternatives are legitimate systems engineering work products, but they are primarily associated with other activities."
+        },
+        {
+            "topic": "Implementation",
+            "difficulty": "Foundational",
+            "question": "Which work product is most directly associated with Implementation?",
+            "answers": [
+                "installed and commissioned system, trained users, operational data, and transition records",
+                "hazard analyses, safety requirements, risk controls, safety cases or evidence, and residual-risk decisions",
+                "implemented system elements and implementation records",
+                "managed technical information repositories, access controls, metadata, and retention rules"
+            ],
+            "correct_index": 2,
+            "reason": "The most direct work product is implemented system elements and implementation records. The alternatives are legitimate systems engineering work products, but they are primarily associated with other activities."
+        },
+        {
+            "topic": "Infrastructure Management",
+            "difficulty": "Foundational",
+            "question": "Which work product is most directly associated with Infrastructure Management?",
+            "answers": [
+                "hazard analyses, safety requirements, risk controls, safety cases or evidence, and residual-risk decisions",
+                "decommissioning and disposal records, recovered assets, sanitized data, and closed hazards",
+                "available and maintained facilities, tools, environments, networks, and support resources",
+                "an architecture description with elements, interfaces, relationships, views, and rationale"
+            ],
+            "correct_index": 2,
+            "reason": "The most direct work product is available and maintained facilities, tools, environments, networks, and support resources. The alternatives are legitimate systems engineering work products, but they are primarily associated with other activities."
+        },
+        {
+            "topic": "Stakeholder Needs and Requirements Definition",
+            "difficulty": "Foundational",
+            "question": "Which statement best describes Stakeholder Needs and Requirements Definition?",
+            "answers": [
+                "Establishes and maintains the integrity and traceability of product and work-product configurations through identification, control, status accounting, and audits.",
+                "Transforms stakeholder expectations, needs, constraints, and operational concepts into a coherent set of stakeholder needs and requirements.",
+                "Realizes a specified system element in hardware, software, data, procedures, services, or other implementation form.",
+                "Sustains the system's ability to provide service by correcting faults, restoring capability, and implementing approved changes."
+            ],
+            "correct_index": 1,
+            "reason": "Stakeholder Needs and Requirements Definition transforms stakeholder expectations, needs, constraints, and operational concepts into a coherent set of stakeholder needs and requirements. The other choices describe different systems engineering activities rather than Stakeholder Needs and Requirements Definition."
+        },
+        {
+            "topic": "Information Management",
+            "difficulty": "Scenario",
+            "question": "Engineers are making decisions from outdated files stored across email, personal drives, and uncontrolled shared folders. What should the systems engineering team do next?",
+            "answers": [
+                "Rely on filenames alone to determine which technical record is authoritative.",
+                "Establish authoritative repositories, access and retention rules, metadata, and controlled information flows.",
+                "Delete older approved records whenever a new draft appears.",
+                "Send more email copies so every engineer has a personal version."
+            ],
+            "correct_index": 1,
+            "reason": "The best next step is to establish authoritative repositories, access and retention rules, metadata, and controlled information flows. This directly addresses the stated engineering problem; the other choices either skip needed lifecycle work, misuse another process, or create uncontrolled risk."
+        },
+        {
+            "topic": "Business or Mission Analysis",
+            "difficulty": "Scenario",
+            "question": "A sponsor has stated a desired outcome, but the team has not yet agreed on the operational problem, mission context, or what kinds of solutions are feasible. What should the systems engineering team do next?",
+            "answers": [
+                "Freeze detailed component design immediately so implementation can begin.",
+                "Begin verification testing before the system requirements baseline exists.",
+                "Treat the first proposed solution as a fixed requirement and skip alternatives.",
+                "Clarify the mission problem, stakeholders, operational context, and candidate solution concepts before defining detailed system requirements."
+            ],
+            "correct_index": 3,
+            "reason": "The best next step is to clarify the mission problem, stakeholders, operational context, and candidate solution concepts before defining detailed system requirements. This directly addresses the stated engineering problem; the other choices either skip needed lifecycle work, misuse another process, or create uncontrolled risk."
+        },
+        {
+            "topic": "Technical Reviews",
+            "difficulty": "Applied",
+            "question": "A team needs to provide objective checkpoints for technical maturity and readiness. Which activity is the best match?",
+            "answers": [
+                "System Requirements Definition",
+                "Technical Reviews",
+                "Verification",
+                "Measurement"
+            ],
+            "correct_index": 1,
+            "reason": "Technical Reviews is the best match because its purpose is to provide objective checkpoints for technical maturity and readiness. The other choices address different lifecycle or management concerns."
+        },
+        {
+            "topic": "Supply",
+            "difficulty": "Foundational",
+            "question": "Which statement best describes Supply?",
+            "answers": [
+                "Use planned, criteria-based evaluations at appropriate lifecycle points to assess maturity, evidence, risks, and readiness for decisions or progression.",
+                "Addresses failure behavior, uptime, restoration, supportability, and maintainability so the system can deliver required service over time.",
+                "Provides a product or service to an acquirer by understanding the request, planning fulfillment, executing the agreement, and delivering conforming results.",
+                "Uses quantitative and qualitative analysis to understand system behavior, compare alternatives, evaluate margins, and support technical decisions."
+            ],
+            "correct_index": 2,
+            "reason": "Supply provides a product or service to an acquirer by understanding the request, planning fulfillment, executing the agreement, and delivering conforming results. The other choices describe different systems engineering activities rather than Supply."
+        },
+        {
+            "topic": "Model-Based Systems Engineering",
+            "difficulty": "Applied",
+            "question": "A team needs to improve consistency, analysis, communication, and traceability using integrated system models. Which activity is the best match?",
+            "answers": [
+                "Model-Based Systems Engineering",
+                "Configuration Management",
+                "Implementation",
+                "Business or Mission Analysis"
+            ],
+            "correct_index": 0,
+            "reason": "Model-Based Systems Engineering is the best match because its purpose is to improve consistency, analysis, communication, and traceability using integrated system models. The other choices address different lifecycle or management concerns."
+        },
+        {
+            "topic": "Model-Based Systems Engineering",
+            "difficulty": "Foundational",
+            "question": "Which statement best describes Model-Based Systems Engineering?",
+            "answers": [
+                "Establishes the project's technical and management plans, objectives, resources, schedules, strategies, and work structure.",
+                "Confirms by objective evidence that specified requirements have been fulfilled: the system was built right.",
+                "Transforms stakeholder needs and requirements into a technically expressed, measurable, verifiable set of system requirements.",
+                "Uses formalized models as significant engineering artifacts to support specification, analysis, design, communication, and verification across the lifecycle."
+            ],
+            "correct_index": 3,
+            "reason": "Model-Based Systems Engineering uses formalized models as significant engineering artifacts to support specification, analysis, design, communication, and verification across the lifecycle. The other choices describe different systems engineering activities rather than Model-Based Systems Engineering."
+        },
+        {
+            "topic": "Transition",
+            "difficulty": "Foundational",
+            "question": "Which statement best describes Transition?",
+            "answers": [
+                "Moves the verified system into its intended operational environment and establishes the capabilities needed for use.",
+                "Assesses actual project performance against plans and takes corrective action when significant deviations occur.",
+                "Integrates human capabilities, limitations, roles, workload, training, staffing, usability, and human-machine interactions into system engineering decisions.",
+                "Provides confidence that processes and work products comply with applicable requirements, standards, procedures, and quality criteria."
+            ],
+            "correct_index": 0,
+            "reason": "Transition moves the verified system into its intended operational environment and establishes the capabilities needed for use. The other choices describe different systems engineering activities rather than Transition."
+        },
+        {
+            "topic": "Project Planning",
+            "difficulty": "Foundational",
+            "question": "Which statement best describes Project Planning?",
+            "answers": [
+                "Plans, controls, protects, stores, retrieves, and disposes of project and technical information so authorized people have trustworthy information when needed.",
+                "Provides and maintains the facilities, tools, environments, communication resources, and other infrastructure needed to execute projects.",
+                "Establishes the project's technical and management plans, objectives, resources, schedules, strategies, and work structure.",
+                "Defines, controls, communicates, and verifies interfaces among system elements and external systems so interacting parts remain compatible."
+            ],
+            "correct_index": 2,
+            "reason": "Project Planning establishes the project's technical and management plans, objectives, resources, schedules, strategies, and work structure. The other choices describe different systems engineering activities rather than Project Planning."
+        },
+        {
+            "topic": "Stakeholder Needs and Requirements Definition",
+            "difficulty": "Applied",
+            "question": "A team needs to capture what stakeholders need the system to accomplish in its intended operational context. Which activity is the best match?",
+            "answers": [
+                "Design Definition",
+                "Acquisition",
+                "Transition",
+                "Stakeholder Needs and Requirements Definition"
+            ],
+            "correct_index": 3,
+            "reason": "Stakeholder Needs and Requirements Definition is the best match because its purpose is to capture what stakeholders need the system to accomplish in its intended operational context. The other choices address different lifecycle or management concerns."
+        },
+        {
+            "topic": "Business or Mission Analysis",
+            "difficulty": "Applied",
+            "question": "A team needs to understand the mission problem, opportunity, and solution space before committing to a specific system solution. Which activity is the best match?",
+            "answers": [
+                "Business or Mission Analysis",
+                "Architecture Definition",
+                "Quality Assurance",
+                "Validation"
+            ],
+            "correct_index": 0,
+            "reason": "Business or Mission Analysis is the best match because its purpose is to understand the mission problem, opportunity, and solution space before committing to a specific system solution. The other choices address different lifecycle or management concerns."
+        },
+        {
+            "topic": "Architecture Definition",
+            "difficulty": "Foundational",
+            "question": "Which statement best describes Architecture Definition?",
+            "answers": [
+                "Develops candidate architectures and selects an architecture that organizes system elements, interfaces, and relationships to satisfy concerns and requirements.",
+                "Confirms by objective evidence that specified requirements have been fulfilled: the system was built right.",
+                "Defines, collects, analyzes, and reports measures that provide objective information for technical and management decisions.",
+                "Establishes the project's technical and management plans, objectives, resources, schedules, strategies, and work structure."
+            ],
+            "correct_index": 0,
+            "reason": "Architecture Definition develops candidate architectures and selects an architecture that organizes system elements, interfaces, and relationships to satisfy concerns and requirements. The other choices describe different systems engineering activities rather than Architecture Definition."
+        },
+        {
+            "topic": "Project Planning",
+            "difficulty": "Foundational",
+            "question": "Which work product is most directly associated with Project Planning?",
+            "answers": [
+                "project and systems engineering plans, schedules, work packages, resources, and technical strategies",
+                "human performance requirements, task analyses, workload/usability evidence, staffing and training considerations",
+                "a baselined set of system requirements with attributes and traceability",
+                "configuration baselines, change records, status accounting, and audit results"
+            ],
+            "correct_index": 0,
+            "reason": "The most direct work product is project and systems engineering plans, schedules, work packages, resources, and technical strategies. The alternatives are legitimate systems engineering work products, but they are primarily associated with other activities."
+        },
+        {
+            "topic": "Security Engineering",
+            "difficulty": "Applied",
+            "question": "A team needs to protect system assets and mission functions against relevant threats while balancing other system objectives. Which activity is the best match?",
+            "answers": [
+                "Security Engineering",
+                "Requirements Traceability",
+                "Decision Management",
+                "Design Definition"
+            ],
+            "correct_index": 0,
+            "reason": "Security Engineering is the best match because its purpose is to protect system assets and mission functions against relevant threats while balancing other system objectives. The other choices address different lifecycle or management concerns."
+        },
+        {
+            "topic": "Risk Management",
+            "difficulty": "Foundational",
+            "question": "Which statement best describes Risk Management?",
+            "answers": [
+                "Addresses failure behavior, uptime, restoration, supportability, and maintainability so the system can deliver required service over time.",
+                "Obtains a product or service from a supplier by defining acquisition needs, selecting suppliers, establishing agreements, and monitoring fulfillment.",
+                "Use planned, criteria-based evaluations at appropriate lifecycle points to assess maturity, evidence, risks, and readiness for decisions or progression.",
+                "Identifies, analyzes, treats, and monitors uncertain events or conditions that could affect objectives."
+            ],
+            "correct_index": 3,
+            "reason": "Risk Management identifies, analyzes, treats, and monitors uncertain events or conditions that could affect objectives. The other choices describe different systems engineering activities rather than Risk Management."
+        },
+        {
+            "topic": "Transition",
+            "difficulty": "Applied",
+            "question": "A team needs to deliver, install, commission, and make the system ready for operational use. Which activity is the best match?",
+            "answers": [
+                "Transition",
+                "Interface Management",
+                "Information Management",
+                "Disposal"
+            ],
+            "correct_index": 0,
+            "reason": "Transition is the best match because its purpose is to deliver, install, commission, and make the system ready for operational use. The other choices address different lifecycle or management concerns."
+        },
+        {
+            "topic": "Implementation",
+            "difficulty": "Applied",
+            "question": "A team needs to build or produce system elements according to their design. Which activity is the best match?",
+            "answers": [
+                "Validation",
+                "Project Assessment and Control",
+                "Implementation",
+                "Human Systems Integration"
+            ],
+            "correct_index": 2,
+            "reason": "Implementation is the best match because its purpose is to build or produce system elements according to their design. The other choices address different lifecycle or management concerns."
+        },
+        {
+            "topic": "Life Cycle Model Management",
+            "difficulty": "Scenario",
+            "question": "An organization develops safety-critical products, prototypes, and sustainment upgrades, but every project invents its lifecycle from scratch. What should the systems engineering team do next?",
+            "answers": [
+                "Force every project to use the exact same lifecycle without tailoring.",
+                "Establish and maintain suitable lifecycle models with defined tailoring guidance for different project contexts.",
+                "Treat the system architecture as the organization's lifecycle model.",
+                "Let projects define lifecycle gates only after work is complete."
+            ],
+            "correct_index": 1,
+            "reason": "The best next step is to establish and maintain suitable lifecycle models with defined tailoring guidance for different project contexts. This directly addresses the stated engineering problem; the other choices either skip needed lifecycle work, misuse another process, or create uncontrolled risk."
+        },
+        {
+            "topic": "Interface Management",
+            "difficulty": "Foundational",
+            "question": "Which work product is most directly associated with Interface Management?",
+            "answers": [
+                "interface requirements, interface control information, ownership, change records, and verification evidence",
+                "a defined problem or opportunity, mission context, and candidate solution concepts",
+                "validation evidence against stakeholder needs, intended use, and operational scenarios",
+                "managed technical information repositories, access controls, metadata, and retention rules"
+            ],
+            "correct_index": 0,
+            "reason": "The most direct work product is interface requirements, interface control information, ownership, change records, and verification evidence. The alternatives are legitimate systems engineering work products, but they are primarily associated with other activities."
+        },
+        {
+            "topic": "Design Definition",
+            "difficulty": "Foundational",
+            "question": "Which statement best describes Design Definition?",
+            "answers": [
+                "Provides sufficiently detailed design characteristics of system elements so they can be implemented consistently with the architecture and requirements.",
+                "Confirms by objective evidence that the system, when used in its intended environment, fulfills stakeholder needs and intended use: the right system was built.",
+                "Provides confidence that processes and work products comply with applicable requirements, standards, procedures, and quality criteria.",
+                "Assesses actual project performance against plans and takes corrective action when significant deviations occur."
+            ],
+            "correct_index": 0,
+            "reason": "Design Definition provides sufficiently detailed design characteristics of system elements so they can be implemented consistently with the architecture and requirements. The other choices describe different systems engineering activities rather than Design Definition."
+        },
+        {
+            "topic": "Design Definition",
+            "difficulty": "Applied",
+            "question": "A team needs to refine architecture into implementable system-element designs. Which activity is the best match?",
+            "answers": [
+                "Design Definition",
+                "Infrastructure Management",
+                "Integration",
+                "Disposal"
+            ],
+            "correct_index": 0,
+            "reason": "Design Definition is the best match because its purpose is to refine architecture into implementable system-element designs. The other choices address different lifecycle or management concerns."
+        },
+        {
+            "topic": "Information Management",
+            "difficulty": "Foundational",
+            "question": "Which work product is most directly associated with Information Management?",
+            "answers": [
+                "supplier plans, delivered product or service, compliance evidence, and agreement closure information",
+                "managed technical information repositories, access controls, metadata, and retention rules",
+                "controlled system models with defined semantics, viewpoints, relationships, and links to engineering evidence",
+                "integrated assemblies, interface results, discrepancy records, and integration evidence"
+            ],
+            "correct_index": 1,
+            "reason": "The most direct work product is managed technical information repositories, access controls, metadata, and retention rules. The alternatives are legitimate systems engineering work products, but they are primarily associated with other activities."
+        },
+        {
+            "topic": "Quality Assurance",
+            "difficulty": "Scenario",
+            "question": "The project must know whether engineering reviews and work products actually comply with required procedures and quality criteria. What should the systems engineering team do next?",
+            "answers": [
+                "Use stakeholder validation as the only quality assurance activity.",
+                "Let the author of every work product be the sole judge of its quality.",
+                "Perform planned quality evaluations, document nonconformances, and verify corrective actions.",
+                "Assume schedule performance proves process compliance."
+            ],
+            "correct_index": 2,
+            "reason": "The best next step is to perform planned quality evaluations, document nonconformances, and verify corrective actions. This directly addresses the stated engineering problem; the other choices either skip needed lifecycle work, misuse another process, or create uncontrolled risk."
+        },
+        {
+            "topic": "Integration",
+            "difficulty": "Scenario",
+            "question": "Individually tested components are available, but the team must combine them while controlling interface dependencies and fault isolation. What should the systems engineering team do next?",
+            "answers": [
+                "Validate user mission effectiveness before establishing the component interfaces.",
+                "Skip intermediate integration levels and combine everything at once regardless of risk.",
+                "Change stakeholder requirements whenever an interface defect appears.",
+                "Integrate elements in the planned sequence and evaluate interfaces as assemblies are formed."
+            ],
+            "correct_index": 3,
+            "reason": "The best next step is to integrate elements in the planned sequence and evaluate interfaces as assemblies are formed. This directly addresses the stated engineering problem; the other choices either skip needed lifecycle work, misuse another process, or create uncontrolled risk."
+        },
+        {
+            "topic": "Acquisition",
+            "difficulty": "Scenario",
+            "question": "A program needs a specialized radar subsystem that will be developed by an external company. What should the systems engineering team do next?",
+            "answers": [
+                "Treat the supplier's internal design as automatically satisfying system requirements.",
+                "Define acquisition needs and acceptance criteria, select a suitable supplier, establish the agreement, and monitor supplier performance.",
+                "Begin supplier work before defining what will be accepted.",
+                "Avoid technical monitoring because the work is under contract."
+            ],
+            "correct_index": 1,
+            "reason": "The best next step is to define acquisition needs and acceptance criteria, select a suitable supplier, establish the agreement, and monitor supplier performance. This directly addresses the stated engineering problem; the other choices either skip needed lifecycle work, misuse another process, or create uncontrolled risk."
+        },
+        {
+            "topic": "Infrastructure Management",
+            "difficulty": "Scenario",
+            "question": "A verification team cannot execute planned tests because the required lab, licenses, networks, and calibrated equipment are unavailable. What should the systems engineering team do next?",
+            "answers": [
+                "Ask configuration management to substitute for missing test facilities.",
+                "Rewrite verification requirements to match whatever equipment happens to be available.",
+                "Plan, provide, maintain, and control the infrastructure needed for the engineering work.",
+                "Declare the tests passed based on analysis because the lab was not planned."
+            ],
+            "correct_index": 2,
+            "reason": "The best next step is to plan, provide, maintain, and control the infrastructure needed for the engineering work. This directly addresses the stated engineering problem; the other choices either skip needed lifecycle work, misuse another process, or create uncontrolled risk."
+        },
+        {
+            "topic": "Tailoring",
+            "difficulty": "Scenario",
+            "question": "A low-risk prototype and a safety-critical operational system are being forced to use identical process detail and review depth. What should the systems engineering team do next?",
+            "answers": [
+                "Apply maximum ceremony to every activity regardless of project context.",
+                "Treat tailoring as permission to skip required evidence.",
+                "Tailor the lifecycle approach based on project context, risk, complexity, constraints, and mandatory obligations, documenting the rationale.",
+                "Delete inconvenient process outcomes without considering risk or obligations."
+            ],
+            "correct_index": 2,
+            "reason": "The best next step is to tailor the lifecycle approach based on project context, risk, complexity, constraints, and mandatory obligations, documenting the rationale. This directly addresses the stated engineering problem; the other choices either skip needed lifecycle work, misuse another process, or create uncontrolled risk."
+        },
+        {
+            "topic": "Decision Management",
+            "difficulty": "Foundational",
+            "question": "Which statement best describes Decision Management?",
+            "answers": [
+                "Provides confidence that processes and work products comply with applicable requirements, standards, procedures, and quality criteria.",
+                "Integrates human capabilities, limitations, roles, workload, training, staffing, usability, and human-machine interactions into system engineering decisions.",
+                "Provides a structured, traceable process for identifying alternatives, evaluation criteria, analysis, selection, and rationale for significant decisions.",
+                "Maintains relationships among needs, requirements, architecture, design, verification, validation, and changes so coverage and impacts can be assessed."
+            ],
+            "correct_index": 2,
+            "reason": "Decision Management provides a structured, traceable process for identifying alternatives, evaluation criteria, analysis, selection, and rationale for significant decisions. The other choices describe different systems engineering activities rather than Decision Management."
+        },
+        {
+            "topic": "Safety Engineering",
+            "difficulty": "Foundational",
+            "question": "Which statement best describes Safety Engineering?",
+            "answers": [
+                "Uses the system to deliver its intended services while monitoring performance, incidents, resources, and operational effectiveness.",
+                "Use planned, criteria-based evaluations at appropriate lifecycle points to assess maturity, evidence, risks, and readiness for decisions or progression.",
+                "Uses quantitative and qualitative analysis to understand system behavior, compare alternatives, evaluate margins, and support technical decisions.",
+                "Identifies hazards, assesses safety risk, establishes safety constraints, and verifies controls so unacceptable harm is prevented or reduced."
+            ],
+            "correct_index": 3,
+            "reason": "Safety Engineering identifies hazards, assesses safety risk, establishes safety constraints, and verifies controls so unacceptable harm is prevented or reduced. The other choices describe different systems engineering activities rather than Safety Engineering."
+        },
+        {
+            "topic": "Interface Management",
+            "difficulty": "Foundational",
+            "question": "Which statement best describes Interface Management?",
+            "answers": [
+                "Ends use of a system or system element and handles retirement, decommissioning, data, materials, and environmental or safety obligations.",
+                "Defines, controls, communicates, and verifies interfaces among system elements and external systems so interacting parts remain compatible.",
+                "Transforms stakeholder expectations, needs, constraints, and operational concepts into a coherent set of stakeholder needs and requirements.",
+                "Combines implemented system elements and establishes their interfaces according to the planned integration strategy."
+            ],
+            "correct_index": 1,
+            "reason": "Interface Management defines, controls, communicates, and verifies interfaces among system elements and external systems so interacting parts remain compatible. The other choices describe different systems engineering activities rather than Interface Management."
+        },
+        {
+            "topic": "Measurement",
+            "difficulty": "Foundational",
+            "question": "Which statement best describes Measurement?",
+            "answers": [
+                "Transforms stakeholder needs and requirements into a technically expressed, measurable, verifiable set of system requirements.",
+                "Defines, controls, communicates, and verifies interfaces among system elements and external systems so interacting parts remain compatible.",
+                "Defines, collects, analyzes, and reports measures that provide objective information for technical and management decisions.",
+                "Provides and maintains the facilities, tools, environments, communication resources, and other infrastructure needed to execute projects."
+            ],
+            "correct_index": 2,
+            "reason": "Measurement defines, collects, analyzes, and reports measures that provide objective information for technical and management decisions. The other choices describe different systems engineering activities rather than Measurement."
+        },
+        {
+            "topic": "Validation",
+            "difficulty": "Scenario",
+            "question": "A command-and-control system passes every specified requirement, but operators say it cannot support the real mission workflow under operational conditions. What should the systems engineering team do next?",
+            "answers": [
+                "Declare success because all system-level requirements were verified.",
+                "Evaluate the system against stakeholder needs and intended-use scenarios in a representative operational context.",
+                "Limit evaluation to source-code inspections.",
+                "Rewrite the operational workflow to match the product without stakeholder approval."
+            ],
+            "correct_index": 1,
+            "reason": "The best next step is to evaluate the system against stakeholder needs and intended-use scenarios in a representative operational context. This directly addresses the stated engineering problem; the other choices either skip needed lifecycle work, misuse another process, or create uncontrolled risk."
+        },
+        {
+            "topic": "Requirements Traceability",
+            "difficulty": "Foundational",
+            "question": "Which work product is most directly associated with Requirements Traceability?",
+            "answers": [
+                "operational records, performance data, incident information, and service results",
+                "bidirectional trace relationships and coverage or impact reports",
+                "quality evaluations, nonconformance records, audit findings, and corrective-action evidence",
+                "a baselined set of system requirements with attributes and traceability"
+            ],
+            "correct_index": 1,
+            "reason": "The most direct work product is bidirectional trace relationships and coverage or impact reports. The alternatives are legitimate systems engineering work products, but they are primarily associated with other activities."
+        },
+        {
+            "topic": "Architecture Definition",
+            "difficulty": "Applied",
+            "question": "A team needs to establish the fundamental structure, interfaces, relationships, and viewpoints of the system. Which activity is the best match?",
+            "answers": [
+                "Implementation",
+                "Maintenance",
+                "Architecture Definition",
+                "Life Cycle Model Management"
+            ],
+            "correct_index": 2,
+            "reason": "Architecture Definition is the best match because its purpose is to establish the fundamental structure, interfaces, relationships, and viewpoints of the system. The other choices address different lifecycle or management concerns."
+        },
+        {
+            "topic": "Transition",
+            "difficulty": "Scenario",
+            "question": "A verified system must be installed at the operational site, configured with site data, accepted, and prepared for users. What should the systems engineering team do next?",
+            "answers": [
+                "Return to architecture definition solely because shipping has begun.",
+                "Execute transition activities such as delivery, installation, commissioning, training, and readiness confirmation.",
+                "Perform only component implementation and assume the site will make it operational.",
+                "Treat deployment as disposal because the development environment is no longer needed."
+            ],
+            "correct_index": 1,
+            "reason": "The best next step is to execute transition activities such as delivery, installation, commissioning, training, and readiness confirmation. This directly addresses the stated engineering problem; the other choices either skip needed lifecycle work, misuse another process, or create uncontrolled risk."
+        },
+        {
+            "topic": "Supply",
+            "difficulty": "Foundational",
+            "question": "Which work product is most directly associated with Supply?",
+            "answers": [
+                "human performance requirements, task analyses, workload/usability evidence, staffing and training considerations",
+                "supplier plans, delivered product or service, compliance evidence, and agreement closure information",
+                "operational records, performance data, incident information, and service results",
+                "a validated set of stakeholder needs and stakeholder requirements"
+            ],
+            "correct_index": 1,
+            "reason": "The most direct work product is supplier plans, delivered product or service, compliance evidence, and agreement closure information. The alternatives are legitimate systems engineering work products, but they are primarily associated with other activities."
+        },
+        {
+            "topic": "Decision Management",
+            "difficulty": "Foundational",
+            "question": "Which work product is most directly associated with Decision Management?",
+            "answers": [
+                "defined measures, collection procedures, analyzed data, indicators, and reports",
+                "hazard analyses, safety requirements, risk controls, safety cases or evidence, and residual-risk decisions",
+                "detailed design descriptions for system elements and their interfaces",
+                "decision records containing alternatives, criteria, analysis, selection, and rationale"
+            ],
+            "correct_index": 3,
+            "reason": "The most direct work product is decision records containing alternatives, criteria, analysis, selection, and rationale. The alternatives are legitimate systems engineering work products, but they are primarily associated with other activities."
+        },
+        {
+            "topic": "Project Planning",
+            "difficulty": "Applied",
+            "question": "A team needs to define how the systems engineering effort will be organized, resourced, sequenced, and controlled. Which activity is the best match?",
+            "answers": [
+                "Project Planning",
+                "Risk Management",
+                "Business or Mission Analysis",
+                "Supply"
+            ],
+            "correct_index": 0,
+            "reason": "Project Planning is the best match because its purpose is to define how the systems engineering effort will be organized, resourced, sequenced, and controlled. The other choices address different lifecycle or management concerns."
+        },
+        {
+            "topic": "Quality Assurance",
+            "difficulty": "Foundational",
+            "question": "Which statement best describes Quality Assurance?",
+            "answers": [
+                "Provides confidence that processes and work products comply with applicable requirements, standards, procedures, and quality criteria.",
+                "Develops candidate architectures and selects an architecture that organizes system elements, interfaces, and relationships to satisfy concerns and requirements.",
+                "Adapts lifecycle processes, activities, methods, reviews, and work products to the project's context while preserving necessary outcomes and obligations.",
+                "Uses formalized models as significant engineering artifacts to support specification, analysis, design, communication, and verification across the lifecycle."
+            ],
+            "correct_index": 0,
+            "reason": "Quality Assurance provides confidence that processes and work products comply with applicable requirements, standards, procedures, and quality criteria. The other choices describe different systems engineering activities rather than Quality Assurance."
+        },
+        {
+            "topic": "Interface Management",
+            "difficulty": "Scenario",
+            "question": "Two subsystem teams implemented different units, message timing, and field definitions because each used a different interface document. What should the systems engineering team do next?",
+            "answers": [
+                "Let each subsystem maintain its own unofficial interpretation.",
+                "Wait until final validation to compare interface assumptions.",
+                "Establish an authoritative controlled interface definition, reconcile discrepancies, assign ownership, and verify both sides against it.",
+                "Resolve the mismatch by changing only the test script."
+            ],
+            "correct_index": 2,
+            "reason": "The best next step is to establish an authoritative controlled interface definition, reconcile discrepancies, assign ownership, and verify both sides against it. This directly addresses the stated engineering problem; the other choices either skip needed lifecycle work, misuse another process, or create uncontrolled risk."
+        },
+        {
+            "topic": "System Requirements Definition",
+            "difficulty": "Applied",
+            "question": "A team needs to define what the system must do and the constraints it must satisfy in technical and verifiable terms. Which activity is the best match?",
+            "answers": [
+                "System Requirements Definition",
+                "Supply",
+                "System Analysis",
+                "Operation"
+            ],
+            "correct_index": 0,
+            "reason": "System Requirements Definition is the best match because its purpose is to define what the system must do and the constraints it must satisfy in technical and verifiable terms. The other choices address different lifecycle or management concerns."
+        },
+        {
+            "topic": "Configuration Management",
+            "difficulty": "Applied",
+            "question": "A team needs to ensure teams know what configuration is approved and control changes to it. Which activity is the best match?",
+            "answers": [
+                "Human Systems Integration",
+                "Quality Assurance",
+                "Design Definition",
+                "Configuration Management"
+            ],
+            "correct_index": 3,
+            "reason": "Configuration Management is the best match because its purpose is to ensure teams know what configuration is approved and control changes to it. The other choices address different lifecycle or management concerns."
+        },
+        {
+            "topic": "Design Definition",
+            "difficulty": "Foundational",
+            "question": "Which work product is most directly associated with Design Definition?",
+            "answers": [
+                "detailed design descriptions for system elements and their interfaces",
+                "human performance requirements, task analyses, workload/usability evidence, staffing and training considerations",
+                "risk records with causes, events, consequences, likelihood, impact, owners, treatments, and status",
+                "verification procedures, results, requirement coverage, and discrepancy records"
+            ],
+            "correct_index": 0,
+            "reason": "The most direct work product is detailed design descriptions for system elements and their interfaces. The alternatives are legitimate systems engineering work products, but they are primarily associated with other activities."
+        },
+        {
+            "topic": "Risk Management",
+            "difficulty": "Foundational",
+            "question": "Which work product is most directly associated with Risk Management?",
+            "answers": [
+                "analysis results, models, assumptions, sensitivities, margins, and trade-study evidence",
+                "quality evaluations, nonconformance records, audit findings, and corrective-action evidence",
+                "security requirements, threat and vulnerability analyses, security architecture, control evidence, and residual-risk decisions",
+                "risk records with causes, events, consequences, likelihood, impact, owners, treatments, and status"
+            ],
+            "correct_index": 3,
+            "reason": "The most direct work product is risk records with causes, events, consequences, likelihood, impact, owners, treatments, and status. The alternatives are legitimate systems engineering work products, but they are primarily associated with other activities."
+        },
+        {
+            "topic": "Quality Assurance",
+            "difficulty": "Foundational",
+            "question": "Which work product is most directly associated with Quality Assurance?",
+            "answers": [
+                "review criteria, evidence packages, findings, actions, and disposition decisions",
+                "quality evaluations, nonconformance records, audit findings, and corrective-action evidence",
+                "available and maintained facilities, tools, environments, networks, and support resources",
+                "validation evidence against stakeholder needs, intended use, and operational scenarios"
+            ],
+            "correct_index": 1,
+            "reason": "The most direct work product is quality evaluations, nonconformance records, audit findings, and corrective-action evidence. The alternatives are legitimate systems engineering work products, but they are primarily associated with other activities."
+        },
+        {
+            "topic": "Reliability, Availability, and Maintainability",
+            "difficulty": "Foundational",
+            "question": "Which statement best describes Reliability, Availability, and Maintainability?",
+            "answers": [
+                "Provides sufficiently detailed design characteristics of system elements so they can be implemented consistently with the architecture and requirements.",
+                "Addresses failure behavior, uptime, restoration, supportability, and maintainability so the system can deliver required service over time.",
+                "Maintains relationships among needs, requirements, architecture, design, verification, validation, and changes so coverage and impacts can be assessed.",
+                "Moves the verified system into its intended operational environment and establishes the capabilities needed for use."
+            ],
+            "correct_index": 1,
+            "reason": "Reliability, Availability, and Maintainability addresses failure behavior, uptime, restoration, supportability, and maintainability so the system can deliver required service over time. The other choices describe different systems engineering activities rather than Reliability, Availability, and Maintainability."
+        },
+        {
+            "topic": "Requirements Traceability",
+            "difficulty": "Scenario",
+            "question": "A stakeholder need changes and the team must identify affected system requirements, components, interfaces, tests, and validation evidence. What should the systems engineering team do next?",
+            "answers": [
+                "Create trace links once at project start and never maintain them.",
+                "Search filenames manually and assume every impact will be found.",
+                "Trace requirements only downward so the originating need cannot be identified.",
+                "Use bidirectional trace relationships to perform change-impact and coverage analysis."
+            ],
+            "correct_index": 3,
+            "reason": "The best next step is to use bidirectional trace relationships to perform change-impact and coverage analysis. This directly addresses the stated engineering problem; the other choices either skip needed lifecycle work, misuse another process, or create uncontrolled risk."
+        },
+        {
+            "topic": "Disposal",
+            "difficulty": "Foundational",
+            "question": "Which work product is most directly associated with Disposal?",
+            "answers": [
+                "a validated set of stakeholder needs and stakeholder requirements",
+                "documented tailoring decisions, rationale, approvals, and project-specific process definitions",
+                "risk records with causes, events, consequences, likelihood, impact, owners, treatments, and status",
+                "decommissioning and disposal records, recovered assets, sanitized data, and closed hazards"
+            ],
+            "correct_index": 3,
+            "reason": "The most direct work product is decommissioning and disposal records, recovered assets, sanitized data, and closed hazards. The alternatives are legitimate systems engineering work products, but they are primarily associated with other activities."
+        },
+        {
+            "topic": "Human Systems Integration",
+            "difficulty": "Foundational",
+            "question": "Which work product is most directly associated with Human Systems Integration?",
+            "answers": [
+                "interface requirements, interface control information, ownership, change records, and verification evidence",
+                "human performance requirements, task analyses, workload/usability evidence, staffing and training considerations",
+                "analysis results, models, assumptions, sensitivities, margins, and trade-study evidence",
+                "status assessments, forecasts, corrective actions, and updated plans when authorized"
+            ],
+            "correct_index": 1,
+            "reason": "The most direct work product is human performance requirements, task analyses, workload/usability evidence, staffing and training considerations. The alternatives are legitimate systems engineering work products, but they are primarily associated with other activities."
+        },
+        {
+            "topic": "Maintenance",
+            "difficulty": "Applied",
+            "question": "A team needs to preserve or restore system capability throughout useful life. Which activity is the best match?",
+            "answers": [
+                "Project Assessment and Control",
+                "Maintenance",
+                "Requirements Traceability",
+                "Quality Assurance"
+            ],
+            "correct_index": 1,
+            "reason": "Maintenance is the best match because its purpose is to preserve or restore system capability throughout useful life. The other choices address different lifecycle or management concerns."
+        },
+        {
+            "topic": "Project Assessment and Control",
+            "difficulty": "Foundational",
+            "question": "Which work product is most directly associated with Project Assessment and Control?",
+            "answers": [
+                "an architecture description with elements, interfaces, relationships, views, and rationale",
+                "managed technical information repositories, access controls, metadata, and retention rules",
+                "status assessments, forecasts, corrective actions, and updated plans when authorized",
+                "reliability models, failure analyses, availability allocations, maintainability requirements, and demonstration evidence"
+            ],
+            "correct_index": 2,
+            "reason": "The most direct work product is status assessments, forecasts, corrective actions, and updated plans when authorized. The alternatives are legitimate systems engineering work products, but they are primarily associated with other activities."
+        },
+        {
+            "topic": "Measurement",
+            "difficulty": "Foundational",
+            "question": "Which work product is most directly associated with Measurement?",
+            "answers": [
+                "approved lifecycle models, process descriptions, tailoring guidance, and improvement records",
+                "bidirectional trace relationships and coverage or impact reports",
+                "defined measures, collection procedures, analyzed data, indicators, and reports",
+                "verification procedures, results, requirement coverage, and discrepancy records"
+            ],
+            "correct_index": 2,
+            "reason": "The most direct work product is defined measures, collection procedures, analyzed data, indicators, and reports. The alternatives are legitimate systems engineering work products, but they are primarily associated with other activities."
+        },
+        {
+            "topic": "Validation",
+            "difficulty": "Foundational",
+            "question": "Which statement best describes Validation?",
+            "answers": [
+                "Adapts lifecycle processes, activities, methods, reviews, and work products to the project's context while preserving necessary outcomes and obligations.",
+                "Establishes the project's technical and management plans, objectives, resources, schedules, strategies, and work structure.",
+                "Confirms by objective evidence that the system, when used in its intended environment, fulfills stakeholder needs and intended use: the right system was built.",
+                "Defines, collects, analyzes, and reports measures that provide objective information for technical and management decisions."
+            ],
+            "correct_index": 2,
+            "reason": "Validation confirms by objective evidence that the system, when used in its intended environment, fulfills stakeholder needs and intended use: the right system was built. The other choices describe different systems engineering activities rather than Validation."
+        },
+        {
+            "topic": "Life Cycle Model Management",
+            "difficulty": "Foundational",
+            "question": "Which statement best describes Life Cycle Model Management?",
+            "answers": [
+                "Defines the problem or opportunity, mission context, major stakeholders, and candidate solution concepts before detailed system requirements are established.",
+                "Establishes, maintains, and improves lifecycle models and process frameworks that projects can select and tailor.",
+                "Realizes a specified system element in hardware, software, data, procedures, services, or other implementation form.",
+                "Identifies hazards, assesses safety risk, establishes safety constraints, and verifies controls so unacceptable harm is prevented or reduced."
+            ],
+            "correct_index": 1,
+            "reason": "Life Cycle Model Management establishes, maintains, and improves lifecycle models and process frameworks that projects can select and tailor. The other choices describe different systems engineering activities rather than Life Cycle Model Management."
+        },
+        {
+            "topic": "Disposal",
+            "difficulty": "Foundational",
+            "question": "Which statement best describes Disposal?",
+            "answers": [
+                "Establishes and maintains the integrity and traceability of product and work-product configurations through identification, control, status accounting, and audits.",
+                "Ends use of a system or system element and handles retirement, decommissioning, data, materials, and environmental or safety obligations.",
+                "Integrates protection needs, threats, vulnerabilities, security requirements, controls, and assurance into the system lifecycle.",
+                "Establishes, maintains, and improves lifecycle models and process frameworks that projects can select and tailor."
+            ],
+            "correct_index": 1,
+            "reason": "Disposal ends use of a system or system element and handles retirement, decommissioning, data, materials, and environmental or safety obligations. The other choices describe different systems engineering activities rather than Disposal."
+        },
+        {
+            "topic": "Risk Management",
+            "difficulty": "Scenario",
+            "question": "A critical supplier may not mature a new component before integration, which could cause a major schedule slip. What should the systems engineering team do next?",
+            "answers": [
+                "Remove the risk from the register if the team dislikes the estimated probability.",
+                "Record and analyze the risk, assign ownership, plan treatment and triggers, and monitor it through closure or acceptance.",
+                "Treat risk management as a one-time activity performed only at project kickoff.",
+                "Record only issues that have already happened; uncertain future events are not risks."
+            ],
+            "correct_index": 1,
+            "reason": "The best next step is to record and analyze the risk, assign ownership, plan treatment and triggers, and monitor it through closure or acceptance. This directly addresses the stated engineering problem; the other choices either skip needed lifecycle work, misuse another process, or create uncontrolled risk."
+        },
+        {
+            "topic": "Maintenance",
+            "difficulty": "Foundational",
+            "question": "Which work product is most directly associated with Maintenance?",
+            "answers": [
+                "a defined problem or opportunity, mission context, and candidate solution concepts",
+                "available and maintained facilities, tools, environments, networks, and support resources",
+                "maintenance actions, repair records, approved changes, and restored system capability",
+                "decision records containing alternatives, criteria, analysis, selection, and rationale"
+            ],
+            "correct_index": 2,
+            "reason": "The most direct work product is maintenance actions, repair records, approved changes, and restored system capability. The alternatives are legitimate systems engineering work products, but they are primarily associated with other activities."
+        },
+        {
+            "topic": "Verification",
+            "difficulty": "Applied",
+            "question": "A team needs to demonstrate that requirements and specified characteristics are satisfied. Which activity is the best match?",
+            "answers": [
+                "Verification",
+                "Safety Engineering",
+                "Risk Management",
+                "Operation"
+            ],
+            "correct_index": 0,
+            "reason": "Verification is the best match because its purpose is to demonstrate that requirements and specified characteristics are satisfied. The other choices address different lifecycle or management concerns."
+        },
+        {
+            "topic": "Operation",
+            "difficulty": "Foundational",
+            "question": "Which statement best describes Operation?",
+            "answers": [
+                "Obtains a product or service from a supplier by defining acquisition needs, selecting suppliers, establishing agreements, and monitoring fulfillment.",
+                "Provides a structured, traceable process for identifying alternatives, evaluation criteria, analysis, selection, and rationale for significant decisions.",
+                "Addresses failure behavior, uptime, restoration, supportability, and maintainability so the system can deliver required service over time.",
+                "Uses the system to deliver its intended services while monitoring performance, incidents, resources, and operational effectiveness."
+            ],
+            "correct_index": 3,
+            "reason": "Operation uses the system to deliver its intended services while monitoring performance, incidents, resources, and operational effectiveness. The other choices describe different systems engineering activities rather than Operation."
+        },
+        {
+            "topic": "Operation",
+            "difficulty": "Scenario",
+            "question": "The fielded system is in routine mission use and the organization is tracking availability, incidents, and operating performance. What should the systems engineering team do next?",
+            "answers": [
+                "Treat every operational incident as a reason to restart requirements definition from scratch.",
+                "Operate the system according to procedures while monitoring service performance and operational conditions.",
+                "Perform disposal planning instead of managing current service delivery.",
+                "Stop collecting performance data once the system is accepted."
+            ],
+            "correct_index": 1,
+            "reason": "The best next step is to operate the system according to procedures while monitoring service performance and operational conditions. This directly addresses the stated engineering problem; the other choices either skip needed lifecycle work, misuse another process, or create uncontrolled risk."
+        },
+        {
+            "topic": "Tailoring",
+            "difficulty": "Foundational",
+            "question": "Which work product is most directly associated with Tailoring?",
+            "answers": [
+                "project and systems engineering plans, schedules, work packages, resources, and technical strategies",
+                "documented tailoring decisions, rationale, approvals, and project-specific process definitions",
+                "security requirements, threat and vulnerability analyses, security architecture, control evidence, and residual-risk decisions",
+                "detailed design descriptions for system elements and their interfaces"
+            ],
+            "correct_index": 1,
+            "reason": "The most direct work product is documented tailoring decisions, rationale, approvals, and project-specific process definitions. The alternatives are legitimate systems engineering work products, but they are primarily associated with other activities."
+        },
+        {
+            "topic": "Information Management",
+            "difficulty": "Foundational",
+            "question": "Which statement best describes Information Management?",
+            "answers": [
+                "Establishes, maintains, and improves lifecycle models and process frameworks that projects can select and tailor.",
+                "Integrates protection needs, threats, vulnerabilities, security requirements, controls, and assurance into the system lifecycle.",
+                "Plans, controls, protects, stores, retrieves, and disposes of project and technical information so authorized people have trustworthy information when needed.",
+                "Transforms stakeholder expectations, needs, constraints, and operational concepts into a coherent set of stakeholder needs and requirements."
+            ],
+            "correct_index": 2,
+            "reason": "Information Management plans, controls, protects, stores, retrieves, and disposes of project and technical information so authorized people have trustworthy information when needed. The other choices describe different systems engineering activities rather than Information Management."
+        },
+        {
+            "topic": "Reliability, Availability, and Maintainability",
+            "difficulty": "Scenario",
+            "question": "A system must achieve 99.9% operational availability, but predicted failure and repair behavior indicate the target will not be met. What should the systems engineering team do next?",
+            "answers": [
+                "Assume redundancy always improves availability without considering common-cause failures.",
+                "Ignore repair time because reliability alone determines availability.",
+                "Analyze failure rates, repair times, redundancy, diagnostics, logistics, and allocations, then adjust the design or support concept.",
+                "Increase verification sample size without addressing failure or repair drivers."
+            ],
+            "correct_index": 2,
+            "reason": "The best next step is to analyze failure rates, repair times, redundancy, diagnostics, logistics, and allocations, then adjust the design or support concept. This directly addresses the stated engineering problem; the other choices either skip needed lifecycle work, misuse another process, or create uncontrolled risk."
+        },
+        {
+            "topic": "System Analysis",
+            "difficulty": "Scenario",
+            "question": "Two architectures both satisfy nominal requirements, but differ in lifecycle cost, reliability, latency, and growth margin. What should the systems engineering team do next?",
+            "answers": [
+                "Average all requirements into a single unweighted score without stakeholder-approved criteria.",
+                "Perform a documented multi-criteria analysis or trade study using agreed evaluation criteria and assumptions.",
+                "Select the architecture preferred by the most senior engineer without analysis.",
+                "Delay the decision until integration, when switching architectures is expensive."
+            ],
+            "correct_index": 1,
+            "reason": "The best next step is to perform a documented multi-criteria analysis or trade study using agreed evaluation criteria and assumptions. This directly addresses the stated engineering problem; the other choices either skip needed lifecycle work, misuse another process, or create uncontrolled risk."
+        },
+        {
+            "topic": "Risk Management",
+            "difficulty": "Applied",
+            "question": "A team needs to reduce the probability or consequence of threats and improve handling of uncertainty. Which activity is the best match?",
+            "answers": [
+                "Architecture Definition",
+                "Tailoring",
+                "Measurement",
+                "Risk Management"
+            ],
+            "correct_index": 3,
+            "reason": "Risk Management is the best match because its purpose is to reduce the probability or consequence of threats and improve handling of uncertainty. The other choices address different lifecycle or management concerns."
+        },
+        {
+            "topic": "Requirements Traceability",
+            "difficulty": "Foundational",
+            "question": "Which statement best describes Requirements Traceability?",
+            "answers": [
+                "Develops candidate architectures and selects an architecture that organizes system elements, interfaces, and relationships to satisfy concerns and requirements.",
+                "Confirms by objective evidence that the system, when used in its intended environment, fulfills stakeholder needs and intended use: the right system was built.",
+                "Maintains relationships among needs, requirements, architecture, design, verification, validation, and changes so coverage and impacts can be assessed.",
+                "Assesses actual project performance against plans and takes corrective action when significant deviations occur."
+            ],
+            "correct_index": 2,
+            "reason": "Requirements Traceability maintains relationships among needs, requirements, architecture, design, verification, validation, and changes so coverage and impacts can be assessed. The other choices describe different systems engineering activities rather than Requirements Traceability."
+        },
+        {
+            "topic": "Integration",
+            "difficulty": "Foundational",
+            "question": "Which work product is most directly associated with Integration?",
+            "answers": [
+                "integrated assemblies, interface results, discrepancy records, and integration evidence",
+                "operational records, performance data, incident information, and service results",
+                "security requirements, threat and vulnerability analyses, security architecture, control evidence, and residual-risk decisions",
+                "defined measures, collection procedures, analyzed data, indicators, and reports"
+            ],
+            "correct_index": 0,
+            "reason": "The most direct work product is integrated assemblies, interface results, discrepancy records, and integration evidence. The alternatives are legitimate systems engineering work products, but they are primarily associated with other activities."
+        },
+        {
+            "topic": "System Requirements Definition",
+            "difficulty": "Foundational",
+            "question": "Which work product is most directly associated with System Requirements Definition?",
+            "answers": [
+                "a baselined set of system requirements with attributes and traceability",
+                "status assessments, forecasts, corrective actions, and updated plans when authorized",
+                "available and maintained facilities, tools, environments, networks, and support resources",
+                "implemented system elements and implementation records"
+            ],
+            "correct_index": 0,
+            "reason": "The most direct work product is a baselined set of system requirements with attributes and traceability. The alternatives are legitimate systems engineering work products, but they are primarily associated with other activities."
+        },
+        {
+            "topic": "Life Cycle Model Management",
+            "difficulty": "Foundational",
+            "question": "Which work product is most directly associated with Life Cycle Model Management?",
+            "answers": [
+                "maintenance actions, repair records, approved changes, and restored system capability",
+                "approved lifecycle models, process descriptions, tailoring guidance, and improvement records",
+                "a baselined set of system requirements with attributes and traceability",
+                "reliability models, failure analyses, availability allocations, maintainability requirements, and demonstration evidence"
+            ],
+            "correct_index": 1,
+            "reason": "The most direct work product is approved lifecycle models, process descriptions, tailoring guidance, and improvement records. The alternatives are legitimate systems engineering work products, but they are primarily associated with other activities."
+        },
+        {
+            "topic": "Tailoring",
+            "difficulty": "Applied",
+            "question": "A team needs to apply an appropriate level of systems engineering rigor for the specific project and risk context. Which activity is the best match?",
+            "answers": [
+                "Business or Mission Analysis",
+                "Safety Engineering",
+                "Maintenance",
+                "Tailoring"
+            ],
+            "correct_index": 3,
+            "reason": "Tailoring is the best match because its purpose is to apply an appropriate level of systems engineering rigor for the specific project and risk context. The other choices address different lifecycle or management concerns."
+        },
+        {
+            "topic": "Safety Engineering",
+            "difficulty": "Scenario",
+            "question": "A control failure could command an unsafe actuator movement that can injure personnel. What should the systems engineering team do next?",
+            "answers": [
+                "Identify the hazard and causal paths, establish safety constraints and controls, and verify their effectiveness.",
+                "Wait for an accident before documenting the hazard.",
+                "Remove the safety requirement if it complicates the architecture.",
+                "Rely on operator caution as the only mitigation without analysis."
+            ],
+            "correct_index": 0,
+            "reason": "The best next step is to identify the hazard and causal paths, establish safety constraints and controls, and verify their effectiveness. This directly addresses the stated engineering problem; the other choices either skip needed lifecycle work, misuse another process, or create uncontrolled risk."
+        },
+        {
+            "topic": "Technical Reviews",
+            "difficulty": "Foundational",
+            "question": "Which statement best describes Technical Reviews?",
+            "answers": [
+                "Moves the verified system into its intended operational environment and establishes the capabilities needed for use.",
+                "Provides a structured, traceable process for identifying alternatives, evaluation criteria, analysis, selection, and rationale for significant decisions.",
+                "Provides sufficiently detailed design characteristics of system elements so they can be implemented consistently with the architecture and requirements.",
+                "Use planned, criteria-based evaluations at appropriate lifecycle points to assess maturity, evidence, risks, and readiness for decisions or progression."
+            ],
+            "correct_index": 3,
+            "reason": "Technical Reviews use planned, criteria-based evaluations at appropriate lifecycle points to assess maturity, evidence, risks, and readiness for decisions or progression. The other choices describe different systems engineering activities rather than Technical Reviews."
+        },
+        {
+            "topic": "Business or Mission Analysis",
+            "difficulty": "Foundational",
+            "question": "Which statement best describes Business or Mission Analysis?",
+            "answers": [
+                "Uses the system to deliver its intended services while monitoring performance, incidents, resources, and operational effectiveness.",
+                "Defines the problem or opportunity, mission context, major stakeholders, and candidate solution concepts before detailed system requirements are established.",
+                "Uses quantitative and qualitative analysis to understand system behavior, compare alternatives, evaluate margins, and support technical decisions.",
+                "Identifies, analyzes, treats, and monitors uncertain events or conditions that could affect objectives."
+            ],
+            "correct_index": 1,
+            "reason": "Business or Mission Analysis defines the problem or opportunity, mission context, major stakeholders, and candidate solution concepts before detailed system requirements are established. The other choices describe different systems engineering activities rather than Business or Mission Analysis."
+        },
+        {
+            "topic": "Operation",
+            "difficulty": "Applied",
+            "question": "A team needs to operate the system safely and effectively to provide intended services. Which activity is the best match?",
+            "answers": [
+                "Measurement",
+                "Project Planning",
+                "Model-Based Systems Engineering",
+                "Operation"
+            ],
+            "correct_index": 3,
+            "reason": "Operation is the best match because its purpose is to operate the system safely and effectively to provide intended services. The other choices address different lifecycle or management concerns."
+        },
+        {
+            "topic": "Acquisition",
+            "difficulty": "Foundational",
+            "question": "Which statement best describes Acquisition?",
+            "answers": [
+                "Obtains a product or service from a supplier by defining acquisition needs, selecting suppliers, establishing agreements, and monitoring fulfillment.",
+                "Maintains relationships among needs, requirements, architecture, design, verification, validation, and changes so coverage and impacts can be assessed.",
+                "Integrates human capabilities, limitations, roles, workload, training, staffing, usability, and human-machine interactions into system engineering decisions.",
+                "Provides sufficiently detailed design characteristics of system elements so they can be implemented consistently with the architecture and requirements."
+            ],
+            "correct_index": 0,
+            "reason": "Acquisition obtains a product or service from a supplier by defining acquisition needs, selecting suppliers, establishing agreements, and monitoring fulfillment. The other choices describe different systems engineering activities rather than Acquisition."
+        },
+        {
+            "topic": "Measurement",
+            "difficulty": "Scenario",
+            "question": "Leadership asks whether integration quality is improving, but the team has only anecdotes and no consistent defect or test trend data. What should the systems engineering team do next?",
+            "answers": [
+                "Define decision-relevant measures, collect data consistently, analyze trends, and report useful indicators.",
+                "Collect every available metric without linking measures to information needs.",
+                "Use a single good week as proof that the trend is permanently improved.",
+                "Replace quantitative measures with informal impressions from status meetings."
+            ],
+            "correct_index": 0,
+            "reason": "The best next step is to define decision-relevant measures, collect data consistently, analyze trends, and report useful indicators. This directly addresses the stated engineering problem; the other choices either skip needed lifecycle work, misuse another process, or create uncontrolled risk."
+        },
+        {
+            "topic": "Interface Management",
+            "difficulty": "Applied",
+            "question": "A team needs to maintain consistent interface definitions across organizational and technical boundaries. Which activity is the best match?",
+            "answers": [
+                "Interface Management",
+                "Risk Management",
+                "Technical Reviews",
+                "System Analysis"
+            ],
+            "correct_index": 0,
+            "reason": "Interface Management is the best match because its purpose is to maintain consistent interface definitions across organizational and technical boundaries. The other choices address different lifecycle or management concerns."
+        },
+        {
+            "topic": "Architecture Definition",
+            "difficulty": "Scenario",
+            "question": "A program has stable system requirements but teams disagree about partitioning functions, allocating behavior, and defining major interfaces. What should the systems engineering team do next?",
+            "answers": [
+                "Choose the architecture solely because it matches the previous program.",
+                "Jump directly to detailed component drawings without evaluating system structure.",
+                "Treat interface definitions as an integration-only activity performed after components are complete.",
+                "Develop and evaluate candidate architectures, then define the selected system structure and key interfaces."
+            ],
+            "correct_index": 3,
+            "reason": "The best next step is to develop and evaluate candidate architectures, then define the selected system structure and key interfaces. This directly addresses the stated engineering problem; the other choices either skip needed lifecycle work, misuse another process, or create uncontrolled risk."
+        },
+        {
+            "topic": "Safety Engineering",
+            "difficulty": "Foundational",
+            "question": "Which work product is most directly associated with Safety Engineering?",
+            "answers": [
+                "bidirectional trace relationships and coverage or impact reports",
+                "hazard analyses, safety requirements, risk controls, safety cases or evidence, and residual-risk decisions",
+                "integrated assemblies, interface results, discrepancy records, and integration evidence",
+                "risk records with causes, events, consequences, likelihood, impact, owners, treatments, and status"
+            ],
+            "correct_index": 1,
+            "reason": "The most direct work product is hazard analyses, safety requirements, risk controls, safety cases or evidence, and residual-risk decisions. The alternatives are legitimate systems engineering work products, but they are primarily associated with other activities."
+        },
+        {
+            "topic": "Integration",
+            "difficulty": "Applied",
+            "question": "A team needs to assemble system elements in a controlled sequence and confirm interfaces are established. Which activity is the best match?",
+            "answers": [
+                "Transition",
+                "Decision Management",
+                "Reliability, Availability, and Maintainability",
+                "Integration"
+            ],
+            "correct_index": 3,
+            "reason": "Integration is the best match because its purpose is to assemble system elements in a controlled sequence and confirm interfaces are established. The other choices address different lifecycle or management concerns."
+        },
+        {
+            "topic": "Decision Management",
+            "difficulty": "Applied",
+            "question": "A team needs to make important decisions objectively and preserve the rationale. Which activity is the best match?",
+            "answers": [
+                "Decision Management",
+                "System Requirements Definition",
+                "Infrastructure Management",
+                "Information Management"
+            ],
+            "correct_index": 0,
+            "reason": "Decision Management is the best match because its purpose is to make important decisions objectively and preserve the rationale. The other choices address different lifecycle or management concerns."
+        },
+        {
+            "topic": "Life Cycle Model Management",
+            "difficulty": "Applied",
+            "question": "A team needs to provide suitable lifecycle models and organizational process assets for projects. Which activity is the best match?",
+            "answers": [
+                "Human Systems Integration",
+                "Requirements Traceability",
+                "Transition",
+                "Life Cycle Model Management"
+            ],
+            "correct_index": 3,
+            "reason": "Life Cycle Model Management is the best match because its purpose is to provide suitable lifecycle models and organizational process assets for projects. The other choices address different lifecycle or management concerns."
+        },
+        {
+            "topic": "Configuration Management",
+            "difficulty": "Foundational",
+            "question": "Which statement best describes Configuration Management?",
+            "answers": [
+                "Identifies hazards, assesses safety risk, establishes safety constraints, and verifies controls so unacceptable harm is prevented or reduced.",
+                "Provides a product or service to an acquirer by understanding the request, planning fulfillment, executing the agreement, and delivering conforming results.",
+                "Defines the problem or opportunity, mission context, major stakeholders, and candidate solution concepts before detailed system requirements are established.",
+                "Establishes and maintains the integrity and traceability of product and work-product configurations through identification, control, status accounting, and audits."
+            ],
+            "correct_index": 3,
+            "reason": "Configuration Management establishes and maintains the integrity and traceability of product and work-product configurations through identification, control, status accounting, and audits. The other choices describe different systems engineering activities rather than Configuration Management."
+        },
+        {
+            "topic": "Implementation",
+            "difficulty": "Scenario",
+            "question": "A software component has an approved detailed design and interface specification and is ready to be built. What should the systems engineering team do next?",
+            "answers": [
+                "Integrate the nonexistent component with the full system.",
+                "Perform stakeholder validation before producing the component.",
+                "Redefine the mission need instead of realizing the approved design.",
+                "Implement the component in accordance with the approved design and applicable standards."
+            ],
+            "correct_index": 3,
+            "reason": "The best next step is to implement the component in accordance with the approved design and applicable standards. This directly addresses the stated engineering problem; the other choices either skip needed lifecycle work, misuse another process, or create uncontrolled risk."
+        },
+        {
+            "topic": "Maintenance",
+            "difficulty": "Scenario",
+            "question": "A deployed system has a recurring failure that reduces availability and an approved corrective modification is available. What should the systems engineering team do next?",
+            "answers": [
+                "Dispose of the entire system before evaluating repair or modification.",
+                "Ignore the recurring fault because the system originally passed verification.",
+                "Diagnose the failure, implement the approved maintenance change, and confirm restored capability.",
+                "Change the configuration without authorization or records."
+            ],
+            "correct_index": 2,
+            "reason": "The best next step is to diagnose the failure, implement the approved maintenance change, and confirm restored capability. This directly addresses the stated engineering problem; the other choices either skip needed lifecycle work, misuse another process, or create uncontrolled risk."
+        },
+        {
+            "topic": "Measurement",
+            "difficulty": "Applied",
+            "question": "A team needs to provide quantitative insight into performance, progress, quality, and trends. Which activity is the best match?",
+            "answers": [
+                "Implementation",
+                "Measurement",
+                "Supply",
+                "Safety Engineering"
+            ],
+            "correct_index": 1,
+            "reason": "Measurement is the best match because its purpose is to provide quantitative insight into performance, progress, quality, and trends. The other choices address different lifecycle or management concerns."
+        },
+        {
+            "topic": "Security Engineering",
+            "difficulty": "Foundational",
+            "question": "Which work product is most directly associated with Security Engineering?",
+            "answers": [
+                "security requirements, threat and vulnerability analyses, security architecture, control evidence, and residual-risk decisions",
+                "review criteria, evidence packages, findings, actions, and disposition decisions",
+                "configuration baselines, change records, status accounting, and audit results",
+                "verification procedures, results, requirement coverage, and discrepancy records"
+            ],
+            "correct_index": 0,
+            "reason": "The most direct work product is security requirements, threat and vulnerability analyses, security architecture, control evidence, and residual-risk decisions. The alternatives are legitimate systems engineering work products, but they are primarily associated with other activities."
+        },
+        {
+            "topic": "Supply",
+            "difficulty": "Applied",
+            "question": "A team needs to satisfy an acquirer's agreed need through delivery of a product or service. Which activity is the best match?",
+            "answers": [
+                "Supply",
+                "Model-Based Systems Engineering",
+                "Tailoring",
+                "Validation"
+            ],
+            "correct_index": 0,
+            "reason": "Supply is the best match because its purpose is to satisfy an acquirer's agreed need through delivery of a product or service. The other choices address different lifecycle or management concerns."
+        },
+        {
+            "topic": "Stakeholder Needs and Requirements Definition",
+            "difficulty": "Scenario",
+            "question": "Operators, maintainers, regulators, and customers describe different expectations for a new system, and several expectations conflict. What should the systems engineering team do next?",
+            "answers": [
+                "Resolve the conflict solely by choosing the lowest-cost subsystem.",
+                "Elicit, analyze, reconcile, and document stakeholder needs and requirements in the operational context.",
+                "Wait until verification to determine what stakeholders actually needed.",
+                "Convert the first engineering design into mandatory stakeholder requirements."
+            ],
+            "correct_index": 1,
+            "reason": "The best next step is to elicit, analyze, reconcile, and document stakeholder needs and requirements in the operational context. This directly addresses the stated engineering problem; the other choices either skip needed lifecycle work, misuse another process, or create uncontrolled risk."
+        },
+        {
+            "topic": "Verification",
+            "difficulty": "Foundational",
+            "question": "Which statement best describes Verification?",
+            "answers": [
+                "Confirms by objective evidence that specified requirements have been fulfilled: the system was built right.",
+                "Ends use of a system or system element and handles retirement, decommissioning, data, materials, and environmental or safety obligations.",
+                "Provides and maintains the facilities, tools, environments, communication resources, and other infrastructure needed to execute projects.",
+                "Plans, controls, protects, stores, retrieves, and disposes of project and technical information so authorized people have trustworthy information when needed."
+            ],
+            "correct_index": 0,
+            "reason": "Verification confirms by objective evidence that specified requirements have been fulfilled: the system was built right. The other choices describe different systems engineering activities rather than Verification."
+        },
+        {
+            "topic": "Safety Engineering",
+            "difficulty": "Applied",
+            "question": "A team needs to manage hazards and safety risk throughout the system lifecycle. Which activity is the best match?",
+            "answers": [
+                "Architecture Definition",
+                "Project Assessment and Control",
+                "Model-Based Systems Engineering",
+                "Safety Engineering"
+            ],
+            "correct_index": 3,
+            "reason": "Safety Engineering is the best match because its purpose is to manage hazards and safety risk throughout the system lifecycle. The other choices address different lifecycle or management concerns."
+        },
+        {
+            "topic": "Security Engineering",
+            "difficulty": "Foundational",
+            "question": "Which statement best describes Security Engineering?",
+            "answers": [
+                "Integrates protection needs, threats, vulnerabilities, security requirements, controls, and assurance into the system lifecycle.",
+                "Defines the problem or opportunity, mission context, major stakeholders, and candidate solution concepts before detailed system requirements are established.",
+                "Sustains the system's ability to provide service by correcting faults, restoring capability, and implementing approved changes.",
+                "Realizes a specified system element in hardware, software, data, procedures, services, or other implementation form."
+            ],
+            "correct_index": 0,
+            "reason": "Security Engineering integrates protection needs, threats, vulnerabilities, security requirements, controls, and assurance into the system lifecycle. The other choices describe different systems engineering activities rather than Security Engineering."
+        },
+        {
+            "topic": "Design Definition",
+            "difficulty": "Scenario",
+            "question": "The architecture identifies processors, networks, sensors, and software services, but implementation teams still lack the detail needed to build them. What should the systems engineering team do next?",
+            "answers": [
+                "Perform system validation before the elements exist.",
+                "Refine the allocated architecture into detailed, implementable system-element designs.",
+                "Repeat stakeholder interviews instead of defining implementation detail.",
+                "Use configuration audits as a substitute for detailed design."
+            ],
+            "correct_index": 1,
+            "reason": "The best next step is to refine the allocated architecture into detailed, implementable system-element designs. This directly addresses the stated engineering problem; the other choices either skip needed lifecycle work, misuse another process, or create uncontrolled risk."
+        },
+        {
+            "topic": "Human Systems Integration",
+            "difficulty": "Scenario",
+            "question": "A control station meets hardware and software requirements, but operators miss critical alerts during high-workload conditions. What should the systems engineering team do next?",
+            "answers": [
+                "Analyze human tasks, workload, interface design, staffing, and training needs and incorporate findings into the system solution.",
+                "Treat operator error as outside the system boundary and make no design changes.",
+                "Focus only on screen colors without analyzing tasks or workload.",
+                "Wait until deployment to determine whether operators can perform the mission."
+            ],
+            "correct_index": 0,
+            "reason": "The best next step is to analyze human tasks, workload, interface design, staffing, and training needs and incorporate findings into the system solution. This directly addresses the stated engineering problem; the other choices either skip needed lifecycle work, misuse another process, or create uncontrolled risk."
+        },
+        {
+            "topic": "Technical Reviews",
+            "difficulty": "Foundational",
+            "question": "Which work product is most directly associated with Technical Reviews?",
+            "answers": [
+                "acquisition strategy, request information, supplier selection evidence, agreements, and acceptance information",
+                "maintenance actions, repair records, approved changes, and restored system capability",
+                "an architecture description with elements, interfaces, relationships, views, and rationale",
+                "review criteria, evidence packages, findings, actions, and disposition decisions"
+            ],
+            "correct_index": 3,
+            "reason": "The most direct work product is review criteria, evidence packages, findings, actions, and disposition decisions. The alternatives are legitimate systems engineering work products, but they are primarily associated with other activities."
+        },
+        {
+            "topic": "System Analysis",
+            "difficulty": "Foundational",
+            "question": "Which statement best describes System Analysis?",
+            "answers": [
+                "Moves the verified system into its intended operational environment and establishes the capabilities needed for use.",
+                "Uses quantitative and qualitative analysis to understand system behavior, compare alternatives, evaluate margins, and support technical decisions.",
+                "Obtains a product or service from a supplier by defining acquisition needs, selecting suppliers, establishing agreements, and monitoring fulfillment.",
+                "Provides a structured, traceable process for identifying alternatives, evaluation criteria, analysis, selection, and rationale for significant decisions."
+            ],
+            "correct_index": 1,
+            "reason": "System Analysis uses quantitative and qualitative analysis to understand system behavior, compare alternatives, evaluate margins, and support technical decisions. The other choices describe different systems engineering activities rather than System Analysis."
+        },
+        {
+            "topic": "Information Management",
+            "difficulty": "Applied",
+            "question": "A team needs to make authoritative technical information available, protected, understandable, and retrievable. Which activity is the best match?",
+            "answers": [
+                "Acquisition",
+                "System Analysis",
+                "Reliability, Availability, and Maintainability",
+                "Information Management"
+            ],
+            "correct_index": 3,
+            "reason": "Information Management is the best match because its purpose is to make authoritative technical information available, protected, understandable, and retrievable. The other choices address different lifecycle or management concerns."
+        },
+        {
+            "topic": "Acquisition",
+            "difficulty": "Applied",
+            "question": "A team needs to obtain needed products or services from external or internal suppliers under a defined agreement. Which activity is the best match?",
+            "answers": [
+                "Interface Management",
+                "Acquisition",
+                "Infrastructure Management",
+                "Verification"
+            ],
+            "correct_index": 1,
+            "reason": "Acquisition is the best match because its purpose is to obtain needed products or services from external or internal suppliers under a defined agreement. The other choices address different lifecycle or management concerns."
+        },
+        {
+            "topic": "Project Planning",
+            "difficulty": "Scenario",
+            "question": "A new program needs an agreed technical approach, lifecycle strategy, reviews, resources, responsibilities, and schedule. What should the systems engineering team do next?",
+            "answers": [
+                "Use only the product requirements as the complete project plan.",
+                "Wait until the first major overrun before defining responsibilities.",
+                "Develop and baseline the project and systems engineering planning information before execution.",
+                "Perform configuration audits instead of establishing work and review plans."
+            ],
+            "correct_index": 2,
+            "reason": "The best next step is to develop and baseline the project and systems engineering planning information before execution. This directly addresses the stated engineering problem; the other choices either skip needed lifecycle work, misuse another process, or create uncontrolled risk."
+        },
+        {
+            "topic": "Configuration Management",
+            "difficulty": "Scenario",
+            "question": "Two test sites are producing different results because they unknowingly use different software, interface files, and requirement revisions. What should the systems engineering team do next?",
+            "answers": [
+                "Freeze all changes permanently once the first baseline is created.",
+                "Identify the controlled configuration, reconcile baselines, and use formal change control and status accounting.",
+                "Allow each site to keep local undocumented versions for flexibility.",
+                "Resolve the discrepancy by averaging the test results."
+            ],
+            "correct_index": 1,
+            "reason": "The best next step is to identify the controlled configuration, reconcile baselines, and use formal change control and status accounting. This directly addresses the stated engineering problem; the other choices either skip needed lifecycle work, misuse another process, or create uncontrolled risk."
+        },
+        {
+            "topic": "Infrastructure Management",
+            "difficulty": "Foundational",
+            "question": "Which statement best describes Infrastructure Management?",
+            "answers": [
+                "Transforms stakeholder expectations, needs, constraints, and operational concepts into a coherent set of stakeholder needs and requirements.",
+                "Combines implemented system elements and establishes their interfaces according to the planned integration strategy.",
+                "Integrates protection needs, threats, vulnerabilities, security requirements, controls, and assurance into the system lifecycle.",
+                "Provides and maintains the facilities, tools, environments, communication resources, and other infrastructure needed to execute projects."
+            ],
+            "correct_index": 3,
+            "reason": "Infrastructure Management provides and maintains the facilities, tools, environments, communication resources, and other infrastructure needed to execute projects. The other choices describe different systems engineering activities rather than Infrastructure Management."
+        },
+        {
+            "topic": "Project Assessment and Control",
+            "difficulty": "Scenario",
+            "question": "Integration is two months behind plan and defect closure is trending worse than the agreed threshold. What should the systems engineering team do next?",
+            "answers": [
+                "Continue the original plan unchanged despite evidence that it is no longer achievable.",
+                "Hide the variance until the next lifecycle gate.",
+                "Assess the variance, determine causes and impacts, and implement authorized corrective actions.",
+                "Change the requirement baseline solely to make schedule metrics appear green."
+            ],
+            "correct_index": 2,
+            "reason": "The best next step is to assess the variance, determine causes and impacts, and implement authorized corrective actions. This directly addresses the stated engineering problem; the other choices either skip needed lifecycle work, misuse another process, or create uncontrolled risk."
+        },
+        {
+            "topic": "Verification",
+            "difficulty": "Foundational",
+            "question": "Which work product is most directly associated with Verification?",
+            "answers": [
+                "verification procedures, results, requirement coverage, and discrepancy records",
+                "interface requirements, interface control information, ownership, change records, and verification evidence",
+                "quality evaluations, nonconformance records, audit findings, and corrective-action evidence",
+                "maintenance actions, repair records, approved changes, and restored system capability"
+            ],
+            "correct_index": 0,
+            "reason": "The most direct work product is verification procedures, results, requirement coverage, and discrepancy records. The alternatives are legitimate systems engineering work products, but they are primarily associated with other activities."
+        },
+        {
+            "topic": "Acquisition",
+            "difficulty": "Foundational",
+            "question": "Which work product is most directly associated with Acquisition?",
+            "answers": [
+                "a defined problem or opportunity, mission context, and candidate solution concepts",
+                "installed and commissioned system, trained users, operational data, and transition records",
+                "acquisition strategy, request information, supplier selection evidence, agreements, and acceptance information",
+                "documented tailoring decisions, rationale, approvals, and project-specific process definitions"
+            ],
+            "correct_index": 2,
+            "reason": "The most direct work product is acquisition strategy, request information, supplier selection evidence, agreements, and acceptance information. The alternatives are legitimate systems engineering work products, but they are primarily associated with other activities."
+        },
+        {
+            "topic": "Human Systems Integration",
+            "difficulty": "Applied",
+            "question": "A team needs to optimize total system performance by considering humans as integral system elements. Which activity is the best match?",
+            "answers": [
+                "Disposal",
+                "Security Engineering",
+                "Human Systems Integration",
+                "Stakeholder Needs and Requirements Definition"
+            ],
+            "correct_index": 2,
+            "reason": "Human Systems Integration is the best match because its purpose is to optimize total system performance by considering humans as integral system elements. The other choices address different lifecycle or management concerns."
+        },
+        {
+            "topic": "Reliability, Availability, and Maintainability",
+            "difficulty": "Applied",
+            "question": "A team needs to achieve required dependability and sustainment performance across the lifecycle. Which activity is the best match?",
+            "answers": [
+                "Reliability, Availability, and Maintainability",
+                "Project Planning",
+                "Interface Management",
+                "System Requirements Definition"
+            ],
+            "correct_index": 0,
+            "reason": "Reliability, Availability, and Maintainability is the best match because its purpose is to achieve required dependability and sustainment performance across the lifecycle. The other choices address different lifecycle or management concerns."
+        },
+        {
+            "topic": "Implementation",
+            "difficulty": "Foundational",
+            "question": "Which statement best describes Implementation?",
+            "answers": [
+                "Uses the system to deliver its intended services while monitoring performance, incidents, resources, and operational effectiveness.",
+                "Provides a product or service to an acquirer by understanding the request, planning fulfillment, executing the agreement, and delivering conforming results.",
+                "Identifies, analyzes, treats, and monitors uncertain events or conditions that could affect objectives.",
+                "Realizes a specified system element in hardware, software, data, procedures, services, or other implementation form."
+            ],
+            "correct_index": 3,
+            "reason": "Implementation realizes a specified system element in hardware, software, data, procedures, services, or other implementation form. The other choices describe different systems engineering activities rather than Implementation."
+        },
+        {
+            "topic": "System Analysis",
+            "difficulty": "Foundational",
+            "question": "Which work product is most directly associated with System Analysis?",
+            "answers": [
+                "validation evidence against stakeholder needs, intended use, and operational scenarios",
+                "analysis results, models, assumptions, sensitivities, margins, and trade-study evidence",
+                "reliability models, failure analyses, availability allocations, maintainability requirements, and demonstration evidence",
+                "configuration baselines, change records, status accounting, and audit results"
+            ],
+            "correct_index": 1,
+            "reason": "The most direct work product is analysis results, models, assumptions, sensitivities, margins, and trade-study evidence. The alternatives are legitimate systems engineering work products, but they are primarily associated with other activities."
+        },
+        {
+            "topic": "Integration",
+            "difficulty": "Foundational",
+            "question": "Which statement best describes Integration?",
+            "answers": [
+                "Sustains the system's ability to provide service by correcting faults, restoring capability, and implementing approved changes.",
+                "Establishes, maintains, and improves lifecycle models and process frameworks that projects can select and tailor.",
+                "Establishes and maintains the integrity and traceability of product and work-product configurations through identification, control, status accounting, and audits.",
+                "Combines implemented system elements and establishes their interfaces according to the planned integration strategy."
+            ],
+            "correct_index": 3,
+            "reason": "Integration combines implemented system elements and establishes their interfaces according to the planned integration strategy. The other choices describe different systems engineering activities rather than Integration."
+        },
+        {
+            "topic": "System Requirements Definition",
+            "difficulty": "Scenario",
+            "question": "The stakeholder baseline says the system must be easy to deploy, but engineers cannot design or verify against that wording. What should the systems engineering team do next?",
+            "answers": [
+                "Replace the need with a detailed implementation choice before analysis.",
+                "Defer quantification until system validation after delivery.",
+                "Leave the wording unchanged and let each subsystem interpret it independently.",
+                "Derive measurable, necessary, feasible, and verifiable system requirements that trace to the stakeholder need."
+            ],
+            "correct_index": 3,
+            "reason": "The best next step is to derive measurable, necessary, feasible, and verifiable system requirements that trace to the stakeholder need. This directly addresses the stated engineering problem; the other choices either skip needed lifecycle work, misuse another process, or create uncontrolled risk."
+        },
+        {
+            "topic": "Verification",
+            "difficulty": "Scenario",
+            "question": "A requirement states that end-to-end latency shall not exceed 100 ms under a defined load. What should the systems engineering team do next?",
+            "answers": [
+                "Use an appropriate verification method to collect objective evidence that the latency requirement is met.",
+                "Assume the requirement is met because the design model predicted 80 ms.",
+                "Ask users whether the system is useful and call that requirement verification.",
+                "Inspect only the requirements document without evaluating the realized system."
+            ],
+            "correct_index": 0,
+            "reason": "The best next step is to use an appropriate verification method to collect objective evidence that the latency requirement is met. This directly addresses the stated engineering problem; the other choices either skip needed lifecycle work, misuse another process, or create uncontrolled risk."
+        },
+        {
+            "topic": "Maintenance",
+            "difficulty": "Foundational",
+            "question": "Which statement best describes Maintenance?",
+            "answers": [
+                "Sustains the system's ability to provide service by correcting faults, restoring capability, and implementing approved changes.",
+                "Identifies, analyzes, treats, and monitors uncertain events or conditions that could affect objectives.",
+                "Identifies hazards, assesses safety risk, establishes safety constraints, and verifies controls so unacceptable harm is prevented or reduced.",
+                "Provides a product or service to an acquirer by understanding the request, planning fulfillment, executing the agreement, and delivering conforming results."
+            ],
+            "correct_index": 0,
+            "reason": "Maintenance sustains the system's ability to provide service by correcting faults, restoring capability, and implementing approved changes. The other choices describe different systems engineering activities rather than Maintenance."
+        },
+        {
+            "topic": "Technical Reviews",
+            "difficulty": "Scenario",
+            "question": "A program is approaching a major lifecycle decision but open risks, incomplete interfaces, and missing verification plans may affect readiness. What should the systems engineering team do next?",
+            "answers": [
+                "Pass the review automatically because the calendar date has arrived.",
+                "Conduct a criteria-based technical review using objective evidence, record findings, and resolve required actions before the decision.",
+                "Avoid documenting findings to keep the review record positive.",
+                "Treat the review as a presentation whose purpose is only to show progress."
+            ],
+            "correct_index": 1,
+            "reason": "The best next step is to conduct a criteria-based technical review using objective evidence, record findings, and resolve required actions before the decision. This directly addresses the stated engineering problem; the other choices either skip needed lifecycle work, misuse another process, or create uncontrolled risk."
+        },
+        {
+            "topic": "Validation",
+            "difficulty": "Applied",
+            "question": "A team needs to demonstrate that the realized system satisfies stakeholder needs in the intended operational context. Which activity is the best match?",
+            "answers": [
+                "Validation",
+                "Security Engineering",
+                "Configuration Management",
+                "Maintenance"
+            ],
+            "correct_index": 0,
+            "reason": "Validation is the best match because its purpose is to demonstrate that the realized system satisfies stakeholder needs in the intended operational context. The other choices address different lifecycle or management concerns."
+        },
+        {
+            "topic": "System Analysis",
+            "difficulty": "Applied",
+            "question": "A team needs to provide objective evidence for technical choices and system performance judgments. Which activity is the best match?",
+            "answers": [
+                "Project Planning",
+                "Tailoring",
+                "Verification",
+                "System Analysis"
+            ],
+            "correct_index": 3,
+            "reason": "System Analysis is the best match because its purpose is to provide objective evidence for technical choices and system performance judgments. The other choices address different lifecycle or management concerns."
+        },
+        {
+            "topic": "Stakeholder Needs and Requirements Definition",
+            "difficulty": "Foundational",
+            "question": "Which work product is most directly associated with Stakeholder Needs and Requirements Definition?",
+            "answers": [
+                "approved lifecycle models, process descriptions, tailoring guidance, and improvement records",
+                "analysis results, models, assumptions, sensitivities, margins, and trade-study evidence",
+                "a validated set of stakeholder needs and stakeholder requirements",
+                "project and systems engineering plans, schedules, work packages, resources, and technical strategies"
+            ],
+            "correct_index": 2,
+            "reason": "The most direct work product is a validated set of stakeholder needs and stakeholder requirements. The alternatives are legitimate systems engineering work products, but they are primarily associated with other activities."
+        },
+        {
+            "topic": "Decision Management",
+            "difficulty": "Scenario",
+            "question": "The team must choose among three sensor technologies with different performance, cost, maturity, and integration risk. What should the systems engineering team do next?",
+            "answers": [
+                "Postpone all decisions until verification.",
+                "Define decision criteria and weights as appropriate, evaluate alternatives, document assumptions, and record the rationale for the selection.",
+                "Select the vendor used on the last program without recording rationale.",
+                "Choose the technology with the best single performance number and ignore other criteria."
+            ],
+            "correct_index": 1,
+            "reason": "The best next step is to define decision criteria and weights as appropriate, evaluate alternatives, document assumptions, and record the rationale for the selection. This directly addresses the stated engineering problem; the other choices either skip needed lifecycle work, misuse another process, or create uncontrolled risk."
+        },
+        {
+            "topic": "Model-Based Systems Engineering",
+            "difficulty": "Foundational",
+            "question": "Which work product is most directly associated with Model-Based Systems Engineering?",
+            "answers": [
+                "defined measures, collection procedures, analyzed data, indicators, and reports",
+                "installed and commissioned system, trained users, operational data, and transition records",
+                "a validated set of stakeholder needs and stakeholder requirements",
+                "controlled system models with defined semantics, viewpoints, relationships, and links to engineering evidence"
+            ],
+            "correct_index": 3,
+            "reason": "The most direct work product is controlled system models with defined semantics, viewpoints, relationships, and links to engineering evidence. The alternatives are legitimate systems engineering work products, but they are primarily associated with other activities."
+        },
+        {
+            "topic": "Tailoring",
+            "difficulty": "Foundational",
+            "question": "Which statement best describes Tailoring?",
+            "answers": [
+                "Transforms stakeholder needs and requirements into a technically expressed, measurable, verifiable set of system requirements.",
+                "Adapts lifecycle processes, activities, methods, reviews, and work products to the project's context while preserving necessary outcomes and obligations.",
+                "Confirms by objective evidence that specified requirements have been fulfilled: the system was built right.",
+                "Defines, controls, communicates, and verifies interfaces among system elements and external systems so interacting parts remain compatible."
+            ],
+            "correct_index": 1,
+            "reason": "Tailoring adapts lifecycle processes, activities, methods, reviews, and work products to the project's context while preserving necessary outcomes and obligations. The other choices describe different systems engineering activities rather than Tailoring."
+        },
+        {
+            "topic": "Project Assessment and Control",
+            "difficulty": "Applied",
+            "question": "A team needs to detect technical or management deviation and keep the project aligned with approved plans. Which activity is the best match?",
+            "answers": [
+                "Stakeholder Needs and Requirements Definition",
+                "Project Assessment and Control",
+                "Configuration Management",
+                "Life Cycle Model Management"
+            ],
+            "correct_index": 1,
+            "reason": "Project Assessment and Control is the best match because its purpose is to detect technical or management deviation and keep the project aligned with approved plans. The other choices address different lifecycle or management concerns."
+        },
+        {
+            "topic": "Requirements Traceability",
+            "difficulty": "Applied",
+            "question": "A team needs to show why requirements exist, where they are satisfied, and how they are verified. Which activity is the best match?",
+            "answers": [
+                "Integration",
+                "Requirements Traceability",
+                "Stakeholder Needs and Requirements Definition",
+                "Information Management"
+            ],
+            "correct_index": 1,
+            "reason": "Requirements Traceability is the best match because its purpose is to show why requirements exist, where they are satisfied, and how they are verified. The other choices address different lifecycle or management concerns."
+        },
+        {
+            "topic": "Disposal",
+            "difficulty": "Scenario",
+            "question": "A secure system is being retired and contains controlled data, hazardous batteries, reusable equipment, and regulated materials. What should the systems engineering team do next?",
+            "answers": [
+                "Ship the system to storage without considering controlled data or hazardous materials.",
+                "Delete the user interface and consider disposal complete.",
+                "Execute an approved disposal plan addressing data sanitization, hazards, environmental obligations, and asset disposition.",
+                "Keep operating indefinitely because disposal requirements were not considered during development."
+            ],
+            "correct_index": 2,
+            "reason": "The best next step is to execute an approved disposal plan addressing data sanitization, hazards, environmental obligations, and asset disposition. This directly addresses the stated engineering problem; the other choices either skip needed lifecycle work, misuse another process, or create uncontrolled risk."
+        },
+        {
+            "topic": "Supply",
+            "difficulty": "Scenario",
+            "question": "Your organization has won a contract to provide a training subsystem with specified acceptance criteria. What should the systems engineering team do next?",
+            "answers": [
+                "Plan and execute fulfillment of the agreement, provide required evidence, and deliver the conforming product or service.",
+                "Stop communicating with the acquirer after contract award.",
+                "Replace the acquirer's acceptance criteria with internal preferences without agreement.",
+                "Treat delivery as complete before required acceptance evidence exists."
+            ],
+            "correct_index": 0,
+            "reason": "The best next step is to plan and execute fulfillment of the agreement, provide required evidence, and deliver the conforming product or service. This directly addresses the stated engineering problem; the other choices either skip needed lifecycle work, misuse another process, or create uncontrolled risk."
+        },
+        {
+            "topic": "Infrastructure Management",
+            "difficulty": "Applied",
+            "question": "A team needs to ensure projects have suitable infrastructure to perform engineering and lifecycle work. Which activity is the best match?",
+            "answers": [
+                "Infrastructure Management",
+                "Reliability, Availability, and Maintainability",
+                "Technical Reviews",
+                "Operation"
+            ],
+            "correct_index": 0,
+            "reason": "Infrastructure Management is the best match because its purpose is to ensure projects have suitable infrastructure to perform engineering and lifecycle work. The other choices address different lifecycle or management concerns."
+        },
+        {
+            "topic": "Quality Assurance",
+            "difficulty": "Applied",
+            "question": "A team needs to provide independent or objective confidence in process and work-product quality. Which activity is the best match?",
+            "answers": [
+                "Integration",
+                "Life Cycle Model Management",
+                "Security Engineering",
+                "Quality Assurance"
+            ],
+            "correct_index": 3,
+            "reason": "Quality Assurance is the best match because its purpose is to provide independent or objective confidence in process and work-product quality. The other choices address different lifecycle or management concerns."
+        },
+        {
+            "topic": "Operation",
+            "difficulty": "Foundational",
+            "question": "Which work product is most directly associated with Operation?",
+            "answers": [
+                "approved lifecycle models, process descriptions, tailoring guidance, and improvement records",
+                "operational records, performance data, incident information, and service results",
+                "review criteria, evidence packages, findings, actions, and disposition decisions",
+                "status assessments, forecasts, corrective actions, and updated plans when authorized"
+            ],
+            "correct_index": 1,
+            "reason": "The most direct work product is operational records, performance data, incident information, and service results. The alternatives are legitimate systems engineering work products, but they are primarily associated with other activities."
+        },
+        {
+            "topic": "Human Systems Integration",
+            "difficulty": "Foundational",
+            "question": "Which statement best describes Human Systems Integration?",
+            "answers": [
+                "Confirms by objective evidence that the system, when used in its intended environment, fulfills stakeholder needs and intended use: the right system was built.",
+                "Uses formalized models as significant engineering artifacts to support specification, analysis, design, communication, and verification across the lifecycle.",
+                "Develops candidate architectures and selects an architecture that organizes system elements, interfaces, and relationships to satisfy concerns and requirements.",
+                "Integrates human capabilities, limitations, roles, workload, training, staffing, usability, and human-machine interactions into system engineering decisions."
+            ],
+            "correct_index": 3,
+            "reason": "Human Systems Integration integrates human capabilities, limitations, roles, workload, training, staffing, usability, and human-machine interactions into system engineering decisions. The other choices describe different systems engineering activities rather than Human Systems Integration."
+        },
+        {
+            "topic": "Security Engineering",
+            "difficulty": "Scenario",
+            "question": "A networked system will process mission data across interfaces exposed to untrusted networks. What should the systems engineering team do next?",
+            "answers": [
+                "Identify assets, threats, attack paths, and protection needs, derive security requirements, and integrate controls into the architecture.",
+                "Add a firewall at the end of integration and treat security as complete.",
+                "Assume encryption alone addresses availability, integrity, identity, and supply-chain threats.",
+                "Avoid documenting threats because the information might change."
+            ],
+            "correct_index": 0,
+            "reason": "The best next step is to identify assets, threats, attack paths, and protection needs, derive security requirements, and integrate controls into the architecture. This directly addresses the stated engineering problem; the other choices either skip needed lifecycle work, misuse another process, or create uncontrolled risk."
+        },
+        {
+            "topic": "Project Assessment and Control",
+            "difficulty": "Foundational",
+            "question": "Which statement best describes Project Assessment and Control?",
+            "answers": [
+                "Defines, collects, analyzes, and reports measures that provide objective information for technical and management decisions.",
+                "Assesses actual project performance against plans and takes corrective action when significant deviations occur.",
+                "Uses formalized models as significant engineering artifacts to support specification, analysis, design, communication, and verification across the lifecycle.",
+                "Adapts lifecycle processes, activities, methods, reviews, and work products to the project's context while preserving necessary outcomes and obligations."
+            ],
+            "correct_index": 1,
+            "reason": "Project Assessment and Control assesses actual project performance against plans and takes corrective action when significant deviations occur. The other choices describe different systems engineering activities rather than Project Assessment and Control."
+        },
+        {
+            "topic": "Business or Mission Analysis",
+            "difficulty": "Foundational",
+            "question": "Which work product is most directly associated with Business or Mission Analysis?",
+            "answers": [
+                "decommissioning and disposal records, recovered assets, sanitized data, and closed hazards",
+                "a defined problem or opportunity, mission context, and candidate solution concepts",
+                "supplier plans, delivered product or service, compliance evidence, and agreement closure information",
+                "detailed design descriptions for system elements and their interfaces"
+            ],
+            "correct_index": 1,
+            "reason": "The most direct work product is a defined problem or opportunity, mission context, and candidate solution concepts. The alternatives are legitimate systems engineering work products, but they are primarily associated with other activities."
+        },
+        {
+            "topic": "System Requirements Definition",
+            "difficulty": "Foundational",
+            "question": "Which statement best describes System Requirements Definition?",
+            "answers": [
+                "Plans, controls, protects, stores, retrieves, and disposes of project and technical information so authorized people have trustworthy information when needed.",
+                "Ends use of a system or system element and handles retirement, decommissioning, data, materials, and environmental or safety obligations.",
+                "Combines implemented system elements and establishes their interfaces according to the planned integration strategy.",
+                "Transforms stakeholder needs and requirements into a technically expressed, measurable, verifiable set of system requirements."
+            ],
+            "correct_index": 3,
+            "reason": "System Requirements Definition transforms stakeholder needs and requirements into a technically expressed, measurable, verifiable set of system requirements. The other choices describe different systems engineering activities rather than System Requirements Definition."
+        },
+        {
+            "topic": "Disposal",
+            "difficulty": "Applied",
+            "question": "A team needs to retire the system responsibly while managing residual risks, data, materials, and resources. Which activity is the best match?",
+            "answers": [
+                "Decision Management",
+                "Acquisition",
+                "Technical Reviews",
+                "Disposal"
+            ],
+            "correct_index": 3,
+            "reason": "Disposal is the best match because its purpose is to retire the system responsibly while managing residual risks, data, materials, and resources. The other choices address different lifecycle or management concerns."
+        },
+        {
+            "topic": "Model-Based Systems Engineering",
+            "difficulty": "Scenario",
+            "question": "Requirements, architecture, interfaces, and analyses are maintained in disconnected documents and inconsistencies are discovered late. What should the systems engineering team do next?",
+            "answers": [
+                "Create attractive diagrams without defined semantics or configuration control.",
+                "Maintain separate models with no relationship to authoritative requirements or interfaces.",
+                "Use controlled, semantically defined system models and relationships to improve consistency, traceability, and analysis across views.",
+                "Replace all engineering judgment with a model because the model is executable."
+            ],
+            "correct_index": 2,
+            "reason": "The best next step is to use controlled, semantically defined system models and relationships to improve consistency, traceability, and analysis across views. This directly addresses the stated engineering problem; the other choices either skip needed lifecycle work, misuse another process, or create uncontrolled risk."
+        },
+        {
+            "topic": "Reliability, Availability, and Maintainability",
+            "difficulty": "Foundational",
+            "question": "Which work product is most directly associated with Reliability, Availability, and Maintainability?",
+            "answers": [
+                "controlled system models with defined semantics, viewpoints, relationships, and links to engineering evidence",
+                "implemented system elements and implementation records",
+                "reliability models, failure analyses, availability allocations, maintainability requirements, and demonstration evidence",
+                "decision records containing alternatives, criteria, analysis, selection, and rationale"
+            ],
+            "correct_index": 2,
+            "reason": "The most direct work product is reliability models, failure analyses, availability allocations, maintainability requirements, and demonstration evidence. The alternatives are legitimate systems engineering work products, but they are primarily associated with other activities."
+        },
+        {
+            "topic": "Validation",
+            "difficulty": "Foundational",
+            "question": "Which work product is most directly associated with Validation?",
+            "answers": [
+                "controlled system models with defined semantics, viewpoints, relationships, and links to engineering evidence",
+                "decommissioning and disposal records, recovered assets, sanitized data, and closed hazards",
+                "acquisition strategy, request information, supplier selection evidence, agreements, and acceptance information",
+                "validation evidence against stakeholder needs, intended use, and operational scenarios"
+            ],
+            "correct_index": 3,
+            "reason": "The most direct work product is validation evidence against stakeholder needs, intended use, and operational scenarios. The alternatives are legitimate systems engineering work products, but they are primarily associated with other activities."
+        }
+    ]
+}
+
