@@ -179,7 +179,7 @@ class StudyWindow(QMainWindow):
         top.addLayout(title_box)
         top.addStretch()
 
-        self.score_chip = QLabel("0 correct â€¢ 0 wrong")
+        self.score_chip = QLabel("0 correct - 0 wrong")
         self.score_chip.setObjectName("scoreChip")
         top.addWidget(self.score_chip)
         content_layout.addLayout(top)
@@ -252,14 +252,14 @@ class StudyWindow(QMainWindow):
         content_layout.addWidget(scroll, 1)
 
         nav = QHBoxLayout()
-        self.prev_btn = QPushButton("â† Previous")
+        self.prev_btn = QPushButton("<- Previous")
         self.prev_btn.clicked.connect(self.previous_question)
-        self.next_btn = QPushButton("Next â†’")
+        self.next_btn = QPushButton("Next ->")
         self.next_btn.setObjectName("primaryButton")
         self.next_btn.clicked.connect(self.next_question)
         nav.addWidget(self.prev_btn)
         nav.addStretch()
-        shortcut_hint = QLabel("1â€“4 answer â€¢ â† /â†’ navigate â€¢ N new session")
+        shortcut_hint = QLabel("1-4 answer - <-/->’ navigate - N new session")
         shortcut_hint.setObjectName("muted")
         nav.addWidget(shortcut_hint)
         nav.addStretch()
@@ -526,7 +526,7 @@ class StudyWindow(QMainWindow):
 
             if warnings:
                 self.audit_label.setObjectName("auditWarn")
-                self.audit_label.setText("Bank audit: " + " â€¢ ".join(warnings[:3]))
+                self.audit_label.setText("Bank audit: " + " • ".join(warnings[:3]))
             else:
                 self.audit_label.setObjectName("auditGood")
                 self.audit_label.setText("Bank audit passed")
@@ -539,7 +539,7 @@ class StudyWindow(QMainWindow):
             if warnings:
                 QMessageBox.warning(
                 self, "Question bank warning",
-                "The bank loaded, but quality checks found:\n\nâ€¢ " + "\nâ€¢ ".join(warnings)
+                "The bank loaded, but quality checks found:\n\n• " + "\n• ".join(warnings)
                 )
 
         except Exception as exc:
@@ -660,7 +660,7 @@ class StudyWindow(QMainWindow):
         self.progress_bar.setRange(0, max(total, 1))
         self.progress_bar.setValue(self.current + 1)
         self.prev_btn.setEnabled(total > 1)
-        self.next_btn.setText("Next â†’")
+        self.next_btn.setText("Next ->")
 
     def answer(self, display_index: int):
         if self.answered or not self.session_questions:
@@ -688,13 +688,13 @@ class StudyWindow(QMainWindow):
 
         if selected_correct:
             self.session_correct += 1
-            self.result_label.setText("âœ“ Correct")
+            self.result_label.setText("✓“ Correct")
             missed = set(self.progress.get("missed", []))
             missed.discard(qid)
             self.progress["missed"] = sorted(missed)
         else:
             self.session_wrong += 1
-            self.result_label.setText("âœ• Not quite")
+            self.result_label.setText("X Not quite")
             missed = set(self.progress.get("missed", []))
             missed.add(qid)
             self.progress["missed"] = sorted(missed)
@@ -710,7 +710,7 @@ class StudyWindow(QMainWindow):
 
     def refresh_score(self):
         self.score_chip.setText(
-        f"{self.session_correct} correct â€¢ {self.session_wrong} wrong"
+        f"{self.session_correct} correct • {self.session_wrong} wrong"
         )
 
     def next_question(self):
